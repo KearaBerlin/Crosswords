@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/dictFile.csv" />
       <change beforePath="$PROJECT_DIR$/.idea/Crosswords.iml" afterPath="$PROJECT_DIR$/.idea/Crosswords.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -17,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -27,10 +28,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
+            <state relative-caret-position="1212">
               <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -214,22 +215,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parseDictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#2303#2829#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parseDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1212">
+          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#2303#2829#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

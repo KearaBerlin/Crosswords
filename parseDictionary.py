@@ -24,7 +24,6 @@ def numIntersections(word1, word2):
     return count
 
 
-
 """
 Method that will create a graph with each word being a key and the value being 
 the words that have an intersection of some kind with it and the number of intersections.

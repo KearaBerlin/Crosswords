@@ -11,6 +11,8 @@ The plan is:
 
 with open('dictFile.csv', 'r') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=' ')
+    count = 0
     for row in spamreader:
+        count+=1
         print(row)
 

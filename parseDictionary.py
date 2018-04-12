@@ -26,7 +26,7 @@ def numIntersections(word1, word2):
 
 
 """
-Method that will create a graph with each word being a key and the value being 
+Method that will create a graph with each word being a key and the value being
 the words that have an intersection of some kind with it and the number of intersections.
 Will use method numIntersections() above to compute the number of intersections.
 """
@@ -45,20 +45,20 @@ def createGraph(wordlist):
                     valueList.append([y, intersections])
             wordGraph[x] = valueList
 
-
     return wordGraph
 
 
 
 """
 Method that will transfer the graph from createGraph() to a CSV file.
-The purpose of this is so that we don't need to create a graph on a 
-quarter million words everytime we run the program. 
+The purpose of this is so that we don't need to create a graph on a
+quarter million words everytime we run the program.
 
 The CSV file will be written with each row representing a value and it's keys as strings
 """
-def makeCSV(graph):
+def makeCSV(graph,printWordCount = False):
     file = open('dictFile.csv', 'w')
+    count = 0
     for k in graph.keys():
 
         # form the string encoding the value at this key
@@ -70,13 +70,17 @@ def makeCSV(graph):
         stringToWrite = k + ' : ' + listString + '\n'
         file.write(stringToWrite)
 
+        count +=1
+
+    if (printWordCount == True):
+        print("Number of words is " + str(count))
+
     file.close()
 
 
-
 """
-Method that will also write the graph to a CSV but as the data type Dictionary 
-rather than string. 
+Method that will also write the graph to a CSV but as the data type Dictionary
+rather than string.
 
 Currently not working yet...
 """
@@ -103,10 +107,10 @@ def makeDictCSV(graph):
 
 
 wlist = words.words()
-shortened = wlist[0:1000] # shortened version of the list of a quarter million words.
+shortened = wlist[0:50] # shortened version of the list of a quarter million words.
 
 graphFile = createGraph(shortened)
-makeCSV(graphFile)
+makeCSV(graphFile,True)
 
 
 

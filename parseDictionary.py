@@ -25,6 +25,7 @@ def numIntersections(word1, word2):
 
 
 
+
 """
 Method that will create a graph with each word being a key and the value being
 the words that have an intersection of some kind with it and the number of intersections.
@@ -109,7 +110,7 @@ def makeDictCSV(graph):
 wlist = words.words()
 shortened = wlist[0:50] # shortened version of the list of a quarter million words.
 
-graphFile = createGraph(shortened)
+graphFile = createGraph(wlist)
 makeCSV(graphFile,True)
 
 

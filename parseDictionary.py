@@ -86,17 +86,13 @@ def readCSV():
 
     # #read all lines into content w/o newline chars
     # content = file.readlines()
-    #
     # print(len(content))
-    #
     # # read each line into a key-value pair in the map
     # for newLine in content:
     #     newLine = newLine.strip('\n')
-    #
     #     # we aren't at the end of the file yet, so get the key word on this line
     #     keyEnd = newLine.find(" : ", 1)
     #     key = newLine[0:keyEnd]
-    #
     #     # get all the neighbor nodes and parse them into a list of length-2-lists
     #     neighbors = newLine[keyEnd+3:].split(", ")[-1]
     #     tuples = []

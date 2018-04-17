@@ -1,6 +1,5 @@
 from PyDictionary import PyDictionary
 from nltk.corpus import words
-import csv
 
 # there is no way to make a final var in python, so just don't change this value
 FILE_NAME = 'dictFile.csv'
@@ -28,7 +27,7 @@ def numIntersections(word1, word2):
 
 
 """
-Method that will create a graph with each word being a key and the value being 
+Method that will create a graph with each word being a key and the value being
 the words that have an intersection of some kind with it and the number of intersections.
 Will use method numIntersections() above to compute the number of intersections.
 """
@@ -52,7 +51,6 @@ def createGraph(wordlist):
 
 
 """
-Method that will transfer the graph from createGraph() to a CSV file.
 The purpose of this is so that we don't need to create a graph on a 
 quarter million words every time we run the program. 
 """
@@ -74,7 +72,6 @@ def makeCSV(graph):
 
     file.close()
 
-
 """
 Read a CSV representation of a graph into a graph stored as a map.
 """
@@ -89,17 +86,13 @@ def readCSV():
 
     # #read all lines into content w/o newline chars
     # content = file.readlines()
-    #
     # print(len(content))
-    #
     # # read each line into a key-value pair in the map
     # for newLine in content:
     #     newLine = newLine.strip('\n')
-    #
     #     # we aren't at the end of the file yet, so get the key word on this line
     #     keyEnd = newLine.find(" : ", 1)
     #     key = newLine[0:keyEnd]
-    #
     #     # get all the neighbor nodes and parse them into a list of length-2-lists
     #     neighbors = newLine[keyEnd+3:].split(", ")[-1]
     #     tuples = []
@@ -113,6 +106,7 @@ def readCSV():
 
     return graph
 
+
 wlist = words.words()
 shortened = wlist[0:1000]  # shortened version of the list of a quarter million words.
 
@@ -125,6 +119,7 @@ graph = createGraph(shortened)
 makeCSV(graph)
 
 graphFromCSV = readCSV()
+
 
 
 

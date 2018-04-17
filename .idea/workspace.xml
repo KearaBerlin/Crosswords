@@ -18,7 +18,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1523925828380" expanded="true" signature="23925:24152" ph="..." />
+                <marker date="1523925828380" expanded="true" signature="23925:24170" ph="..." />
+                <marker date="1523925828380" expanded="true" signature="23925:24183" ph="..." />
+                <marker date="1523925828380" expanded="true" signature="23925:24198" ph="..." />
+                <marker date="1523925828380" expanded="true" signature="24053:24135" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -271,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523925766755</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="workspace automatically updated">
+      <created>1523925844939</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523925844939</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -315,7 +328,8 @@
     <MESSAGE value="Changed our makeCSV() and readCSV() methods to be much simpler and use a kind of janky built-in method of writing and reading complex objects, which is just to write the equivalent of graph.toString() and then read that back out and evaluate it as Python code to get the object back out. Gross and very vulnerable to all kinds of attacks, but most likely nobody will be attacking our code so we are probably ok." />
     <MESSAGE value="Stashing changes from before 4/15" />
     <MESSAGE value="added dictFile.csv to git" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dictFile.csv to git" />
+    <MESSAGE value="workspace automatically updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace automatically updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -326,7 +340,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1523925828380" expanded="true" signature="23925:24152" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24170" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24183" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24198" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="24053:24135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -352,7 +372,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1523925828380" expanded="true" signature="23925:24152" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24170" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24183" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24198" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="24053:24135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -378,7 +404,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1523925828380" expanded="true" signature="23925:24152" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24170" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24183" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24198" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="24053:24135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -386,7 +418,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1523925828380" expanded="true" signature="23925:24152" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24170" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24183" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="23925:24198" ph="..." />
+            <marker date="1523925828380" expanded="true" signature="24053:24135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -13,12 +13,16 @@ class Board:
         self.crossword = crossword
         self.startingWord = crossword.across[0]
 
-        # fill array with valid/current words - we set all cells to None to start
+        # initialize array with None
         array = [[None for i in range(self.width)] for j in range(self.width)]
 
         # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
         self.addWordToArray(0, 0, self.startingWord, True)
 
+    """
+   So writing this method with the assumption that we have checked that it is valid to 
+   add the word at this position and the area around it.
+   """
     def addWordToArray(self,sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
@@ -33,28 +37,42 @@ class Board:
         return self.boardArray[x][y]
 
     """
-    Shifts everything in the array by copying things over in another array.
+    Shifts everything in the array by copying things over in another array. 
+    Will shift things over x to the right and y down. 
+    If either are negative then it's just the opposite direction.
+    
+    Not sure if I should assume that we have checked that a shift is valid or not...
     """
     def shiftElements(self,x,y):
+        shiftedArray = []
+
+
         return 0
 
     """
     Returns true or false
     """
     def colIsEmpty(self, col):
-        for row in self.boardArray:
-            if row[col] is not None:
-                return False
-        return True
+        if col < self.width:
+            for x in range(self.width):
+                if self.boardArray[col][x] is not None: # If is not None then there's an element in the column.
+                    return False
+            return True
+        else:
+            return False
 
     """
     Returns true or false
     """
     def rowIsEmpty(self, row):
-        for cell in self.boardArray[row]:
-            if cell is not None:
-                return False
-        return True
+        if row < self.width:
+            for x in range(self.width):
+                if self.boardArray[x][row] is not None: # If is not None then  there's an element in the column
+                    return False
+            return True
+        else:
+            return False
+
 
     class Cell:
         def __init__(self, word, index):
@@ -85,23 +103,11 @@ class CrosswordRepresentation:
     crossword.
     
     """
-    """
-    Notes: start
-        - shifting things: 
-    """
     def addIfValid(self, intersection, newWordIsAcross):
 
         return 1
 
-    # TODO this has not been written yet either
-    """
-    This method takes in an intersection and whether the word being added is an Across word, and adds the word to the
-    crossword.
-    
-    If first word of crossword, add to the middle. 
-    """
-    def addWord(self, intersection, newWordIsAcross):
-        todo = -1
+
 
 
     """

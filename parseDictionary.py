@@ -35,12 +35,13 @@ def createGraph(wordlist):
     wordGraph = {}
 
     for x in wordlist:
-
+        x = x.upper()
         if len(x)>=4:
             wordGraph[x] = []
             valueList = []
 
             for y in wordlist:
+                y = y.upper()
                 intersections = numIntersections(x,y)
                 if y != x and len(y) >= 4 and intersections >= 1:
                     valueList.append([y, intersections])
@@ -107,13 +108,13 @@ def readCSV():
     return graph
 
 
-# wlist = words.words()
-# shortened = wlist[0:1000]  # shortened version of the list of a quarter million words.
+wlist = words.words()
+shortened = wlist[0:100]  # shortened version of the list of a quarter million words.
 
 # words for Keara to use to test since we don't have the words in a big file yet.
-shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',
-             'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
-             'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
+# shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',
+#              'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
+#              'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
 
 graph = createGraph(shortened)
 makeCSV(graph)

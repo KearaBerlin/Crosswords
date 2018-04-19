@@ -1,19 +1,59 @@
 import random
+import csv
+#from parseDictionary.py import parseDictionary.py
 
 """
 Representing board with a 2D array.
 """
 class Board:
-
-    def __init__(self, array, crossword):
+    def __init__(self, array, crossword, ARRAY_WIDTH = 30):
         self.boardArray = array
+        self.width = ARRAY_WIDTH
+        self.crossword = crossword
+        self.startingword = crossword.across[0]
+
         # fill array with valid/current words
+        array = [[None for i in range(self.width)] for j in range(self.width)]
+
+        # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
+        self.addWordToArray(0,0,self.startingword,  True)
+
+
+
+
+    def addWordToArray(self,sX, sY, word, isAcross):
+        for x in range(len(word)):
+            if isAcross == True:
+                self.boardArray[sX+x][sY]
+            else:
+                self.boardArray[sX][sY + x]
 
     """
     Returns cell object at given x and y coordinate
     """
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
+
+    """
+    Shifts everything in the array by copying things over in another array.
+    """
+    def shiftElements(self,x,y):
+        return 0
+
+    """
+    Returns true or false
+    """
+    def colIsEmpty(self, col):
+        return 0
+
+    """
+    Returns true or false
+    """
+    def rowIsEmpty(self, row):
+        return 0
+
+
+
 
     class Cell:
         def __init__(self, word, index):
@@ -31,7 +71,7 @@ class CrosswordRepresentation:
     We will represent the intersection of words by having a coordinate representing
     which index of listD and listA intersect.
     """
-    def __init__(self,listD, listA, intersections):
+    def __init__(self,listD, listA, intersections,):
         self.across = listA
         self.down = listD
         self.inter = intersections
@@ -41,17 +81,33 @@ class CrosswordRepresentation:
     Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the 
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
     crossword.
+    
     """
-    def wouldBeValid(self, intersection, newWordIsAcross):
-        return None
+    """
+    Notes: start
+        - shifting things: 
+    """
+    def addIfValid(self, intersection, newWordIsAcross):
+
+        return 1
 
     # TODO this has not been written yet either
     """
     This method takes in an intersection and whether the word being added is an Across word, and adds the word to the
     crossword.
+    
+    If first word of crossword, add to the middle. 
     """
     def addWord(self, intersection, newWordIsAcross):
         todo = -1
+
+
+    """
+    Scores the density of the current crossword. This will be used to find a better neighbor
+    than the brute force algorithm.
+    """
+    def density(self):
+        return 0
 
 
 class Intersection:
@@ -82,7 +138,8 @@ def bruteForce(graph):
 
     # get a random word to start with
     keys = graph.keys()
-    randomIndex = random.random(0,len(keys))
+    randomIndex = random.randint(0,len(keys)-1)
+    keys = list(keys)
     startWord = keys[randomIndex]
 
     # initialize a crossword that contains that start word
@@ -101,10 +158,12 @@ def bruteForce(graph):
 
             # call a method that adds the neighbor word in a valid intersection if it finds one
             if addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
+                currentWord = neighborWord
                 break
 
         # every other word will be across
         currentWordIsAcross = not currentWordIsAcross
+    return crossword
 
 
 """
@@ -127,10 +186,20 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
                                                 currentWord, current_i)
 
                 # if this is a valid intersection, add it to crossword and break out of the second loop
-                if crossword.wouldBeValid(intersection, not currentWordIsAcross):
-                    crossword.addWord(intersection, not currentWordIsAcross)
+                if crossword.addIfValid(intersection, not currentWordIsAcross):
                     return True
 
     return False
 
+
+def readCSV(FILE):
+    file = open(FILE, 'r')
+    print()
+    graph = eval(file.read())
+    return graph
+
+graph = readCSV('dictFile.csv')
+#print(graph)
+cw = bruteForce(graph)
+print(cw.across,cw.down)
 

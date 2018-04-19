@@ -130,6 +130,10 @@ class Intersection:
         self.acrossIndex = acrossWordIndex
         self.downIndex = downWordIndex
 
+
+
+
+
 # Commented code below is just an example of how we would use the Intersection class.
 # listA = ["attack", "sleep", "awake"]
 # listD = ["apple", "koala"]

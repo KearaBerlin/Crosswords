@@ -116,14 +116,12 @@ shortened = wlist[0:100]  # shortened version of the list of a quarter million w
 #              'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
 #              'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
 
-# graph = createGraph(shortened)
-#
-#
-# makeCSV(graph)
-#
-# graphFromCSV = readCSV()
+graph = createGraph(shortened)
 
 
+makeCSV(graph)
+
+graphFromCSV = readCSV()
 
 
 

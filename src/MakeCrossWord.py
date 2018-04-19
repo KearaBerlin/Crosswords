@@ -7,14 +7,13 @@ from src.parseDictionary import *
 Representing board with a 2D array.
 """
 class Board:
-    def __init__(self, array, crossword, ARRAY_WIDTH = 30):
-        self.boardArray = array
-        self.width = ARRAY_WIDTH
+    def __init__(self, crossword, ARRAY_WIDTH = 30):
+        self.WIDTH = ARRAY_WIDTH
         self.crossword = crossword
         self.startingWord = crossword.across[0]
 
         # initialize array with None
-        array = [[None for i in range(self.width)] for j in range(self.width)]
+        self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
         # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
         self.addWordToArray(0, 0, self.startingWord, True)
@@ -46,15 +45,14 @@ class Board:
     def shiftElements(self,x,y):
         shiftedArray = []
 
-
         return 0
 
     """
     Returns true or false
     """
     def colIsEmpty(self, col):
-        if col < self.width:
-            for x in range(self.width):
+        if col < self.WIDTH:
+            for x in range(self.WIDTH):
                 if self.boardArray[col][x] is not None: # If is not None then there's an element in the column.
                     return False
             return True
@@ -65,9 +63,9 @@ class Board:
     Returns true or false
     """
     def rowIsEmpty(self, row):
-        if row < self.width:
-            for x in range(self.width):
-                if self.boardArray[x][row] is not None: # If is not None then  there's an element in the column
+        if row < self.WIDTH:
+            for x in range(self.WIDTH):
+                if self.boardArray[x][row] is not None:  # If is not None then there's an element in the column
                     return False
             return True
         else:

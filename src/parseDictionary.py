@@ -1,10 +1,11 @@
 from PyDictionary import PyDictionary
 from nltk.corpus import words
+from src.MakeCrossWord import *
 
 # there is no way to make a final var in python, so just don't change this value
-FILE_NAME = 'dictFile.csv'
+FILE_NAME = 'src\dictFile.csv'
 
-dictionary=PyDictionary()  # will use this at some point to look up the meaning of words.
+dictionary = PyDictionary()  # will use this at some point to look up the meaning of words.
 
 
 """
@@ -58,18 +59,6 @@ quarter million words every time we run the program.
 def makeCSV(graph):
     file = open(FILE_NAME, 'w')
     file.write(str(graph))
-    # for k in graph.keys():
-    #
-    #     # form the string encoding the value at this key
-    #     listString = ""
-    #     for tuple in graph[k]:
-    #         listString += tuple[0] + ":" + str(tuple[1]) + ", "
-    #
-    #     # encode the whole entry, including key
-    #     # NOTE: I deleted the + '\n' but that made everything work, so I think it automatically adds a newline
-    #     # and our newline was redundant.
-    #     stringToWrite = k + ' : ' + listString + '\n'
-    #     file.write(stringToWrite)
 
     file.close()
 
@@ -82,39 +71,18 @@ def readCSV():
     # eval() will literally execute the Python represented by the string.
     # It is VERY insecure but we don't mind for this little app
     graph = eval(file.read())
-
     file.close()
-
-    # #read all lines into content w/o newline chars
-    # content = file.readlines()
-    # print(len(content))
-    # # read each line into a key-value pair in the map
-    # for newLine in content:
-    #     newLine = newLine.strip('\n')
-    #     # we aren't at the end of the file yet, so get the key word on this line
-    #     keyEnd = newLine.find(" : ", 1)
-    #     key = newLine[0:keyEnd]
-    #     # get all the neighbor nodes and parse them into a list of length-2-lists
-    #     neighbors = newLine[keyEnd+3:].split(", ")[-1]
-    #     tuples = []
-    #     for neighbor in neighbors:
-    #         vals = neighbor.split(":")
-    #         tuple = [vals[0], vals[1]]
-    #         tuples.append(tuple)
-    #
-    #     # add the key and its list of lists to the map
-    #     graph[key] = tuples
 
     return graph
 
 
-wlist = words.words()
-shortened = wlist[0:100]  # shortened version of the list of a quarter million words.
+# wlist = words.words()
+# shortened = wlist[0:100]  # shortened version of the list of a quarter million words.
 
 # words for Keara to use to test since we don't have the words in a big file yet.
-# shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',
-#              'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
-#              'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
+shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',
+             'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
+             'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
 
 graph = createGraph(shortened)
 makeCSV(graph)

@@ -1,6 +1,7 @@
 import random
-import csv
-#from parseDictionary.py import parseDictionary.py
+
+from src.parseDictionary import *
+
 
 """
 Representing board with a 2D array.
@@ -10,23 +11,20 @@ class Board:
         self.boardArray = array
         self.width = ARRAY_WIDTH
         self.crossword = crossword
-        self.startingword = crossword.across[0]
+        self.startingWord = crossword.across[0]
 
-        # fill array with valid/current words
+        # fill array with valid/current words - we set all cells to None to start
         array = [[None for i in range(self.width)] for j in range(self.width)]
 
         # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
-        self.addWordToArray(0,0,self.startingword,  True)
-
-
-
+        self.addWordToArray(0, 0, self.startingWord, True)
 
     def addWordToArray(self,sX, sY, word, isAcross):
         for x in range(len(word)):
-            if isAcross == True:
-                self.boardArray[sX+x][sY]
+            if isAcross:
+                self.boardArray[sX+x][sY] = self.Cell(word, x)
             else:
-                self.boardArray[sX][sY + x]
+                self.boardArray[sX][sY + x] = self.Cell(word, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -44,16 +42,19 @@ class Board:
     Returns true or false
     """
     def colIsEmpty(self, col):
-        return 0
+        for row in self.boardArray:
+            if row[col] is not None:
+                return False
+        return True
 
     """
     Returns true or false
     """
     def rowIsEmpty(self, row):
-        return 0
-
-
-
+        for cell in self.boardArray[row]:
+            if cell is not None:
+                return False
+        return True
 
     class Cell:
         def __init__(self, word, index):
@@ -75,6 +76,7 @@ class CrosswordRepresentation:
         self.across = listA
         self.down = listD
         self.inter = intersections
+
 
     # TODO this needs to actually get written
     """
@@ -192,14 +194,8 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
     return False
 
 
-def readCSV(FILE):
-    file = open(FILE, 'r')
-    print()
-    graph = eval(file.read())
-    return graph
-
-graph = readCSV('dictFile.csv')
+graph = readCSV()  # from MakeCrossWord.py
 #print(graph)
 cw = bruteForce(graph)
-print(cw.across,cw.down)
+print(cw.across, cw.down)
 

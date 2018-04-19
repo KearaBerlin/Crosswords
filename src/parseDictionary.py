@@ -33,20 +33,17 @@ Will use method numIntersections() above to compute the number of intersections.
 """
 def createGraph(wordlist):
     wordGraph = {}
+    for x in ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']:
+        wordGraph[x] = []
 
-    for x in wordlist:
-        x = x.upper()
-        if len(x)>=4:
-            wordGraph[x] = []
-            valueList = []
-
-            for y in wordlist:
-                y = y.upper()
-                intersections = numIntersections(x,y)
-                if y != x and len(y) >= 4 and intersections >= 1:
-                    valueList.append([y, intersections])
-            wordGraph[x] = valueList
-
+    for word in wordlist:
+        if len(word)>=4 and len(word) <= 8:
+            charsInWord = {} # Apparently it's faster to look things up in sets than it is in lists.
+            for letter in word:
+                if letter not in charsInWord.keys():
+                    charsInWord[letter] = None
+                    wordGraph[letter].append(word)
+                    
     return wordGraph
 
 
@@ -58,18 +55,6 @@ quarter million words every time we run the program.
 def makeCSV(graph):
     file = open(FILE_NAME, 'w')
     file.write(str(graph))
-    # for k in graph.keys():
-    #
-    #     # form the string encoding the value at this key
-    #     listString = ""
-    #     for tuple in graph[k]:
-    #         listString += tuple[0] + ":" + str(tuple[1]) + ", "
-    #
-    #     # encode the whole entry, including key
-    #     # NOTE: I deleted the + '\n' but that made everything work, so I think it automatically adds a newline
-    #     # and our newline was redundant.
-    #     stringToWrite = k + ' : ' + listString + '\n'
-    #     file.write(stringToWrite)
 
     file.close()
 
@@ -78,38 +63,14 @@ Read a CSV representation of a graph into a graph stored as a map.
 """
 def readCSV():
     file = open(FILE_NAME, 'r')
-
-    # eval() will literally execute the Python represented by the string.
-    # It is VERY insecure but we don't mind for this little app
     graph = eval(file.read())
-
     file.close()
-
-    # #read all lines into content w/o newline chars
-    # content = file.readlines()
-    # print(len(content))
-    # # read each line into a key-value pair in the map
-    # for newLine in content:
-    #     newLine = newLine.strip('\n')
-    #     # we aren't at the end of the file yet, so get the key word on this line
-    #     keyEnd = newLine.find(" : ", 1)
-    #     key = newLine[0:keyEnd]
-    #     # get all the neighbor nodes and parse them into a list of length-2-lists
-    #     neighbors = newLine[keyEnd+3:].split(", ")[-1]
-    #     tuples = []
-    #     for neighbor in neighbors:
-    #         vals = neighbor.split(":")
-    #         tuple = [vals[0], vals[1]]
-    #         tuples.append(tuple)
-    #
-    #     # add the key and its list of lists to the map
-    #     graph[key] = tuples
 
     return graph
 
 
 wlist = words.words()
-shortened = wlist[0:100]  # shortened version of the list of a quarter million words.
+shortened = wlist[0:500]  # shortened version of the list of a quarter million words.
 
 # words for Keara to use to test since we don't have the words in a big file yet.
 # shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',

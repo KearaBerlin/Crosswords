@@ -23,7 +23,7 @@ class Board:
    So writing this method with the assumption that we have checked that it is valid to 
    add the word at this position and the area around it.
    """
-    def addWordToArray(self,sX, sY, word, isAcross):
+    def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
                 self.boardArray[sX+x][sY] = self.Cell(word, x)

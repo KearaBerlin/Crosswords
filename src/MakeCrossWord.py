@@ -41,14 +41,14 @@ class Board:
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
 
-    # TODO this needs to actually get written
+    # TODO this needs to be finished. Also, we need to update all the cells whose word changed to be the new word...
+    # and maybe we need to also change the underlying CrosswordRepresentation somehow?? adding a new intersection
+    # and a new word, mostly
     """
     Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
     crossword.
-
     """
-
     def addIfValid(self,interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
         if newWordIsAcross:
@@ -60,54 +60,88 @@ class Board:
             startingX = interCell.x - intersection.acrossIndex
             startingY = interCell.y
 
+            # ----------------------------------------------
+            # TODO 1. check whether would be out of bounds of the puzzle
+            # ----------------------------------------------
 
-            # TODO check whether would be out of bounds.
-
+            # loop through each cell that the new word would inhabit
             for i in range(len(newWord)):
                 currentCell = self.boardArray[startingX+i][startingY]
+                perpendicularWordIndex = currentCell.indexWithinWord
                 char = newWord[i]
 
-                # 1. check whether this cell is part of an existing word
-
-                # first, create a word with the new character added in
-                perpendicularWordIndex = currentCell.indexWithinWord
-                if perpendicularWordIndex == 0:
-                    collidedWord = char + currentCell[perpendicularWordIndex+1:]
-                elif perpendicularWordIndex == len(currentCell.word):
-                    collidedWord = currentCell.word[:len(currentCell.word)-1] + char
-                else:
-                    collidedWord = currentCell.word[:perpendicularWordIndex-1] + char + currentCell[perpendicularWordIndex+1:]
-
-                # check whether this word is in our word list
-                if not wordList.contains(collidedWord):
+                # ------------------------------------------------------
+                # 2. check whether this cell is part of an existing word
+                # ------------------------------------------------------
+                collidedWordIsValid = collidedWordIsValid(char, perpendicularWordIndex, currentCell.word)
+                if not collidedWordIsValid:
                     return False
 
-                # 2. Check whether the cells above and below are part of a word
+                # -------------------------------------------------------------
+                # 3. Check whether the cells above and below are part of a word
+                # -------------------------------------------------------------
                 if currentCell.y == 0:
                     aboveFilled = False
                 else:
                     cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
-                    aboveFilled = not (cellAbove is None)
+                    aboveFilled = cellAbove is not None
 
                 if currentCell.y == (self.WIDTH -1):
                     belowFilled = False
                 else:
                     cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
-                    belowFilled = not (cellBelow is None)
+                    belowFilled = cellBelow is not None
 
-            """
-            Things to check for:
-            1. Out of bounds 
-            2. Start looping over the hypothetical cells of the new word. from i = 0 to length(new word)
-                currentCell = boardArray[startX+i][startY]
-                2a. If currentCell.word is not null,
-                    // insert the new character and check whether the newly formed word is in our word list
-                    formedWord = currentCell.word[:index-1] + newWord[i] + currentCell.word[index+1:]
-                2b. Check both adjacent (in perpendicular direction) cells of the new word for if they make an error.
-                2c. Check the two cells at the beginning and end of the new word, with the same method as in step 2a.
-                2d. If we made it to this point, add the appropriate character to our resultArray
-            3. If we make it to this point without returning False, set boardArray = resultArray
-            """
+                # if only one cell is part of a word, check whether it's still a valid
+                # word once we add on the new char at the beginning/end
+                if aboveFilled and not belowFilled:
+                    if not wordList.contains(cellAbove.word + char):
+                        return False
+                elif belowFilled and not aboveFilled:
+                    if not wordList.contains(char + cellBelow.word):
+                        return False
+
+                # if both cells are part of a word, we will check whether that whole long word is valid.
+                elif aboveFilled and belowFilled:
+                    collidedWord = aboveFilled.word + char + belowFilled.word
+                    if not wordList.contains(collidedWord):
+                        return False
+
+            # TODO this does not yet consider whether there's a down word that would touch the end(s) of the new word
+            # It also does not check whether the word in a cell above/below might be just PARALLEL to the new word,
+            # ie there is only one character in the cell above and so we would actually have that cell above be part
+            # of more than one word --
+            # TODO: Cell class needs to be able to hold an across word AND a down word, since any intersection cell
+            # will have both!
+            # ------------------------------------------
+            # 4. Check the cells before and after the new word for word collisions
+            # ------------------------------------------
+            if startingX == 0:
+                leftFilled = False
+            else:
+                leftCell = self.boardArray[startingX - 1][startingY]
+                leftFilled = leftCell is not None
+            if startingX == self.WIDTH - 1:
+                rightFilled = False
+            else:
+                rightCell = self.boardArray[startingX + 1][startingY]
+                rightFilled = rightCell is not None
+
+            # if only one cell is filled, check whether that collision is valid
+            if leftFilled and not rightFilled:
+                if not wordList.contains(leftCell.word + newWord):
+                    return False
+            elif rightFilled and not leftFilled:
+                if not wordList.contains(newWord + rightCell.word):
+                    return False
+
+            # if both cells are filled, check whether that whole long word will work
+            elif rightFilled and leftFilled:
+                if not wordList.contains(leftCell.word + newWord + rightCell.word):
+                    return False
+
+            # If we made it this far without returning False, the new word is valid!
+            # TODO how do we actually add the word now that it is valid?
 
 
         else:
@@ -116,6 +150,24 @@ class Board:
 
         return 1
 
+    """
+    Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word
+    """
+    def collidedWordIsValid(self, char, perpendicularWordIndex, perpendicularWord):
+        # case 1: adding char as index 0
+        if perpendicularWordIndex == 0:
+            collidedWord = char + perpendicularWord[perpendicularWordIndex+1:]
+        # case 2: adding char as last index
+        elif perpendicularWordIndex == len(perpendicularWord):
+            collidedWord = perpendicularWord[:len(perpendicularWord)-1] + char
+        # case 3: adding char somewhere in the middle
+        else:
+            collidedWord = perpendicularWord[:perpendicularWordIndex-1] + char \
+                           + perpendicularWord[perpendicularWordIndex+1:]
+
+        # check whether this word is in our word list
+        if not wordList.contains(collidedWord):
+            return False
 
     """
     Shifts everything in the array by copying things over in another array.
@@ -129,7 +181,7 @@ class Board:
         for x in range(self.WIDTH):
             for y in range(self.WIDTH):
                 if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
-                     shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
+                    shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
                 else:
                     return False
         self.boardArray = shiftedArray

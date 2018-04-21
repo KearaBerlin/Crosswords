@@ -1,10 +1,9 @@
-import csv
 import unittest
 from src.MakeCrossWord import *
 from src.parseDictionary import *
 
 
-class TestStringMethods(unittest.TestCase):
+class TestMethods(unittest.TestCase):
 
     def test_board_constructor(self):
         crossword = CrosswordRepresentation([], ["HELLO"], [])

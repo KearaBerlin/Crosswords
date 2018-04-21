@@ -39,10 +39,10 @@ def createGraph(wordlist):
     for word in wordlist:
         word = word.upper()
         if len(word)>=4 and len(word) <= 8:
-            charsInWord = {} # Apparently it's faster to look things up in sets than it is in lists.
+            charsInWord = set()  # It's faster to look things up in sets than it is in lists.
             for letter in word:
-                if letter not in charsInWord.keys():
-                    charsInWord[letter] = None
+                if letter not in charsInWord:
+                    charsInWord.add(letter)
                     wordGraph[letter].append(word)
 
     return wordGraph

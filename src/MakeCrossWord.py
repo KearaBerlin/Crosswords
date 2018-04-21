@@ -25,9 +25,9 @@ class Board:
     def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word, sX+x,y)
+                self.boardArray[sX+x][sY] = self.Cell(word, sX+x)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(word, sX,sY + y)
+                self.boardArray[sX][sY + x] = self.Cell(word, sX,sY + x)
 
     """
     Returns cell object at given x and y coordinate
@@ -57,7 +57,7 @@ class Board:
     def colIsEmpty(self, col):
         if col < self.WIDTH:
             for x in range(self.WIDTH):
-                if self.boardArray[col][x] is not None: # If is not None then there's an element in the column.
+                if self.boardArray[col][x] is not None:  # If is not None then there's an element in the column.
                     return False
             return True
         else:

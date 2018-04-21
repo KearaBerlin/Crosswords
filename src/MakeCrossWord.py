@@ -1,6 +1,7 @@
 import random
 from src.parseDictionary import *
 
+FILE_NAME = 'dictFile.csv'
 
 """
 Representing board with a 2D array.
@@ -18,7 +19,7 @@ class Board:
         self.addWordToArray(0, 0, self.startingWord, True)
 
     """
-   So writing this method with the assumption that we have checked that it is valid to 
+   So writing this method with the assumption that we have checked that it is valid to
    add the word at this position and the area around it.
    """
     def addWordToArray(self, sX, sY, word, isAcross):
@@ -35,16 +36,20 @@ class Board:
         return self.boardArray[x][y]
 
     """
-    Shifts everything in the array by copying things over in another array. 
-    Will shift things over x to the right and y down. 
+    Shifts everything in the array by copying things over in another array.
+    Will shift things over x to the right and y down.
     If either are negative then it's just the opposite direction.
     
-    Not sure if I should assume that we have checked that a shift is valid or not...
     """
-    def shiftElements(self,x,y):
-        shiftedArray = []
+    def shiftElements(self,xShift,yShift):
+        shiftedArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
-        return 0
+        for x in range(self.WIDTH):
+            for y in range(self.WIDTH):
+                shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
+
+        self.boardArray = shiftedArray
+
 
     """
     Returns true or false
@@ -106,10 +111,10 @@ class CrosswordRepresentation:
 
     # TODO this needs to actually get written
     """
-    Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the 
+    Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
     crossword.
-    
+
     """
     def addIfValid(self, intersection, newWordIsAcross):
 
@@ -152,7 +157,7 @@ class Intersection:
 """
 Brute force algorithm to pick words for the crossword
 1. Pick random word
-2. Examine neighbors 
+2. Examine neighbors
 """
 def bruteForce(graph):
 
@@ -187,7 +192,7 @@ def bruteForce(graph):
 
 
 """
-Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the 
+Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the
 current word are valid. (Adds the word at the first valid intersection found.)
 If a word is added, returns True; otherwise, returns False.
 """
@@ -212,8 +217,8 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
     return False
 
 
-graph = readCSV()  # from MakeCrossWord.py
-#print(graph)
+graph = readCSV()  # from parseDictionary.py
+# print(graph['A'])
 cw = bruteForce(graph)
 print(cw.across, cw.down)
 

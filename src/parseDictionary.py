@@ -37,13 +37,14 @@ def createGraph(wordlist):
         wordGraph[x] = []
 
     for word in wordlist:
+        word = word.upper()
         if len(word)>=4 and len(word) <= 8:
             charsInWord = {} # Apparently it's faster to look things up in sets than it is in lists.
             for letter in word:
                 if letter not in charsInWord.keys():
                     charsInWord[letter] = None
                     wordGraph[letter].append(word)
-                    
+
     return wordGraph
 
 
@@ -69,20 +70,16 @@ def readCSV():
     return graph
 
 
-wlist = words.words()
-shortened = wlist[0:500]  # shortened version of the list of a quarter million words.
-
-# words for Keara to use to test since we don't have the words in a big file yet.
-# shortened = ['able', 'apple', 'ant', 'bear', 'brown', 'cat', 'crustacean', 'dog', 'dandruff', 'eatery', 'felt', 'fire',
-#              'good', 'hello', 'ibis', 'interesting', 'jewel', 'koala', 'lump', 'lime', 'moo', 'nantucket', 'opal',
-#              'oh', 'prime', 'quick', 'rhythm', 'so', 'spire', 'team', 'understanding', 'velociraptor', 'water', 'xylophone', 'zebra']
-
-graph = createGraph(shortened)
+"""
+Code below will create the graph and write it into a CSV file.
+"""
+# wlist = words.words()
+# shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
+# graph = createGraph(wlist)
+# makeCSV(graph)
 
 
-makeCSV(graph)
 
-graphFromCSV = readCSV()
 
 
 

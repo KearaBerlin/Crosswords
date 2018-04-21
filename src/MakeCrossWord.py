@@ -40,15 +40,18 @@ class Board:
     Will shift things over x to the right and y down.
     If either are negative then it's just the opposite direction.
     
+    Also checks if the shift is valid
     """
     def shiftElements(self,xShift,yShift):
         shiftedArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
-
         for x in range(self.WIDTH):
             for y in range(self.WIDTH):
-                shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
-
+                if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
+                     shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
+                else:
+                    return False
         self.boardArray = shiftedArray
+        return True
 
 
     """

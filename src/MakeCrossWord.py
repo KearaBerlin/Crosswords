@@ -1,5 +1,11 @@
 import random
 from src.parseDictionary import *
+from nltk.corpus import words
+
+wordList = words.words()
+
+
+
 
 FILE_NAME = 'dictFile.csv'
 
@@ -34,6 +40,82 @@ class Board:
     """
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
+
+    # TODO this needs to actually get written
+    """
+    Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
+    intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
+    crossword.
+
+    """
+
+    def addIfValid(self,interCell, intersection, newWordIsAcross):
+        copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
+        if newWordIsAcross:
+            newWord = intersection.across
+            existingWord = intersection.down
+            interX = interCell.x
+            interY = interCell.y
+
+            startingX = interCell.x - intersection.acrossIndex
+            startingY = interCell.y
+
+
+            # TODO check whether would be out of bounds.
+
+            for i in range(len(newWord)):
+                currentCell = self.boardArray[startingX+i][startingY]
+                char = newWord[i]
+
+                # 1. check whether this cell is part of an existing word
+
+                # first, create a word with the new character added in
+                perpendicularWordIndex = currentCell.indexWithinWord
+                if perpendicularWordIndex == 0:
+                    collidedWord = char + currentCell[perpendicularWordIndex+1:]
+                elif perpendicularWordIndex == len(currentCell.word):
+                    collidedWord = currentCell.word[:len(currentCell.word)-1] + char
+                else:
+                    collidedWord = currentCell.word[:perpendicularWordIndex-1] + char + currentCell[perpendicularWordIndex+1:]
+
+                # check whether this word is in our word list
+                if not wordList.contains(collidedWord):
+                    return False
+
+                # 2. Check whether the cells above and below are part of a word
+                if currentCell.y == 0:
+                    aboveFilled = False
+                else:
+                    cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
+                    aboveFilled = not (cellAbove is None)
+
+                if currentCell.y == (self.WIDTH -1):
+                    belowFilled = False
+                else:
+                    cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
+                    belowFilled = not (cellBelow is None)
+
+            """
+            Things to check for:
+            1. Out of bounds 
+            2. Start looping over the hypothetical cells of the new word. from i = 0 to length(new word)
+                currentCell = boardArray[startX+i][startY]
+                2a. If currentCell.word is not null,
+                    // insert the new character and check whether the newly formed word is in our word list
+                    formedWord = currentCell.word[:index-1] + newWord[i] + currentCell.word[index+1:]
+                2b. Check both adjacent (in perpendicular direction) cells of the new word for if they make an error.
+                2c. Check the two cells at the beginning and end of the new word, with the same method as in step 2a.
+                2d. If we made it to this point, add the appropriate character to our resultArray
+            3. If we make it to this point without returning False, set boardArray = resultArray
+            """
+
+
+        else:
+            newWord = intersection.down
+            existingWord = intersection.across
+
+        return 1
+
 
     """
     Shifts everything in the array by copying things over in another array.
@@ -80,10 +162,11 @@ class Board:
 
 
     class Cell:
-        def __init__(self, word, x,y):
+        def __init__(self, word, x, y, indexWithinWord):
             self.word = word
             self.xCoord = x
             self.yCoord = y
+            self.indexWithinWord = indexWithinWord
 
 
         """
@@ -112,20 +195,6 @@ class CrosswordRepresentation:
         self.inter = intersections
 
 
-    # TODO this needs to actually get written
-    """
-    Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
-    intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
-    crossword.
-
-    """
-    def addIfValid(self, intersection, newWordIsAcross):
-
-        return 1
-
-
-
-
     """
     Scores the density of the current crossword. This will be used to find a better neighbor
     than the brute force algorithm.
@@ -133,10 +202,12 @@ class CrosswordRepresentation:
     def density(self):
         return 0
 
-
+"""
+Represents two words and which index in the word will intersect with the other word.
+"""
 class Intersection:
 
-    def __init__(self, acrossWord, acrossWordIndex, downWord, downWordIndex):
+    def __init__(self, acrossWord, downWord,acrossWordIndex, downWordIndex, ):
         self.across = acrossWord
         self.down = downWord
         self.acrossIndex = acrossWordIndex

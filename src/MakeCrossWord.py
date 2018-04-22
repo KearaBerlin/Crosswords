@@ -4,6 +4,9 @@ from nltk.corpus import words
 
 wordList = words.words()
 
+
+
+
 FILE_NAME = 'dictFile.csv'
 
 """
@@ -28,9 +31,9 @@ class Board:
     def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word, sX+x)
+                self.boardArray[sX+x][sY] = self.Cell(word, None, sX+x, sY, x)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(word, sX,sY + x)
+                self.boardArray[sX][sY + x] = self.Cell(None, word, sX, sY + x, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -48,8 +51,7 @@ class Board:
     """
     def addIfValid(self,interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
-
-        if newWordIsAcross:  # code for adding an across word.
+        if newWordIsAcross:
             newWord = intersection.across
             existingWord = intersection.down
             interX = interCell.x
@@ -59,11 +61,8 @@ class Board:
             startingY = interCell.y
 
             # ----------------------------------------------
-            # 1. check whether would be out of bounds of the puzzle
+            # TODO 1. check whether would be out of bounds of the puzzle
             # ----------------------------------------------
-            if startingX < 0 or startingX + len(intersection.across) >= self.WIDTH:
-                return False
-
 
             # loop through each cell that the new word would inhabit
             for i in range(len(newWord)):
@@ -74,7 +73,7 @@ class Board:
                 # ------------------------------------------------------
                 # 2. check whether this cell is part of an existing word
                 # ------------------------------------------------------
-                collidedWordIsValid = collidedWordIsValid(char, perpendicularWordIndex, currentCell.word)
+                collidedWordIsValid = collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord)
                 if not collidedWordIsValid:
                     return False
 
@@ -95,16 +94,18 @@ class Board:
 
                 # if only one cell is part of a word, check whether it's still a valid
                 # word once we add on the new char at the beginning/end
+                # TODO I am not sure we meant acrossWord -- but will be fixed when we account for rest of edge cases
                 if aboveFilled and not belowFilled:
-                    if not wordList.contains(cellAbove.word + char):
+                    if not wordList.contains(cellAbove.acrossWord + char):
                         return False
                 elif belowFilled and not aboveFilled:
-                    if not wordList.contains(char + cellBelow.word):
+                    if not wordList.contains(char + cellBelow.acrossWord):
                         return False
 
+                # TODO again, same as above Todo
                 # if both cells are part of a word, we will check whether that whole long word is valid.
                 elif aboveFilled and belowFilled:
-                    collidedWord = aboveFilled.word + char + belowFilled.word
+                    collidedWord = aboveFilled.acrossWord + char + belowFilled.acrossWord
                     if not wordList.contains(collidedWord):
                         return False
 
@@ -130,33 +131,25 @@ class Board:
 
             # if only one cell is filled, check whether that collision is valid
             if leftFilled and not rightFilled:
-                if not wordList.contains(leftCell.word + newWord):
+                if not wordList.contains(leftCell.acrossWord + newWord):
                     return False
             elif rightFilled and not leftFilled:
-                if not wordList.contains(newWord + rightCell.word):
+                if not wordList.contains(newWord + rightCell.acrossWord):
                     return False
 
             # if both cells are filled, check whether that whole long word will work
             elif rightFilled and leftFilled:
-                if not wordList.contains(leftCell.word + newWord + rightCell.word):
+                if not wordList.contains(leftCell.acrossWord + newWord + rightCell.acrossWord):
                     return False
 
             # If we made it this far without returning False, the new word is valid!
             # TODO how do we actually add the word now that it is valid?
 
-        else:  # code for adding a down word
+        else:
             newWord = intersection.down
             existingWord = intersection.across
 
-            startingX = interCell.x
-            startingY = interCell.y - intersection.downIndex
-
-            # ----------------------------------------------
-            # 1. check whether would be out of bounds of the puzzle
-            # ----------------------------------------------
-            if startingY < 0 or startingY + len(intersection.down) >= self.WIDTH:
-                return False
-
+        return 1
 
     """
     Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word
@@ -220,14 +213,13 @@ class Board:
         else:
             return False
 
-
     class Cell:
-        def __init__(self, word, x, y, indexWithinWord):
-            self.word = word
+        def __init__(self, acrossWord, downWord, x, y, indexWithinWord):
+            self.acrossWord = acrossWord
+            self.downWord = downWord
             self.xCoord = x
             self.yCoord = y
             self.indexWithinWord = indexWithinWord
-
 
         """
         Setter method for the coordinates of the cell.

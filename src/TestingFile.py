@@ -18,7 +18,7 @@ class TestMethods(unittest.TestCase):
 
     def test_shiftElements(self):
         test_array = []
-        for x in range()
+        # for x in range(
 
 if __name__ == '__main__':
     unittest.main()

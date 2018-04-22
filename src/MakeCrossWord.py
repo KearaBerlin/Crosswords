@@ -4,9 +4,6 @@ from nltk.corpus import words
 
 wordList = words.words()
 
-
-
-
 FILE_NAME = 'dictFile.csv'
 
 """
@@ -51,7 +48,8 @@ class Board:
     """
     def addIfValid(self,interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
-        if newWordIsAcross:
+
+        if newWordIsAcross:  # code for adding an across word.
             newWord = intersection.across
             existingWord = intersection.down
             interX = interCell.x
@@ -61,8 +59,11 @@ class Board:
             startingY = interCell.y
 
             # ----------------------------------------------
-            # TODO 1. check whether would be out of bounds of the puzzle
+            # 1. check whether would be out of bounds of the puzzle
             # ----------------------------------------------
+            if startingX < 0 or startingX + len(intersection.across) >= self.WIDTH:
+                return False
+
 
             # loop through each cell that the new word would inhabit
             for i in range(len(newWord)):
@@ -143,12 +144,19 @@ class Board:
             # If we made it this far without returning False, the new word is valid!
             # TODO how do we actually add the word now that it is valid?
 
-
-        else:
+        else:  # code for adding a down word
             newWord = intersection.down
             existingWord = intersection.across
 
-        return 1
+            startingX = interCell.x
+            startingY = interCell.y - intersection.downIndex
+
+            # ----------------------------------------------
+            # 1. check whether would be out of bounds of the puzzle
+            # ----------------------------------------------
+            if startingY < 0 or startingY + len(intersection.down) >= self.WIDTH:
+                return False
+
 
     """
     Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word

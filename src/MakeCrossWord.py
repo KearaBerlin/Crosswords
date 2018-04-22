@@ -4,9 +4,6 @@ from nltk.corpus import words
 
 wordList = words.words()
 
-
-
-
 FILE_NAME = 'dictFile.csv'
 
 """
@@ -170,6 +167,32 @@ class Board:
         if not wordList.contains(collidedWord):
             return False
 
+
+    """
+    Helper method for addIfValid. Takes in a Cell adjacent to a Cell that would be part of the new word being added.
+    Returns the character(s) that should be added to the character in that new cell, to get a word that can be checked
+    whether it is in the quarter million word list. The client code should know whether the returned chars go after or
+    before the new char, and should also perform the check in the word list etc. This method simply returns an affix.
+    adjCell - a Cell representing the Cell that is directly adjacent to the new character being added
+    newX, newY - the coords on the Board that contain the new char being added (that adjCell is adjacent to)
+    newChar - the new character being added (the char in the cell that adjCell is adjacent to.)
+    newIsAcross - a boolean stating whether the new word being added is across or down
+    """
+    def getCellAffix(self, adjCell, newX, newY, newChar, newIsAcross):
+        if newIsAcross:
+            # find out whether the adjCell is above or below the new word
+            adjIsAbove = True
+            if adjCell.y < newY:
+                adjIsAbove = False
+
+            # check whether the adjCell has an acrossWord, downWord, or both, and return appropriate characters.
+            hasAcross = adjCell.acrossWord is not None
+            hasDown = adjCell.downWord is not None
+            if adjIsAbove:
+                if hasAcross and not hasDown:
+                    return -1  # TODO this needs to be finished!!
+
+
     """
     Shifts everything in the array by copying things over in another array.
     Will shift things over x to the right and y down.
@@ -264,10 +287,6 @@ class Intersection:
         self.down = downWord
         self.acrossIndex = acrossWordIndex
         self.downIndex = downWordIndex
-
-
-
-
 
 # Commented code below is just an example of how we would use the Intersection class.
 # listA = ["attack", "sleep", "awake"]

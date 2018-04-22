@@ -16,6 +16,10 @@ class TestMethods(unittest.TestCase):
         self.assertTrue(board.rowIsEmpty(1))
         self.assertTrue(board.rowIsEmpty(5))
 
+    def test_shiftElements(self):
+        test_array = []
+        for x in range()
+
 if __name__ == '__main__':
     unittest.main()
 

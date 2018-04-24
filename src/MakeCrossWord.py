@@ -183,7 +183,7 @@ class Board:
             for y in range(self.WIDTH):
                 if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
                     shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
-                else:
+                elif self.boardArray[x][y] is not None and (0 > x+xShift or x+xShift > self.WIDTH) and (0 > y+yShift or y + yShift > self.WIDTH):
                     return False
         self.boardArray = shiftedArray
         return True
@@ -241,11 +241,10 @@ class CrosswordRepresentation:
     We will represent the intersection of words by having a coordinate representing
     which index of listD and listA intersect.
     """
-    def __init__(self,listD, listA, intersections,):
+    def __init__(self,listD, listA, intersections):
         self.across = listA
         self.down = listD
         self.inter = intersections
-
 
     """
     Scores the density of the current crossword. This will be used to find a better neighbor
@@ -295,6 +294,7 @@ def bruteForce(graph):
 
     # initialize a crossword that contains that start word
     crossword = CrosswordRepresentation([],[startWord], [])
+    board = Board(crossword)
 
     # this outer loop continues until we have the desired number of words in our crossword
     currentWord = startWord
@@ -308,13 +308,13 @@ def bruteForce(graph):
             neighborWord = neighborTuple[0]
 
             # call a method that adds the neighbor word in a valid intersection if it finds one
-            if addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
+            if addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
                 currentWord = neighborWord
                 break
 
         # every other word will be across
         currentWordIsAcross = not currentWordIsAcross
-    return crossword
+    return board
 
 
 """
@@ -322,7 +322,7 @@ Used by the brute force crossword algorithm to add a neighbor word to the crossw
 current word are valid. (Adds the word at the first valid intersection found.)
 If a word is added, returns True; otherwise, returns False.
 """
-def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
+def addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
 
     for current_i in range(len(currentWord)):
         for neighbor_i in range(len(neighborWord)):
@@ -337,14 +337,14 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
                                                 currentWord, current_i)
 
                 # if this is a valid intersection, add it to crossword and break out of the second loop
-                if crossword.addIfValid(intersection, not currentWordIsAcross):
+                if board.addIfValid(intersection, not currentWordIsAcross):
                     return True
 
     return False
 
 
-graph = readCSV()  # from parseDictionary.py
+# graph = readCSV()  # from parseDictionary.py
 # print(graph['A'])
-cw = bruteForce(graph)
-print(cw.across, cw.down)
+# cw = bruteForce(graph)
+# print(cw.across, cw.down)
 

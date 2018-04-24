@@ -2,6 +2,7 @@ import unittest
 from src.MakeCrossWord import *
 from src.parseDictionary import *
 
+width = 30
 
 class TestMethods(unittest.TestCase):
 
@@ -17,8 +18,17 @@ class TestMethods(unittest.TestCase):
         self.assertTrue(board.rowIsEmpty(5))
 
     def test_shiftElements(self):
-        test_array = []
-        # for x in range(
+        crossword = CrosswordRepresentation([],['HELLO'],[])
+        board = Board(crossword)
+
+        for y in range(width):
+            board.boardArray[0][y] = 'a'
+
+        self.assertTrue(board.shiftElements(3,0))
+        self.assertTrue(board.shiftElements(width-2,0))
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

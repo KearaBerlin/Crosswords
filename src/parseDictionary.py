@@ -74,12 +74,10 @@ def readCSV():
 Code below will create the graph and write it into a CSV file.
 """
 # wlist = words.words()
+# print(type(wlist))
 # shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
 # graph = createGraph(wlist)
 # makeCSV(graph)
-
-
-
 
 
 

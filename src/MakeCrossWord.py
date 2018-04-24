@@ -106,12 +106,6 @@ class Board:
                     if not wordList.contains(collidedWord):
                         return False
 
-            # TODO this does not yet consider whether there's a down word that would touch the end(s) of the new word
-            # It also does not check whether the word in a cell above/below might be just PARALLEL to the new word,
-            # ie there is only one character in the cell above and so we would actually have that cell above be part
-            # of more than one word --
-            # TODO: Cell class needs to be able to hold an across word AND a down word, since any intersection cell
-            # will have both!
             # ------------------------------------------
             # 4. Check the cells before and after the new word for word collisions
             # ------------------------------------------
@@ -174,24 +168,30 @@ class Board:
     whether it is in the quarter million word list. The client code should know whether the returned chars go after or
     before the new char, and should also perform the check in the word list etc. This method simply returns an affix.
     adjCell - a Cell representing the Cell that is directly adjacent to the new character being added
-    newX, newY - the coords on the Board that contain the new char being added (that adjCell is adjacent to)
-    newChar - the new character being added (the char in the cell that adjCell is adjacent to.)
     newIsAcross - a boolean stating whether the new word being added is across or down
+    Returns a str
     """
-    def getCellAffix(self, adjCell, newX, newY, newChar, newIsAcross):
+    def getCellAffix(self, adjCell, newIsAcross):
+        # check whether the adjCell has an acrossWord, downWord, or both
+        hasAcross = adjCell.acrossWord is not None
+        hasDown = adjCell.downWord is not None
+
         if newIsAcross:
-            # find out whether the adjCell is above or below the new word
-            adjIsAbove = True
-            if adjCell.y < newY:
-                adjIsAbove = False
+            # whether or not the cell is above or below the new character, we will always either return a character
+            # in the adjCell or the word that adjCell is part of.
 
-            # check whether the adjCell has an acrossWord, downWord, or both, and return appropriate characters.
-            hasAcross = adjCell.acrossWord is not None
-            hasDown = adjCell.downWord is not None
-            if adjIsAbove:
-                if hasAcross and not hasDown:
-                    return -1  # TODO this needs to be finished!!
-
+            if hasAcross and not hasDown:
+                # return only the char above
+                return str(adjCell.acrossWord[adjCell.indexWithinWord])
+            elif hasDown:
+                # whether it has both or only down, only return the whole word above
+                return str(adjCell.downWord)
+        else:
+            # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
+            if hasDown and not hasAcross:
+                return str(adjCell.downWord[adjCell.indexWithinWord])
+            elif hasAcross:
+                return str(adjCell.acrossWord)
 
     """
     Shifts everything in the array by copying things over in another array.

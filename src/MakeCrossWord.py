@@ -22,9 +22,9 @@ class Board:
         self.addWordToArray(0, 0, self.startingWord, True)
 
     """
-   So writing this method with the assumption that we have checked that it is valid to
-   add the word at this position and the area around it.
-   """
+    So writing this method with the assumption that we have checked that it is valid to
+    add the word at this position and the area around it.
+    """
     def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
@@ -38,9 +38,6 @@ class Board:
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
 
-    # TODO this needs to be finished. Also, we need to update all the cells whose word changed to be the new word...
-    # and maybe we need to also change the underlying CrosswordRepresentation somehow?? adding a new intersection
-    # and a new word, mostly
     """
     Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
@@ -75,72 +72,33 @@ class Board:
                     return False
 
                 # -------------------------------------------------------------
-                # 3. Check whether the cells above and below are part of a word
+                # 3. Check whether the word containing new char and any affixes from above and/or below is a valid word
                 # -------------------------------------------------------------
-                if currentCell.y == 0:
-                    aboveFilled = False
-                else:
-                    cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
-                    aboveFilled = cellAbove is not None
+                cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
+                cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
 
-                if currentCell.y == (self.WIDTH -1):
-                    belowFilled = False
-                else:
-                    cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
-                    belowFilled = cellBelow is not None
-
-                # if only one cell is part of a word, check whether it's still a valid
-                # word once we add on the new char at the beginning/end
-                # TODO I am not sure we meant acrossWord -- but will be fixed when we account for rest of edge cases
-                if aboveFilled and not belowFilled:
-                    if not wordList.contains(cellAbove.acrossWord + char):
-                        return False
-                elif belowFilled and not aboveFilled:
-                    if not wordList.contains(char + cellBelow.acrossWord):
-                        return False
-
-                # TODO again, same as above Todo
-                # if both cells are part of a word, we will check whether that whole long word is valid.
-                elif aboveFilled and belowFilled:
-                    collidedWord = aboveFilled.acrossWord + char + belowFilled.acrossWord
-                    if not wordList.contains(collidedWord):
-                        return False
+                if not wordList.contains(self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)):
+                    return False
 
             # ------------------------------------------
             # 4. Check the cells before and after the new word for word collisions
             # ------------------------------------------
-            if startingX == 0:
-                leftFilled = False
-            else:
-                leftCell = self.boardArray[startingX - 1][startingY]
-                leftFilled = leftCell is not None
-            if startingX == self.WIDTH - 1:
-                rightFilled = False
-            else:
-                rightCell = self.boardArray[startingX + 1][startingY]
-                rightFilled = rightCell is not None
+            leftCell = self.boardArray[startingX - 1][startingY]
+            rightCell = self.boardArray[startingX + 1][startingY]
 
-            # if only one cell is filled, check whether that collision is valid
-            if leftFilled and not rightFilled:
-                if not wordList.contains(leftCell.acrossWord + newWord):
-                    return False
-            elif rightFilled and not leftFilled:
-                if not wordList.contains(newWord + rightCell.acrossWord):
-                    return False
-
-            # if both cells are filled, check whether that whole long word will work
-            elif rightFilled and leftFilled:
-                if not wordList.contains(leftCell.acrossWord + newWord + rightCell.acrossWord):
-                    return False
+            if not wordList.contains(self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)):
+                return False
 
             # If we made it this far without returning False, the new word is valid!
             # TODO how do we actually add the word now that it is valid?
+            return True
 
+        # TODO fill this in, or find a way to make across and down both the same code.
         else:
             newWord = intersection.down
             existingWord = intersection.across
 
-        return 1
+            return True
 
     """
     Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word
@@ -169,17 +127,19 @@ class Board:
     before the new char, and should also perform the check in the word list etc. This method simply returns an affix.
     adjCell - a Cell representing the Cell that is directly adjacent to the new character being added
     newIsAcross - a boolean stating whether the new word being added is across or down
-    Returns a str
+    Returns a str - can be empty if there was no chars or word in adjCell
     """
     def getCellAffix(self, adjCell, newIsAcross):
         # check whether the adjCell has an acrossWord, downWord, or both
         hasAcross = adjCell.acrossWord is not None
         hasDown = adjCell.downWord is not None
 
+        if (not hasAcross) and (not hasDown):
+            return str("")
+
         if newIsAcross:
             # whether or not the cell is above or below the new character, we will always either return a character
             # in the adjCell or the word that adjCell is part of.
-
             if hasAcross and not hasDown:
                 # return only the char above
                 return str(adjCell.acrossWord[adjCell.indexWithinWord])

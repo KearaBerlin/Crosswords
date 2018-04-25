@@ -1,4 +1,4 @@
-import random
+
 from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
@@ -79,7 +79,7 @@ class Board:
                 cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
                 cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
 
-                if not wordList.contains(self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)):
+                if not self.wordList.contains(self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)):
                     return False
 
             # ------------------------------------------

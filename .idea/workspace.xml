@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BruteForce.py" />
+    <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="Tried to merge changes - I think something weird happened with merging the changes to bruteForce since it moved files.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crosswords.iml" afterPath="$PROJECT_DIR$/Crosswords.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BruteForce.py" afterPath="$PROJECT_DIR$/src/BruteForce.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MakeCrossWord.py" afterPath="$PROJECT_DIR$/src/MakeCrossWord.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestingFile.py" afterPath="$PROJECT_DIR$/src/TestingFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parseDictionary.py" afterPath="$PROJECT_DIR$/src/parseDictionary.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,20 +19,20 @@
       <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1440">
+            <state relative-caret-position="0">
               <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="156" column="66" lean-forward="false" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
+            <state relative-caret-position="183">
+              <caret line="120" column="15" lean-forward="false" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#1#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,9 +41,11 @@
       <file leaf-file-name="BruteForce.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1082">
-              <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="936">
+              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestingFile.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestingFile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="111">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -107,8 +108,8 @@
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/src/parseDictionary.py" />
-        <option value="$PROJECT_DIR$/src/BruteForce.py" />
         <option value="$PROJECT_DIR$/src/TestingFile.py" />
+        <option value="$PROJECT_DIR$/src/BruteForce.py" />
         <option value="$PROJECT_DIR$/src/MakeCrossWord.py" />
       </list>
     </option>
@@ -477,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524537326972</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Wrote some tests for the helper getCellAffix (still needs a few more tests written.) The tests failed. Maybe because Cell did not have an across and down INDEX, I added that and made sure all calls to Cell reflect that change.">
+      <created>1524626708989</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1524626708989</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -518,17 +526,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -541,10 +550,39 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
@@ -571,7 +609,9 @@
     <MESSAGE value="Started fixing the addIfValid. I am writing another helper method... its incomplete right now." />
     <MESSAGE value="I believe I have written a proper getAffix method, that is the helper for what will eventually be a proper addIfValid. I will now work on fixing addIfValid. That will involve major changes, FYI." />
     <MESSAGE value="Wrote addIfValid. Still need to write the down portion of that - or, I think it will be very easy to modify the across portion to be able to handle across or down equally well." />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote addIfValid. Still need to write the down portion of that - or, I think it will be very easy to modify the across portion to be able to handle across or down equally well." />
+    <MESSAGE value="Wrote some tests for the helper getCellAffix (still needs a few more tests written.) The tests failed. Maybe because Cell did not have an across and down INDEX, I added that and made sure all calls to Cell reflect that change." />
+    <MESSAGE value="Tried to merge changes - I think something weird happened with merging the changes to bruteForce since it moved files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tried to merge changes - I think something weird happened with merging the changes to bruteForce since it moved files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,7 +643,7 @@
         <state relative-caret-position="3384">
           <caret line="141" column="65" lean-forward="false" selection-start-line="141" selection-start-column="65" selection-end-line="141" selection-end-column="65" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -621,7 +661,7 @@
         <state relative-caret-position="4560">
           <caret line="192" column="65" lean-forward="false" selection-start-line="192" selection-start-column="65" selection-end-line="192" selection-end-column="65" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,7 +699,7 @@
         <state relative-caret-position="3432">
           <caret line="143" column="72" lean-forward="false" selection-start-line="143" selection-start-column="72" selection-end-line="143" selection-end-column="72" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -687,7 +727,7 @@
         <state relative-caret-position="672">
           <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -705,7 +745,7 @@
         <state relative-caret-position="1560">
           <caret line="67" column="79" lean-forward="true" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -725,7 +765,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -758,7 +798,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,7 +824,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -838,22 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1440">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1082">
-          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python35-32/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -862,22 +886,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
+    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="156" column="66" lean-forward="false" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
+        <state relative-caret-position="111">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
+    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="183">
+          <caret line="120" column="15" lean-forward="false" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

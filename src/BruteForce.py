@@ -1,5 +1,6 @@
-
+import random
 from MakeCrossWord import *
+
 
 class BruteForceCrossword:
     def __init__(self):
@@ -19,7 +20,7 @@ class BruteForceCrossword:
         startWord = keys[randomIndex]
 
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation([], [startWord], [])
+        crossword = CrosswordRepresentation([],[startWord], [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
@@ -40,7 +41,7 @@ class BruteForceCrossword:
 
             # every other word will be across
             currentWordIsAcross = not currentWordIsAcross
-        return crossword
+        return board
 
 
     """
@@ -63,7 +64,7 @@ class BruteForceCrossword:
                                                     currentWord, current_i)
 
                     # if this is a valid intersection, add it to crossword and break out of the second loop
-                    if board.addIfValid(None, intersection, not currentWordIsAcross):
+                    if board.addIfValid(intersection, not currentWordIsAcross):
                         return True
 
         return False

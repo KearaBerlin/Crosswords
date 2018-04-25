@@ -3,8 +3,7 @@ from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
 
-# wordList = words.words()
-wordList = ["HI", "HELLO", "BYE"]
+wordList = words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -15,13 +14,14 @@ class Board:
     def __init__(self, crossword, ARRAY_WIDTH = 30):
         self.WIDTH = ARRAY_WIDTH
         self.crossword = crossword
-        self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
 
         # initialize array with None
         self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
-        # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
-        self.addWordToArray(0, 0, self.startingWord, True)
+        if len(crossword.across) != 0:
+            self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
+            # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
+            self.addWordToArray(0, 0, self.startingWord, True)
 
     """
     So writing this method with the assumption that we have checked that it is valid to
@@ -174,7 +174,7 @@ class Board:
             for y in range(self.WIDTH):
                 if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
                     shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
-                else:
+                elif self.boardArray[x][y] is not None and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
                     return False
         self.boardArray = shiftedArray
         return True
@@ -237,7 +237,6 @@ class CrosswordRepresentation:
         self.across = listA
         self.down = listD
         self.inter = intersections
-
 
     """
     Scores the density of the current crossword. This will be used to find a better neighbor

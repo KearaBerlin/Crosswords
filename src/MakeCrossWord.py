@@ -15,7 +15,7 @@ class Board:
         self.crossword = crossword
 
         # initialize array with None
-        self.boardArray = [[str('_') for i in range(self.WIDTH)] for j in range(self.WIDTH)]
+        self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
         if len(crossword.across) != 0:
             self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
@@ -330,11 +330,11 @@ def terminalRepresentationOfCrossword(board):
     for y in range(len(board.boardArray)):
         for x in range(len(board.boardArray)):
             cell = board.boardArray[x][y]
-            if cell != str('_'):
+            if cell is not None:
                 index = cell.indexWithinWord
                 row += [cell.acrossWord[index]]
             else:
-                row += [cell]
+                row += ['_']
         print(row)
         row = []
 

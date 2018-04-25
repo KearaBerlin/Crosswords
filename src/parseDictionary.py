@@ -40,7 +40,7 @@ def createGraph(wordlist):
 
     for word in wordlist:
         word = word.upper()
-        if len(word)>=4 and len(word) <= 8:
+        if len(word)>=2 and len(word) <= 8:
             charsInWord = set()  # It's faster to look things up in sets than it is in lists.
             for letter in word:
                 if letter not in charsInWord:
@@ -77,7 +77,7 @@ def wordListCSV():
     newList = []
     for x in range(len(wList)):
         word = wlist[x]
-        if len(word) >= 4 or len(word) <= 8:
+        if len(word) >= 2 or len(word) <= 8:
             newList += [word]
     file.write(str(newList))
 
@@ -85,17 +85,15 @@ def wordListCSV():
 Code below will create the graph and write it into a CSV file.
 """
 wlist = words.words()
-print(type(wlist))
+#print(type(wlist))
 # shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
-# graph = createGraph(wlist)
-# makeCSV(graph)
+graph = createGraph(wlist)
+makeCSV(graph)
 
 """
 Code below will write the list of words into a csv
 """
 wordListCSV()
-
-
 
 
 

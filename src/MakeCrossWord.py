@@ -15,7 +15,7 @@ class Board:
         self.crossword = crossword
 
         # initialize array with None
-        self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
+        self.boardArray = [[str('_') for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
         if len(crossword.across) != 0:
             self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
@@ -322,9 +322,28 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
 
     return False
 
+"""
+Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
+"""
+def terminalRepresentationOfCrossword(board):
+    row = []
+    for y in range(len(board.boardArray)):
+        for x in range(len(board.boardArray)):
+            cell = board.boardArray[x][y]
+            if cell != str('_'):
+                index = cell.indexWithinWord
+                row += [cell.acrossWord[index]]
+            else:
+                row += [cell]
+        print(row)
+        row = []
 
 
+crossword = CrosswordRepresentation([],["HELLO"],[])
+board = Board(crossword)
 
+
+terminalRepresentationOfCrossword(board)
 
 # graph = readCSV()  # from parseDictionary.py
 # print(graph['A'])

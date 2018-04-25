@@ -1,4 +1,6 @@
-from PyDictionary import PyDictionary
+from PyDictionary import *
+from src.MakeCrossWord import *
+from src.BruteForce import *
 from nltk.corpus import words
 
 # there is no way to make a final var in python, so just don't change this value

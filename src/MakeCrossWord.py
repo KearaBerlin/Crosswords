@@ -1,8 +1,10 @@
 import random
 from src.parseDictionary import *
 from nltk.corpus import words
+from src.BruteForce import *
 
-wordList = words.words()
+# wordList = words.words()
+wordList = ["HI", "HELLO", "BYE"]
 
 FILE_NAME = 'dictFile.csv'
 
@@ -13,7 +15,7 @@ class Board:
     def __init__(self, crossword, ARRAY_WIDTH = 30):
         self.WIDTH = ARRAY_WIDTH
         self.crossword = crossword
-        self.startingWord = crossword.across[0] # First word will always be the first index of the across list.
+        self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
 
         # initialize array with None
         self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
@@ -28,9 +30,9 @@ class Board:
     def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word, None, sX+x, sY, x)
+                self.boardArray[sX+x][sY] = self.Cell(word,   None, sX+x, sY,     x, 0)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(None, word, sX, sY + x, x)
+                self.boardArray[sX][sY + x] = self.Cell(None, word, sX,   sY + x, 0, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -61,7 +63,7 @@ class Board:
             # loop through each cell that the new word would inhabit
             for i in range(len(newWord)):
                 currentCell = self.boardArray[startingX+i][startingY]
-                perpendicularWordIndex = currentCell.indexWithinWord
+                perpendicularWordIndex = currentCell.indexInAcrossWord
                 char = newWord[i]
 
                 # ------------------------------------------------------
@@ -142,15 +144,21 @@ class Board:
             # in the adjCell or the word that adjCell is part of.
             if hasAcross and not hasDown:
                 # return only the char above
-                return str(adjCell.acrossWord[adjCell.indexWithinWord])
+                ret = str(adjCell.acrossWord[adjCell.indexInAcrossWord])
+                print("ACROSS: has across, no down:  " + ret)
+                return ret
             elif hasDown:
                 # whether it has both or only down, only return the whole word above
+                print("ACROSS: has down " + str(adjCell.downWord))
                 return str(adjCell.downWord)
         else:
             # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
             if hasDown and not hasAcross:
-                return str(adjCell.downWord[adjCell.indexWithinWord])
+                ret = str(adjCell.downWord[adjCell.indexInDownWord])
+                print("DOWN: hasdown, not hasacross: " + ret)
+                return ret
             elif hasAcross:
+                print("DOWN: hasacross: " + str(adjCell.acrossWord))
                 return str(adjCell.acrossWord)
 
     """
@@ -197,12 +205,13 @@ class Board:
             return False
 
     class Cell:
-        def __init__(self, acrossWord, downWord, x, y, indexWithinWord):
+        def __init__(self, acrossWord, downWord, x, y, indexInAcrossWord, indexInDownWord):
             self.acrossWord = acrossWord
             self.downWord = downWord
             self.xCoord = x
             self.yCoord = y
-            self.indexWithinWord = indexWithinWord
+            self.indexInAcrossWord = indexInAcrossWord
+            self.indexInDownWord = indexInDownWord
 
         """
         Setter method for the coordinates of the cell.
@@ -224,7 +233,7 @@ class CrosswordRepresentation:
     We will represent the intersection of words by having a coordinate representing
     which index of listD and listA intersect.
     """
-    def __init__(self,listD, listA, intersections,):
+    def __init__(self,listD, listA, intersections):
         self.across = listA
         self.down = listD
         self.inter = intersections
@@ -259,71 +268,11 @@ class Intersection:
 # interTotal = [inter1,inter2, inter3, inter4]
 
 
-"""
-Brute force algorithm to pick words for the crossword
-1. Pick random word
-2. Examine neighbors
-"""
-def bruteForce(graph):
-
-    # get a random word to start with
-    keys = graph.keys()
-    randomIndex = random.randint(0,len(keys)-1)
-    keys = list(keys)
-    startWord = keys[randomIndex]
-
-    # initialize a crossword that contains that start word
-    crossword = CrosswordRepresentation([],[startWord], [])
-
-    # this outer loop continues until we have the desired number of words in our crossword
-    currentWord = startWord
-    currentWordIsAcross = True
-    for i in range(10):
-
-        # this loops through the current word's neighbors until we find a neighbor we can insert into the crossword
-        neighbors = graph[currentWord]
-        found = False
-        for neighborTuple in neighbors:
-            neighborWord = neighborTuple[0]
-
-            # call a method that adds the neighbor word in a valid intersection if it finds one
-            if addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
-                currentWord = neighborWord
-                break
-
-        # every other word will be across
-        currentWordIsAcross = not currentWordIsAcross
-    return crossword
 
 
-"""
-Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the
-current word are valid. (Adds the word at the first valid intersection found.)
-If a word is added, returns True; otherwise, returns False.
-"""
-def addNeighbor(currentWord, currentWordIsAcross, neighborWord, crossword):
-
-    for current_i in range(len(currentWord)):
-        for neighbor_i in range(len(neighborWord)):
-            if currentWord[current_i] == neighborWord[neighbor_i]:
-
-                # generate an intersection object
-                if currentWordIsAcross:
-                    intersection = Intersection(currentWord, current_i,
-                                                neighborWord, neighbor_i)
-                else:
-                    intersection = Intersection(neighborWord, neighbor_i,
-                                                currentWord, current_i)
-
-                # if this is a valid intersection, add it to crossword and break out of the second loop
-                if crossword.addIfValid(intersection, not currentWordIsAcross):
-                    return True
-
-    return False
-
-
-graph = readCSV()  # from parseDictionary.py
+# graph = readCSV()  # from parseDictionary.py
 # print(graph['A'])
-cw = bruteForce(graph)
-print(cw.across, cw.down)
+# bF = BruteForceCrossword()
+# cw = bF.bruteForce(graph)
+# print(cw.across, cw.down)
 

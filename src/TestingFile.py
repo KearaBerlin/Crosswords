@@ -63,14 +63,25 @@ class TestMethods(unittest.TestCase):
 
     def test_get_cell_affix_across(self):
         board = Board(CrosswordRepresentation([], ["HELLO"], []))
-        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 0, 0), True),
-                         "HELLO")
-        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 0), True),
-                         "H")
         self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 4), True),
+                         "HELLO")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 0, 0), True),
+                         "H")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 4, 0), True),
                          "O")
-        self.assertEqual(board.getCellAffix(board.Cell("OVAL", "PEAR", 5, 5, 0, 2), True),
+        self.assertEqual(board.getCellAffix(board.Cell("MOOR", "PEAR", 5, 5, 3, 3), True),
                          "PEAR")
+
+    def test_get_cell_affix_down(self):
+        board = Board(CrosswordRepresentation([], ["HELLO"], []))
+        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 4), False),
+                         "O")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 0, 0), False),
+                         "HELLO")
+        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 0), False),
+                         "H")
+        self.assertEqual(board.getCellAffix(board.Cell("PEEP", "PEAR", 5, 5, 0, 0), False),
+                         "PEEP")
 
 if __name__ == '__main__':
     unittest.main()

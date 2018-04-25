@@ -3,7 +3,11 @@ from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
 
-wordList = words.words()
+file = open("wordList.csv", 'r')
+text = file.read()
+file.close()
+
+wordList = ["HELLO"] # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -145,20 +149,16 @@ class Board:
             if hasAcross and not hasDown:
                 # return only the char above
                 ret = str(adjCell.acrossWord[adjCell.indexInAcrossWord])
-                print("ACROSS: has across, no down:  " + ret)
                 return ret
             elif hasDown:
                 # whether it has both or only down, only return the whole word above
-                print("ACROSS: has down " + str(adjCell.downWord))
                 return str(adjCell.downWord)
         else:
             # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
             if hasDown and not hasAcross:
                 ret = str(adjCell.downWord[adjCell.indexInDownWord])
-                print("DOWN: hasdown, not hasacross: " + ret)
                 return ret
             elif hasAcross:
-                print("DOWN: hasacross: " + str(adjCell.acrossWord))
                 return str(adjCell.acrossWord)
 
     """

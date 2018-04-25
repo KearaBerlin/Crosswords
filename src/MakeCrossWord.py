@@ -207,7 +207,7 @@ class Board:
             for y in range(self.WIDTH):
                 if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
                     shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
-                elif self.boardArray[x][y] is not None and (0 > x+xShift or x+xShift > self.WIDTH) and (0 > y+yShift or y + yShift > self.WIDTH):
+                elif self.boardArray[x][y] is not None and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
                     return False
         self.boardArray = shiftedArray
         return True
@@ -361,6 +361,9 @@ def addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
                     return True
 
     return False
+
+
+
 
 
 # graph = readCSV()  # from parseDictionary.py

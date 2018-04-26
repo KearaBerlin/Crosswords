@@ -7,7 +7,7 @@ file = open("wordList.csv", 'r')
 text = file.read()
 file.close()
 
-wordList = ["HELLO"] # eval(text)  # words.words()
+wordList = ["HELLO", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -73,9 +73,10 @@ class Board:
                 # ------------------------------------------------------
                 # 2. check whether this cell is part of an existing word
                 # ------------------------------------------------------
-                collidedWordIsValid = collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord)
-                if not collidedWordIsValid:
-                    return False
+                if currentCell.downWord is not None:
+                    if not self.collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord):
+                        return False
+                # check for parallel word and whether it's valid to change
 
                 # -------------------------------------------------------------
                 # 3. Check whether the word containing new char and any affixes from above and/or below is a valid word
@@ -83,7 +84,8 @@ class Board:
                 cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
                 cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
 
-                if not self.wordList.contains(self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)):
+                affixedWord = self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)
+                if not affixedWord in self.wordList:
                     return False
 
             # ------------------------------------------
@@ -92,7 +94,8 @@ class Board:
             leftCell = self.boardArray[startingX - 1][startingY]
             rightCell = self.boardArray[startingX + 1][startingY]
 
-            if not wordList.contains(self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)):
+            affixedWord = self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)
+            if affixedWord not in wordList:
                 return False
 
             # If we made it this far without returning False, the new word is valid!
@@ -107,7 +110,10 @@ class Board:
             return True
 
     """
-    Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word
+    Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word.
+    This is only meant to check words that are perpendicular to the new word being added. Client code should check
+    the validity of any word that is parallel to the added word, since that will involve multiple new cells 
+    simultaneously.
     """
     def collidedWordIsValid(self, char, perpendicularWordIndex, perpendicularWord):
         # case 1: adding char as index 0
@@ -122,7 +128,7 @@ class Board:
                            + perpendicularWord[perpendicularWordIndex+1:]
 
         # check whether this word is in our word list
-        if not wordList.contains(collidedWord):
+        if collidedWord not in wordList:
             return False
 
 

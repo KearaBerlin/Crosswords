@@ -120,16 +120,18 @@ class Board:
         if perpendicularWordIndex == 0:
             collidedWord = char + perpendicularWord[perpendicularWordIndex+1:]
         # case 2: adding char as last index
-        elif perpendicularWordIndex == len(perpendicularWord):
+        elif perpendicularWordIndex == len(perpendicularWord)-1:
             collidedWord = perpendicularWord[:len(perpendicularWord)-1] + char
         # case 3: adding char somewhere in the middle
         else:
-            collidedWord = perpendicularWord[:perpendicularWordIndex-1] + char \
+            collidedWord = perpendicularWord[:perpendicularWordIndex] + char \
                            + perpendicularWord[perpendicularWordIndex+1:]
 
         # check whether this word is in our word list
         if collidedWord not in wordList:
             return False
+        else:
+            return True
 
 
     """

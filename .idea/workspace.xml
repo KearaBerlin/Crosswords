@@ -479,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524626807586</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Two word letters included now.">
+      <created>1524941185517</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1524941185517</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -572,7 +579,8 @@
     <MESSAGE value="Made a csv file of the words." />
     <MESSAGE value="Changed it so that the crossword is intialized with None. That is better than '_'" />
     <MESSAGE value="Changed it so that there are two letter words/abbreviations included." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed it so that there are two letter words/abbreviations included." />
+    <MESSAGE value="Two word letters included now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Two word letters included now." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

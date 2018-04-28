@@ -51,63 +51,101 @@ class Board:
     """
     def addIfValid(self,interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
+
+        # set the variables we will need that differ based on newWordIsAcross
         if newWordIsAcross:
             newWord = intersection.across
             existingWord = intersection.down
-            interX = interCell.x
-            interY = interCell.y
-
             startingX = interCell.x - intersection.acrossIndex
             startingY = interCell.y
-
-            # ----------------------------------------------
-            # TODO 1. check whether would be out of bounds of the puzzle
-            # ----------------------------------------------
-
-            # loop through each cell that the new word would inhabit
-            for i in range(len(newWord)):
-                currentCell = self.boardArray[startingX+i][startingY]
-                perpendicularWordIndex = currentCell.indexInAcrossWord
-                char = newWord[i]
-
-                # ------------------------------------------------------
-                # 2. check whether this cell is part of an existing word
-                # ------------------------------------------------------
-                if currentCell.downWord is not None:
-                    if not self.collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord):
-                        return False
-                # check for parallel word and whether it's valid to change
-
-                # -------------------------------------------------------------
-                # 3. Check whether the word containing new char and any affixes from above and/or below is a valid word
-                # -------------------------------------------------------------
-                cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
-                cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
-
-                affixedWord = self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)
-                if not affixedWord in self.wordList:
-                    return False
-
-            # ------------------------------------------
-            # 4. Check the cells before and after the new word for word collisions
-            # ------------------------------------------
-            leftCell = self.boardArray[startingX - 1][startingY]
-            rightCell = self.boardArray[startingX + 1][startingY]
-
-            affixedWord = self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)
-            if affixedWord not in wordList:
-                return False
-
-            # If we made it this far without returning False, the new word is valid!
-            # TODO how do we actually add the word now that it is valid?
-            return True
-
-        # TODO fill this in, or find a way to make across and down both the same code.
         else:
             newWord = intersection.down
             existingWord = intersection.across
+            startingX = interCell.x
+            startingY = interCell.y - intersection.downIndex
 
-            return True
+        # ----------------------------------------------
+        # 1. check whether would be out of bounds of the puzzle, and couldn't be shifted to fit
+        # ----------------------------------------------
+        if newWordIsAcross:
+            newWordWidth = len(newWord)
+            newWordHeight = 1
+        else:
+            newWordWidth = 1
+            newWordHeight = len(newWord)
+        endingX = startingX + newWordWidth
+        endingY = startingY + newWordHeight
+
+        shift = self.getShift(newWordWidth, newWordHeight, startingX, endingX, startingY, endingY)
+
+        if shift is None:
+            return False
+        if shift != [0, 0]:
+            self.shiftElements(shift[0], shift[1])
+
+        # ---------------------------------------------------------
+        # 2. loop through each cell that the new word would inhabit
+        # ---------------------------------------------------------
+        for i in range(len(newWord)):
+            if newWordIsAcross:
+                currentCell = self.boardArray[startingX+i][startingY]
+                perpendicularWordIndex = currentCell.indexInDownWord
+                perpendicularIntersectingWord = currentCell.downWord
+                parallelIntersectingWord = currentCell.acrossWord
+                parallelWordIndex = currentCell.indexInAcrossWord
+            else:
+                currentCell = self.boardArray[startingX][startingY+i]
+                perpendicularWordIndex = currentCell.indexInAcrossWord
+                perpendicularIntersectingWord = currentCell.acrossWord
+                parallelIntersectingWord = currentCell.downWord
+                parallelWordIndex = currentCell.indexInDownWord
+
+            char = newWord[i]
+
+            # ------------------------------------------------------
+            # 3. check whether this cell is part of an existing word
+            # ------------------------------------------------------
+            # check the perpendicular word, if any
+            if perpendicularIntersectingWord is not None:
+                if not self.collidedWordIsValid(char, perpendicularWordIndex, perpendicularIntersectingWord):
+                    return False
+            # TODO check for parallel word and whether it's valid to change. This is tricky.
+            if parallelIntersectingWord is not None and (parallelWordIndex == 0 or i == 0):
+                return False
+
+            # -------------------------------------------------------------
+            # 4. Check whether the word containing new char and any affixes from above and/or below is a valid word
+            # -------------------------------------------------------------
+            if newWordIsAcross:
+                adjCellOne = self.boardArray[currentCell.x][currentCell.y + 1]
+                adjCellTwo = self.boardArray[currentCell.x][currentCell.y - 1]
+            else:
+                adjCellOne = self.boardArray[currentCell.x+1][currentCell.y]
+                adjCellTwo = self.boardArray[currentCell.x-1][currentCell.y]
+
+            affixedWord = self.getCellAffix(adjCellOne, True) + char + self.getCellAffix(adjCellTwo, True)
+            if not affixedWord in self.wordList:
+                return False
+
+        # ------------------------------------------
+        # 5. Check the cells before and after the new word for word collisions
+        # ------------------------------------------
+        if newWordIsAcross:
+            startCell = self.boardArray[startingX - 1][startingY]
+            endCell = self.boardArray[startingX + 1][startingY]
+        else:
+            startCell = self.boardArray[startingX][startingY - 1]
+            endCell = self.boardArray[startingX][startingY + 1]
+
+        affixedWord = self.getCellAffix(startCell, newWordIsAcross) + newWord + self.getCellAffix(endCell, newWordIsAcross)
+        if affixedWord not in wordList:
+            return False
+
+        # --------------------------------------------------------------------------
+        # 6. If we made it this far without returning False, the new word is valid!
+        # # ------------------------------------------------------------------------
+        # TODO how do we actually add the word now that it is valid?
+        return True
 
     """
     Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word.
@@ -170,6 +208,47 @@ class Board:
                 return str(adjCell.acrossWord)
 
     """
+    Helper method for addIfValid. Computes and returns a length-2 array in the form [x, y] of the needed amount to 
+    shift the puzzle to fit the new word.
+    If there is no way to fit the word, returns None. Returns [0, 0] if the puzzle does not need to be shifted.
+    """
+    def calculateShift(self, newWordWidth, newWordHeight, startingX, endingX, startingY, endingY):
+        # if the word is too long to fit in the puzzle at all, forget about it
+        if newWordWidth > self.WIDTH or newWordHeight > self.WIDTH:
+            return None
+
+        xShift = 0
+        yShift = 0
+
+        if startingX < 0:
+            # check if there are enough empty columns to shift the puzzle
+            if self.getEmptyColsToRight() >= abs(startingX):
+                xShift = abs(startingX)
+            else:
+                return None
+        if endingX > self.WIDTH - 1:
+            # same check, but for the right instead of left side of the puzzle.
+            if self.getEmptyColsToLeft() >= abs(self.WIDTH - 1 - endingX):
+                xShift = self.WIDTH - 1 - endingX
+            else:
+                return None
+        if startingY < 0:
+            # check the top of the puzzle
+            if self.getEmptyRowsBelow() >= abs(startingY):
+                yShift = abs(startingY)
+            else:
+                return None
+        if endingY > self.WIDTH - 1:
+            # check the bottom of the puzzle
+            if self.getEmptyRowsAbove() >= abs(self.WIDTH - 1 - endingY):
+                yShift = self.WIDTH - 1 - endingY
+            else:
+                return None
+
+        return [xShift, yShift]
+
+
+    """
     Shifts everything in the array by copying things over in another array.
     Will shift things over x to the right and y down.
     If either are negative then it's just the opposite direction.
@@ -211,6 +290,38 @@ class Board:
             return True
         else:
             return False
+
+    def getEmptyRowsAbove(self):
+        row = 0
+        count = 0
+        while row < self.WIDTH and self.rowIsEmpty(row):
+            row += 1
+            count += 1
+        return count
+
+    def getEmptyRowsBelow(self):
+        row = self.WIDTH - 1
+        count = 0
+        while row >= 0 and self.rowIsEmpty(row):
+            count += 1
+            row -= 1
+        return count
+
+    def getEmptyColsToLeft(self):
+        col = 0
+        count = 0
+        while col < self.WIDTH and self.colIsEmpty(col):
+            col += 1
+            count += 1
+        return count
+
+    def getEmptyColsToRight(self):
+        col = self.WIDTH - 1
+        count = 0
+        while col >= 0 and self.colIsEmpty(col):
+            col -= 1
+            count += 1
+        return count
 
     class Cell:
         def __init__(self, acrossWord, downWord, x, y, indexInAcrossWord, indexInDownWord):

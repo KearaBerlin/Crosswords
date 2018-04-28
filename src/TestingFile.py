@@ -1,10 +1,13 @@
 import unittest
 from src.MakeCrossWord import *
 from src.parseDictionary import *
+from src.BruteForce import *
 
 width = 30
 
 class TestMethods(unittest.TestCase):
+
+    helloBoard = Board(CrosswordRepresentation([], ["HELLO"], []))
 
     def test_board_constructor(self):
         crossword = CrosswordRepresentation([], ["HELLO"], [])
@@ -52,6 +55,43 @@ class TestMethods(unittest.TestCase):
         self.assertFalse(board.shiftElements(0, width))
         self.assertFalse(board.shiftElements(0, -3))
 
+
+    def test_get_cell_affix_empty(self):
+        board = self.helloBoard
+        self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), True),
+                         "")
+        self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), False),
+                         "")
+
+    def test_get_cell_affix_across(self):
+        board = self.helloBoard
+        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 4), True),
+                         "HELLO")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 0, 0), True),
+                         "H")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 4, 0), True),
+                         "O")
+        self.assertEqual(board.getCellAffix(board.Cell("MOOR", "PEAR", 5, 5, 3, 3), True),
+                         "PEAR")
+
+    def test_get_cell_affix_down(self):
+        board = self.helloBoard
+        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 4), False),
+                         "O")
+        self.assertEqual(board.getCellAffix(board.Cell("HELLO", None, 5, 5, 0, 0), False),
+                         "HELLO")
+        self.assertEqual(board.getCellAffix(board.Cell(None, "HELLO", 5, 5, 0, 0), False),
+                         "H")
+        self.assertEqual(board.getCellAffix(board.Cell("PEEP", "PEAR", 5, 5, 0, 0), False),
+                         "PEEP")
+
+    def test_collidedWordIsValid(self):
+        board = self.helloBoard
+        self.assertTrue(board.collidedWordIsValid('N', 0, 'PEW'))
+        self.assertTrue(board.collidedWordIsValid('W', 1, 'SMARM'))
+        self.assertTrue(board.collidedWordIsValid('S', 3, 'LOPE'))
+        self.assertFalse(board.collidedWordIsValid('A', 0, 'MAP'))
+        self.assertTrue(board.collidedWordIsValid('H', 0, 'HELLO'))
 
 if __name__ == '__main__':
     unittest.main()

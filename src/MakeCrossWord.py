@@ -1,8 +1,13 @@
-import random
+
 from src.parseDictionary import *
 from nltk.corpus import words
+from src.BruteForce import *
 
-wordList = words.words()
+file = open("wordList.csv", 'r')
+text = file.read()
+file.close()
+
+wordList = ["HELLO", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -29,9 +34,9 @@ class Board:
     def addWordToArray(self, sX, sY, word, isAcross):
         for x in range(len(word)):
             if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word, None, sX+x, sY, x)
+                self.boardArray[sX+x][sY] = self.Cell(word,   None, sX+x, sY,     x, 0)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(None, word, sX, sY + x, x)
+                self.boardArray[sX][sY + x] = self.Cell(None, word, sX,   sY + x, 0, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -62,15 +67,16 @@ class Board:
             # loop through each cell that the new word would inhabit
             for i in range(len(newWord)):
                 currentCell = self.boardArray[startingX+i][startingY]
-                perpendicularWordIndex = currentCell.indexWithinWord
+                perpendicularWordIndex = currentCell.indexInAcrossWord
                 char = newWord[i]
 
                 # ------------------------------------------------------
                 # 2. check whether this cell is part of an existing word
                 # ------------------------------------------------------
-                collidedWordIsValid = collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord)
-                if not collidedWordIsValid:
-                    return False
+                if currentCell.downWord is not None:
+                    if not self.collidedWordIsValid(char, perpendicularWordIndex, currentCell.acrossWord):
+                        return False
+                # check for parallel word and whether it's valid to change
 
                 # -------------------------------------------------------------
                 # 3. Check whether the word containing new char and any affixes from above and/or below is a valid word
@@ -78,7 +84,8 @@ class Board:
                 cellAbove = self.boardArray[currentCell.x][currentCell.y + 1]
                 cellBelow = self.boardArray[currentCell.x][currentCell.y - 1]
 
-                if not wordList.contains(self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)):
+                affixedWord = self.getCellAffix(cellAbove, True) + char + self.getCellAffix(cellBelow, True)
+                if not affixedWord in self.wordList:
                     return False
 
             # ------------------------------------------
@@ -87,7 +94,8 @@ class Board:
             leftCell = self.boardArray[startingX - 1][startingY]
             rightCell = self.boardArray[startingX + 1][startingY]
 
-            if not wordList.contains(self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)):
+            affixedWord = self.getCellAffix(leftCell, False) + newWord + self.getCellAffix(rightCell, False)
+            if affixedWord not in wordList:
                 return False
 
             # If we made it this far without returning False, the new word is valid!
@@ -102,23 +110,28 @@ class Board:
             return True
 
     """
-    Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word
+    Helper method for addIfValid. Returns whether a new word with a certain character changed is still a valid word.
+    This is only meant to check words that are perpendicular to the new word being added. Client code should check
+    the validity of any word that is parallel to the added word, since that will involve multiple new cells 
+    simultaneously.
     """
     def collidedWordIsValid(self, char, perpendicularWordIndex, perpendicularWord):
         # case 1: adding char as index 0
         if perpendicularWordIndex == 0:
             collidedWord = char + perpendicularWord[perpendicularWordIndex+1:]
         # case 2: adding char as last index
-        elif perpendicularWordIndex == len(perpendicularWord):
+        elif perpendicularWordIndex == len(perpendicularWord)-1:
             collidedWord = perpendicularWord[:len(perpendicularWord)-1] + char
         # case 3: adding char somewhere in the middle
         else:
-            collidedWord = perpendicularWord[:perpendicularWordIndex-1] + char \
+            collidedWord = perpendicularWord[:perpendicularWordIndex] + char \
                            + perpendicularWord[perpendicularWordIndex+1:]
 
         # check whether this word is in our word list
-        if not wordList.contains(collidedWord):
+        if collidedWord not in wordList:
             return False
+        else:
+            return True
 
 
     """
@@ -143,14 +156,16 @@ class Board:
             # in the adjCell or the word that adjCell is part of.
             if hasAcross and not hasDown:
                 # return only the char above
-                return str(adjCell.acrossWord[adjCell.indexWithinWord])
+                ret = str(adjCell.acrossWord[adjCell.indexInAcrossWord])
+                return ret
             elif hasDown:
                 # whether it has both or only down, only return the whole word above
                 return str(adjCell.downWord)
         else:
             # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
             if hasDown and not hasAcross:
-                return str(adjCell.downWord[adjCell.indexWithinWord])
+                ret = str(adjCell.downWord[adjCell.indexInDownWord])
+                return ret
             elif hasAcross:
                 return str(adjCell.acrossWord)
 
@@ -198,12 +213,13 @@ class Board:
             return False
 
     class Cell:
-        def __init__(self, acrossWord, downWord, x, y, indexWithinWord):
+        def __init__(self, acrossWord, downWord, x, y, indexInAcrossWord, indexInDownWord):
             self.acrossWord = acrossWord
             self.downWord = downWord
             self.xCoord = x
             self.yCoord = y
-            self.indexWithinWord = indexWithinWord
+            self.indexInAcrossWord = indexInAcrossWord
+            self.indexInDownWord = indexInDownWord
 
         """
         Setter method for the coordinates of the cell.
@@ -259,94 +275,11 @@ class Intersection:
 # interTotal = [inter1,inter2, inter3, inter4]
 
 
-"""
-Brute force algorithm to pick words for the crossword
-1. Pick random word
-2. Examine neighbors
-"""
-def bruteForce(graph):
 
-    # get a random word to start with
-    keys = graph.keys()
-    randomIndex = random.randint(0,len(keys)-1)
-    keys = list(keys)
-    startWord = keys[randomIndex]
-
-    # initialize a crossword that contains that start word
-    crossword = CrosswordRepresentation([],[startWord], [])
-    board = Board(crossword)
-
-    # this outer loop continues until we have the desired number of words in our crossword
-    currentWord = startWord
-    currentWordIsAcross = True
-    for i in range(10):
-
-        # this loops through the current word's neighbors until we find a neighbor we can insert into the crossword
-        neighbors = graph[currentWord]
-        found = False
-        for neighborTuple in neighbors:
-            neighborWord = neighborTuple[0]
-
-            # call a method that adds the neighbor word in a valid intersection if it finds one
-            if addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
-                currentWord = neighborWord
-                break
-
-        # every other word will be across
-        currentWordIsAcross = not currentWordIsAcross
-    return board
-
-
-"""
-Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the
-current word are valid. (Adds the word at the first valid intersection found.)
-If a word is added, returns True; otherwise, returns False.
-"""
-def addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
-
-    for current_i in range(len(currentWord)):
-        for neighbor_i in range(len(neighborWord)):
-            if currentWord[current_i] == neighborWord[neighbor_i]:
-
-                # generate an intersection object
-                if currentWordIsAcross:
-                    intersection = Intersection(currentWord, current_i,
-                                                neighborWord, neighbor_i)
-                else:
-                    intersection = Intersection(neighborWord, neighbor_i,
-                                                currentWord, current_i)
-
-                # if this is a valid intersection, add it to crossword and break out of the second loop
-                if board.addIfValid(intersection, not currentWordIsAcross):
-                    return True
-
-    return False
-
-"""
-Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
-"""
-def terminalRepresentationOfCrossword(board):
-    row = []
-    for y in range(len(board.boardArray)):
-        for x in range(len(board.boardArray)):
-            cell = board.boardArray[x][y]
-            if cell is not None:
-                index = cell.indexWithinWord
-                row += [cell.acrossWord[index]]
-            else:
-                row += ['_']
-        print(row)
-        row = []
-
-
-crossword = CrosswordRepresentation([],["HELLO"],[])
-board = Board(crossword)
-
-
-terminalRepresentationOfCrossword(board)
 
 # graph = readCSV()  # from parseDictionary.py
 # print(graph['A'])
-# cw = bruteForce(graph)
+# bF = BruteForceCrossword()
+# cw = bF.bruteForce(graph)
 # print(cw.across, cw.down)
 

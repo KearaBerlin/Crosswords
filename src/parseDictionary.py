@@ -1,4 +1,6 @@
-from PyDictionary import PyDictionary
+from PyDictionary import *
+from src.MakeCrossWord import *
+from src.BruteForce import *
 from nltk.corpus import words
 
 # there is no way to make a final var in python, so just don't change this value
@@ -69,29 +71,30 @@ def readCSV():
 
     return graph
 
-def wordListCSV():
-    file = open('wordList.csv', 'w')
-    wList = words.words()
-    newList = []
-    for x in range(len(wList)):
-        word = wlist[x]
-        if len(word) >= 2 or len(word) <= 8:
-            newList += [word]
-    file.write(str(newList))
+# def wordListCSV():
+#     file = open('wordList.csv', 'w')
+#     wList = words.words()
+#
+#     newList = []
+#     for x in range(len(wList)):
+#         word = wlist[x]
+#         if len(word) >= 2 or len(word) <= 8:
+#             newList += [word]
+#     file.write(str(newList))
 
 """
 Code below will create the graph and write it into a CSV file.
 """
-wlist = words.words()
-#print(type(wlist))
-# shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
-graph = createGraph(wlist)
-makeCSV(graph)
+# wlist = words.words()
+# #print(type(wlist))
+# # shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
+# graph = createGraph(wlist)
+# makeCSV(graph)
 
 """
 Code below will write the list of words into a csv
 """
-wordListCSV()
+# wordListCSV()
 
 
 

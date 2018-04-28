@@ -1,5 +1,6 @@
 import random
 from MakeCrossWord import *
+import math
 
 
 class BruteForceCrossword:
@@ -43,7 +44,6 @@ class BruteForceCrossword:
             currentWordIsAcross = not currentWordIsAcross
         return board
 
-
     """
     Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the
     current word are valid. (Adds the word at the first valid intersection found.)
@@ -68,3 +68,61 @@ class BruteForceCrossword:
                         return True
 
         return False
+
+    """
+    This method will take in cells and parse our alphabet graph and return a list of words that can form a word given
+    the parameters of the cells. 
+    
+    So if there's a space that looks like T_T, this will return a list of words such as TOTAL that could be put in 
+    there.
+    """
+
+    def fillInWords(self, cell0, cell1, cell3 = None, cell4 = None):
+        graph = readCSV()
+        validWordList = []
+        acrossWord = True
+        list0 = graph[cell0.acrossWord[cell0.indexInAcrossWord]] # list of words that will be parsed for valid words
+
+        x0 = cell0.xCoord
+        y0 = cell0.yCoord
+        x1 = cell1.xCoord
+        y1 = cell1.xCoord
+
+        if x0 == x1:
+            acrossWord = False
+            distance = math.fabs(y0 - y1)
+            if y0 > y1: # making sure cell0 is the first cell in the pattern
+                cell = cell1
+                cell1 = cell0
+                cell0 = cell
+        else:
+            distance = math.fabs(x0-x1)
+            if x0 > x1:
+                cell = cell1
+                cell1 = cell0
+                cell0 = cell
+
+
+        for word in list0:
+            valid = False
+            if acrossWord:
+
+                parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]
+                for x in range(distance-2):
+                    parameter.append(None)
+                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
+                for letterIndex in range(len(word)):
+                    if word[letterIndex] == parameter[0] and letterIndex+distance < len(word):
+                        if word[letterIndex + distance] == parameter[-1]:
+                            valid = True
+                            # break
+            if valid is True:
+                validWordList.append(word)
+
+
+
+
+
+
+
+        return validWordList

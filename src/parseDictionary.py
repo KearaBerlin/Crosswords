@@ -71,15 +71,15 @@ def readCSV():
 
     return graph
 
-def wordListCSV():
-    file = open('wordList.csv', 'w')
-    wList = words.words()
-
-    newList = []
-    for word in wList:
-        if len(word) >= 2 and len(word) <= 8:
-            newList.append(word)
-    file.write(str(newList))
+# def wordListCSV():
+#     file = open('wordList.csv', 'w')
+#     wList = words.words()
+#
+#     newList = []
+#     for word in wList:
+#         if len(word) >= 2 and len(word) <= 8:
+#             newList.append(word)
+#     file.write(str(newList))
 
 """
 Code below will create the graph and write it into a CSV file.
@@ -93,7 +93,7 @@ Code below will create the graph and write it into a CSV file.
 """
 Code below will write the list of words into a csv
 """
-wordListCSV()
+# wordListCSV()
 
 
 

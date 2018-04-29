@@ -3,7 +3,7 @@ from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
 from src.CrosswordRepresentation import CrosswordRepresentation
-from src.Intersection import  Intersection
+from src.Intersection import Intersection
 
 file = open("wordList.csv", 'r')
 text = file.read()
@@ -38,14 +38,8 @@ class Board:
         for y in range(len(self.boardArray)):
             for x in range(len(self.boardArray)):
                 cell = self.boardArray[x][y]
-                if cell is not None:
-                    if usedCells:
-                        if cell.acrossWord[cell.indexInAcross] is not None:
-                            row.append([cell.acrossWord[cell.indexInAcross]])
-                        else:
-                            row.append([cell.downWord[cell.indexInDown]])
-                    else:
-                        row.append(cell)
+                if cell is not None and cell.char is not None:
+                    row.append(cell.char)
                 else:
                     row += ['_']
             print(row)
@@ -371,6 +365,10 @@ class Board:
             self.yCoord = y
             self.indexInAcrossWord = indexInAcrossWord
             self.indexInDownWord = indexInDownWord
+            if self.acrossWord is not None:
+                self.char = self.acrossWord[self.indexInAcrossWord]
+            elif self.downWord is not None:
+                self.char = self.downWord[self.indexInDownWord]
 
         """
         Setter method for the coordinates of the cell.

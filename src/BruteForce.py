@@ -21,7 +21,7 @@ class BruteForceCrossword:
         startWord = keys[randomIndex]
 
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation([],[startWord], [])
+        crossword = CrosswordRepresentation([startWord], [], [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
@@ -94,7 +94,7 @@ class BruteForceCrossword:
         if x0 == x1:
             acrossWord = False
             distance = math.fabs(y0 - y1)
-            if y0 > y1: # making sure cell0 is the first cell in the pattern
+            if y0 > y1:  # making sure cell0 is the first cell in the pattern
                 cell = cell1
                 cell1 = cell0
                 cell0 = cell
@@ -104,7 +104,6 @@ class BruteForceCrossword:
                 cell = cell1
                 cell1 = cell0
                 cell0 = cell
-
 
         for word in list0:
             valid = False # If valid is true then a word is added to the validWordList.

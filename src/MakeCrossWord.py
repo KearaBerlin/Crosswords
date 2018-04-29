@@ -2,6 +2,8 @@
 from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
+from src.CrosswordRepresentation import CrosswordRepresentation
+from src.Intersection import  Intersection
 
 file = open("wordList.csv", 'r')
 text = file.read()
@@ -10,6 +12,7 @@ file.close()
 wordList = ["HELLO", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
+
 
 """
 Representing board with a 2D array.
@@ -25,7 +28,7 @@ class Board:
         if len(crossword.across) != 0:
             self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
             # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
-            self.addWordToArray(0, 0, self.startingWord, True)
+            self.addWordToArray(0, 0, self.startingWord, None, True)
 
     """
     Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
@@ -56,14 +59,22 @@ class Board:
 
     """
     So writing this method with the assumption that we have checked that it is valid to
-    add the word at this position and the area around it.
+    add the word at this position and the area around it. This method adds the word itself to the array and the down
+    or across list, and to the intersections list. It does not update any neighboring words.
     """
-    def addWordToArray(self, sX, sY, word, isAcross):
-        for x in range(len(word)):
-            if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word,   None, sX+x, sY,     x, 0)
+    def addWordToArray(self, sX, sY, newWord, intersection, newWordIsAcross):
+        if intersection is not None:
+            self.crossword.inter.append(intersection)
+        if newWordIsAcross:
+            self.crossword.across.append(newWord)
+        else:
+            self.crossword.down.append(newWord)
+
+        for x in range(len(newWord)):
+            if newWordIsAcross:
+                self.boardArray[sX+x][sY] = self.Cell(newWord, None, sX + x, sY, x, 0)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(None, word, sX,   sY + x, 0, x)
+                self.boardArray[sX][sY + x] = self.Cell(None, newWord, sX, sY + x, 0, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -76,7 +87,7 @@ class Board:
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
     crossword.
     """
-    def addIfValid(self,interCell, intersection, newWordIsAcross):
+    def addIfValid(self, interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
         # set the variables we will need that differ based on newWordIsAcross
@@ -136,8 +147,9 @@ class Board:
             if perpendicularIntersectingWord is not None:
                 if not self.collidedWordIsValid(char, perpendicularWordIndex, perpendicularIntersectingWord):
                     return False
-            # TODO check for parallel word and whether it's valid to change. This is tricky.
-            if parallelIntersectingWord is not None and (parallelWordIndex == 0 or i == 0):
+            # If there is a word that overlaps and is in the same direction as the new word, for now we will just
+            # return False.
+            if parallelIntersectingWord is not None:
                 return False
 
             # -------------------------------------------------------------
@@ -170,8 +182,9 @@ class Board:
 
         # --------------------------------------------------------------------------
         # 6. If we made it this far without returning False, the new word is valid!
-        # # ------------------------------------------------------------------------
-        # TODO how do we actually add the word now that it is valid?
+        # --------------------------------------------------------------------------
+        # TODO how do we actually add the word now that it is valid? Maybe this can be done in addWordToArray() method.
+        self.addWordToArray(startingX, startingY, newWord, newWordIsAcross)
         return True
 
     """
@@ -368,49 +381,6 @@ class Board:
             self.yCoord = newY
 
 
-# TODO fill in this class description comment
-"""
-Write stuff:
-"""
-class CrosswordRepresentation:
-
-    """
-    Parameters: ListD of Down words, ListA of Across words. Intersections of words
-    We will represent the intersection of words by having a coordinate representing
-    which index of listD and listA intersect.
-    """
-    def __init__(self,listD, listA, intersections):
-        self.across = listA
-        self.down = listD
-        self.inter = intersections
-
-    """
-    Scores the density of the current crossword. This will be used to find a better neighbor
-    than the brute force algorithm.
-    """
-    def density(self):
-
-        # ----------------
-        # 1. Track how words are in the crossword
-        # 2. Count how many intersections are in the crossword
-        # 3.
-
-        # Python code that generates a crossword: http://bryanhelmig.com/python-crossword-puzzle-generator/
-        return
-
-
-
-
-"""
-Represents two words and which index in the word will intersect with the other word.
-"""
-class Intersection:
-
-    def __init__(self, acrossWord, downWord,acrossWordIndex, downWordIndex, ):
-        self.across = acrossWord
-        self.down = downWord
-        self.acrossIndex = acrossWordIndex
-        self.downIndex = downWordIndex
 
 # Commented code below is just an example of how we would use the Intersection class.
 # listA = ["attack", "sleep", "awake"]

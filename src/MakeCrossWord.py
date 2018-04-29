@@ -37,7 +37,10 @@ class Board:
                 cell = self.boardArray[x][y]
                 if cell is not None:
                     if usedCells:
-                        row.append([cell.acrossWord[cell.indexInAcross]])
+                        if cell.acrossWord[cell.indexInAcross] is not None:
+                            row.append([cell.acrossWord[cell.indexInAcross]])
+                        else:
+                            row.append([cell.downWord[cell.indexInDown]])
                     else:
                         row.append(cell)
                 else:

@@ -109,21 +109,20 @@ class BruteForceCrossword:
         for word in list0:
             valid = False # If valid is true then a word is added to the validWordList.
             parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]  # this makes the first index of the parameter the first letter (cell0's letter)
-
             if acrossWord:
-
                 for x in range(distance-2):
                     parameter.append(None)
-                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord]) # this
+                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord]) # this makes the parameter look like this [cell0 letter, None, None, cell1 letter]
                 for letterIndex in range(len(word)):
                     if word[letterIndex] == parameter[0] and letterIndex+distance < len(word):
                         if word[letterIndex + distance] == parameter[-1]:
                             valid = True
                             # break
-            else:  # code for if we are getting words for a down position in the crossword
-                for x in range(distance-2):
-                    parameter.append(None)
-                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
+            # else:  # code for if we are getting words for a down position in the crossword
+            #     for x in range(distance-2):
+            #         parameter.append(None)
+            #     parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
+            #     for
 
 
             if valid is True:

@@ -93,6 +93,14 @@ class TestMethods(unittest.TestCase):
         self.assertFalse(board.collidedWordIsValid('A', 0, 'MAP'))
         self.assertTrue(board.collidedWordIsValid('H', 0, 'HELLO'))
 
+    def test_add_word_to_array(self):
+        board = self.helloBoard
+        board.shiftElements(0, 3)
+        intersection = Intersection("HELLO", "WORLD", 2, 3)
+        afterBoard = Board(CrosswordRepresentation(["WORLD"], ["HELLO"], [intersection]))
+        board.addWordToArray(0, 3, "WORLD", intersection, False)
+        self.assertEquals(board, afterBoard)
+
 if __name__ == '__main__':
     unittest.main()
 

@@ -25,18 +25,26 @@ class Board:
         if len(crossword.across) != 0:
             self.startingWord = crossword.across[0]  # First word will always be the first index of the across list.
             # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
-            self.addWordToArray(0, 0, self.startingWord, True)
+            self.addWordToArray(0, 0, self.startingWord, None, True)
 
     """
     So writing this method with the assumption that we have checked that it is valid to
-    add the word at this position and the area around it.
+    add the word at this position and the area around it. This method adds the word itself to the array and the down
+    or across list, and to the intersections list. It does not update any neighboring words.
     """
-    def addWordToArray(self, sX, sY, word, isAcross):
-        for x in range(len(word)):
-            if isAcross:
-                self.boardArray[sX+x][sY] = self.Cell(word,   None, sX+x, sY,     x, 0)
+    def addWordToArray(self, sX, sY, newWord, intersection, newWordIsAcross):
+        if intersection is not None:
+            self.crossword.inter.append(intersection)
+        if newWordIsAcross:
+            self.crossword.across.append(newWord)
+        else:
+            self.crossword.down.append(newWord)
+
+        for x in range(len(newWord)):
+            if newWordIsAcross:
+                self.boardArray[sX+x][sY] = self.Cell(newWord, None, sX + x, sY, x, 0)
             else:
-                self.boardArray[sX][sY + x] = self.Cell(None, word, sX,   sY + x, 0, x)
+                self.boardArray[sX][sY + x] = self.Cell(None, newWord, sX, sY + x, 0, x)
 
     """
     Returns cell object at given x and y coordinate
@@ -109,8 +117,9 @@ class Board:
             if perpendicularIntersectingWord is not None:
                 if not self.collidedWordIsValid(char, perpendicularWordIndex, perpendicularIntersectingWord):
                     return False
-            # TODO check for parallel word and whether it's valid to change. This is tricky.
-            if parallelIntersectingWord is not None and (parallelWordIndex == 0 or i == 0):
+            # If there is a word that overlaps and is in the same direction as the new word, for now we will just
+            # return False.
+            if parallelIntersectingWord is not None:
                 return False
 
             # -------------------------------------------------------------
@@ -143,8 +152,9 @@ class Board:
 
         # --------------------------------------------------------------------------
         # 6. If we made it this far without returning False, the new word is valid!
-        # # ------------------------------------------------------------------------
-        # TODO how do we actually add the word now that it is valid?
+        # --------------------------------------------------------------------------
+        # TODO how do we actually add the word now that it is valid? Maybe this can be done in addWordToArray() method.
+        self.addWordToArray(startingX, startingY, newWord, newWordIsAcross)
         return True
 
     """
@@ -369,7 +379,7 @@ Represents two words and which index in the word will intersect with the other w
 """
 class Intersection:
 
-    def __init__(self, acrossWord, downWord,acrossWordIndex, downWordIndex, ):
+    def __init__(self, acrossWord, downWord, acrossWordIndex, downWordIndex ):
         self.across = acrossWord
         self.down = downWord
         self.acrossIndex = acrossWordIndex

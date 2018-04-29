@@ -88,6 +88,9 @@ class BruteForceCrossword:
         x1 = cell1.xCoord
         y1 = cell1.xCoord
 
+        # --------------
+        # This makes sure that the cell0 variable holds the cell with the smallest x coord or y coord.
+        # --------------
         if x0 == x1:
             acrossWord = False
             distance = math.fabs(y0 - y1)
@@ -104,10 +107,11 @@ class BruteForceCrossword:
 
 
         for word in list0:
-            valid = False
+            valid = False # If valid is true then a word is added to the validWordList.
+            parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]  # this makes the first index of the parameter the first letter (cell0's letter)
+
             if acrossWord:
 
-                parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]
                 for x in range(distance-2):
                     parameter.append(None)
                 parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
@@ -116,6 +120,12 @@ class BruteForceCrossword:
                         if word[letterIndex + distance] == parameter[-1]:
                             valid = True
                             # break
+
+            else:
+
+                parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]
+
+
             if valid is True:
                 validWordList.append(word)
 

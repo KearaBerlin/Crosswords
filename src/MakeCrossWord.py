@@ -28,6 +28,28 @@ class Board:
             self.addWordToArray(0, 0, self.startingWord, True)
 
     """
+    Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
+    """
+    def terminalRepresentationOfCrossword(self):
+        row = []
+        for y in range(len(self.boardArray)):
+            for x in range(len(self.boardArray)):
+                cell = self.boardArray[x][y]
+                if cell is not None:
+                    index = cell.indexWithinWord
+                    row.append([cell.acrossWord[index]])
+                else:
+                    row += [cell]
+            print(row)
+            row = []
+
+    def wordCount(self):
+        return len(self.crossword.across) + len(self.crossword.down)
+
+    def numIntersections(self):
+        return len(self.crossword.intersections)
+
+    """
     So writing this method with the assumption that we have checked that it is valid to
     add the word at this position and the area around it.
     """
@@ -362,7 +384,17 @@ class CrosswordRepresentation:
     than the brute force algorithm.
     """
     def density(self):
-        return 0
+
+        # ----------------
+        # 1. Track how words are in the crossword
+        # 2. Count how many intersections are in the crossword
+        # 3.
+
+        # Python code that generates a crossword: http://bryanhelmig.com/python-crossword-puzzle-generator/
+        return
+
+
+
 
 """
 Represents two words and which index in the word will intersect with the other word.

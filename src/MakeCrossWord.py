@@ -39,7 +39,7 @@ class Board:
                     index = cell.indexWithinWord
                     row.append([cell.acrossWord[index]])
                 else:
-                    row += [cell]
+                    row += ['_']
             print(row)
             row = []
 

@@ -114,16 +114,16 @@ class BruteForceCrossword:
 
                 for x in range(distance-2):
                     parameter.append(None)
-                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
+                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord]) # this
                 for letterIndex in range(len(word)):
                     if word[letterIndex] == parameter[0] and letterIndex+distance < len(word):
                         if word[letterIndex + distance] == parameter[-1]:
                             valid = True
                             # break
-
-            else:
-
-                parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]
+            else:  # code for if we are getting words for a down position in the crossword
+                for x in range(distance-2):
+                    parameter.append(None)
+                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
 
 
             if valid is True:

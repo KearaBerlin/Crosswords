@@ -38,6 +38,7 @@ class TestMethods(unittest.TestCase):
 
         self.assertTrue(board.shiftElements(width-2,0))
         board.shiftElements(-(width-2),0)
+        board.terminalRepresentationOfCrossword()
 
         self.assertFalse(board.shiftElements(width,0))
         self.assertFalse(board.shiftElements(-1, 0))

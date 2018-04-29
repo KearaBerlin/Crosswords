@@ -30,14 +30,16 @@ class Board:
     """
     Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
     """
-    def terminalRepresentationOfCrossword(self):
+    def terminalRepresentationOfCrossword(self, usedCells = True):
         row = []
         for y in range(len(self.boardArray)):
             for x in range(len(self.boardArray)):
                 cell = self.boardArray[x][y]
                 if cell is not None:
-                    index = cell.indexWithinWord
-                    row.append([cell.acrossWord[index]])
+                    if usedCells:
+                        row.append([cell.acrossWord[cell.indexInAcross]])
+                    else:
+                        row.append(cell)
                 else:
                     row += ['_']
             print(row)

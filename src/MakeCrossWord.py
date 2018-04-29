@@ -2,6 +2,8 @@
 from src.parseDictionary import *
 from nltk.corpus import words
 from src.BruteForce import *
+from src.CrosswordRepresentation import CrosswordRepresentation
+from src.Intersection import  Intersection
 
 file = open("wordList.csv", 'r')
 text = file.read()
@@ -10,6 +12,7 @@ file.close()
 wordList = ["HELLO", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
+
 
 """
 Representing board with a 2D array.
@@ -79,7 +82,7 @@ class Board:
     intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
     crossword.
     """
-    def addIfValid(self,interCell, intersection, newWordIsAcross):
+    def addIfValid(self, interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
         # set the variables we will need that differ based on newWordIsAcross
@@ -373,49 +376,6 @@ class Board:
             self.yCoord = newY
 
 
-# TODO fill in this class description comment
-"""
-Write stuff:
-"""
-class CrosswordRepresentation:
-
-    """
-    Parameters: ListD of Down words, ListA of Across words. Intersections of words
-    We will represent the intersection of words by having a coordinate representing
-    which index of listD and listA intersect.
-    """
-    def __init__(self,listD, listA, intersections):
-        self.across = listA
-        self.down = listD
-        self.inter = intersections
-
-    """
-    Scores the density of the current crossword. This will be used to find a better neighbor
-    than the brute force algorithm.
-    """
-    def density(self):
-
-        # ----------------
-        # 1. Track how words are in the crossword
-        # 2. Count how many intersections are in the crossword
-        # 3.
-
-        # Python code that generates a crossword: http://bryanhelmig.com/python-crossword-puzzle-generator/
-        return
-
-
-
-
-"""
-Represents two words and which index in the word will intersect with the other word.
-"""
-class Intersection:
-
-    def __init__(self, acrossWord, downWord, acrossWordIndex, downWordIndex ):
-        self.across = acrossWord
-        self.down = downWord
-        self.acrossIndex = acrossWordIndex
-        self.downIndex = downWordIndex
 
 # Commented code below is just an example of how we would use the Intersection class.
 # listA = ["attack", "sleep", "awake"]

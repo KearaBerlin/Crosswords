@@ -2,15 +2,16 @@ import unittest
 from src.MakeCrossWord import *
 from src.parseDictionary import *
 from src.BruteForce import *
+from src.Intersection import Intersection
 
 width = 30
 
 class TestMethods(unittest.TestCase):
 
-    helloBoard = Board(CrosswordRepresentation([], ["HELLO"], []))
+    helloBoard = Board(CrosswordRepresentation(["HELLO"], [], []))
 
     def test_board_constructor(self):
-        crossword = CrosswordRepresentation([], ["HELLO"], [])
+        crossword = CrosswordRepresentation(["HELLO"], [], [])
         board = Board(crossword)
         self.assertEqual(board.WIDTH, 30)  # test the default width is right
         # test that rows and cols are empty or not as appropriate
@@ -96,10 +97,15 @@ class TestMethods(unittest.TestCase):
     def test_add_word_to_array(self):
         board = self.helloBoard
         board.shiftElements(0, 3)
-        intersection = Intersection("HELLO", "WORLD", 2, 3)
-        afterBoard = Board(CrosswordRepresentation(["WORLD"], ["HELLO"], [intersection]))
-        board.addWordToArray(0, 3, "WORLD", intersection, False)
-        self.assertEquals(board, afterBoard)
+        existing = "HELLO"
+        new = "WORLD"
+        intersection = Intersection(existing, new, 2, 3)
+        afterBoard = Board(CrosswordRepresentation([existing], [new], [intersection]))
+        board.addWordToArray(0, 3, new, intersection, False)
+
+        board.terminalRepresentationOfCrossword()
+        afterBoard.terminalRepresentationOfCrossword()
+        # self.assertEquals(board, afterBoard)
 
 if __name__ == '__main__':
     unittest.main()

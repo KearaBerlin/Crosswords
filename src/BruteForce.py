@@ -21,7 +21,7 @@ class BruteForceCrossword:
         startWord = keys[randomIndex]
 
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation([], [startWord], [])
+        crossword = CrosswordRepresentation([startWord], [], [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword

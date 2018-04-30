@@ -105,11 +105,11 @@ class TestMethods(unittest.TestCase):
 
     def test_collidedWordIsValid(self):
         board = self.helloBoard
-        self.assertTrue(board.collidedWordIsValid('N', 0, 'PEW'))
-        self.assertTrue(board.collidedWordIsValid('W', 1, 'SMARM'))
-        self.assertTrue(board.collidedWordIsValid('S', 3, 'LOPE'))
-        self.assertFalse(board.collidedWordIsValid('A', 0, 'MAP'))
-        self.assertTrue(board.collidedWordIsValid('H', 0, 'HELLO'))
+        self.assertTrue(board.getCollidedWord('N', 0, 'PEW') is not None)
+        self.assertTrue(board.getCollidedWord('W', 1, 'SMARM') is not None)
+        self.assertTrue(board.getCollidedWord('S', 3, 'LOPE') is not None)
+        self.assertFalse(board.getCollidedWord('A', 0, 'MAP') is not None)
+        self.assertTrue(board.getCollidedWord('H', 0, 'HELLO') is not None)
 
     def test_add_word_to_array(self):
         board = self.helloBoard
@@ -118,9 +118,11 @@ class TestMethods(unittest.TestCase):
         new = "WORLD"
         intersection = Intersection(existing, new, 2, 3)
         afterBoard = Board(CrosswordRepresentation([existing], [new], [intersection]))
+        afterBoard.boardArray = []
         board.addWordToArray(0, 3, new, intersection, False)
 
         board.terminalRepresentationOfCrossword()
+        print("--------------------------------------------------------------------")
         afterBoard.terminalRepresentationOfCrossword()
         # self.assertEquals(board, afterBoard)
 

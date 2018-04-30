@@ -38,7 +38,7 @@ class Board:
         for y in range(len(self.boardArray)):
             for x in range(len(self.boardArray)):
                 cell = self.boardArray[x][y]
-                if cell is not None and cell.char is not None:
+                if cell is not None and type(cell) is self.Cell:
                     row.append(cell.char)
                 else:
                     row += ['_']

@@ -39,7 +39,7 @@ class TestMethods(unittest.TestCase):
 
         self.assertTrue(board.shiftElements(width-2,0))
         board.shiftElements(-(width-2),0)
-        board.terminalRepresentationOfCrossword()
+        # board.terminalRepresentationOfCrossword()
 
         self.assertFalse(board.shiftElements(width,0))
         self.assertFalse(board.shiftElements(-1, 0))
@@ -56,6 +56,22 @@ class TestMethods(unittest.TestCase):
 
         self.assertFalse(board.shiftElements(0, width))
         self.assertFalse(board.shiftElements(0, -3))
+
+    """
+    Comment out the assertEqual statements if you want to significantly decrease the run time.
+    """
+    def test_fillInWords(self):
+        crossword = CrosswordRepresentation([], [], [])
+        board = Board(crossword)
+        cell0 = board.Cell('TAKE', 'TIME', 5, 5, 0, 0)
+        cell1 = board.Cell('ATE', 'MATE', 5, 8, 1, 2)
+        bf = BruteForceCrossword()
+        self.assertGreaterEqual(len(bf.fillInWords(cell0, cell1)), 15)
+        self.assertEqual(bf.fillInWords(cell0, cell1), bf.fillInWords(cell1, cell0))
+
+        cell2 = board.Cell('TAKE', 'TIME', 6, 6, 0, 0)
+        cell3 = board.Cell('ATE', 'MATE', 9, 6, 1, 2)
+        self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
 
     def test_get_cell_affix_empty(self):

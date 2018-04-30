@@ -1,5 +1,6 @@
 import random
 from MakeCrossWord import *
+from parseDictionary import *
 import math
 
 
@@ -75,31 +76,32 @@ class BruteForceCrossword:
     
     So if there's a space that looks like T_T, this will return a list of words such as TOTAL that could be put in 
     there.
+    
+    Currently only works for the input of two cells. 
     """
 
     def fillInWords(self, cell0, cell1, cell3 = None, cell4 = None):
         graph = readCSV()
         validWordList = []
-        acrossWord = True
-        list0 = graph[cell0.acrossWord[cell0.indexInAcrossWord]] # list of words that will be parsed for valid words
+        # acrossWord = True
+        list0 = graph[cell0.char] # list of words that will be parsed for valid words
 
         x0 = cell0.xCoord
         y0 = cell0.yCoord
         x1 = cell1.xCoord
-        y1 = cell1.xCoord
+        y1 = cell1.yCoord
 
         # --------------
         # This makes sure that the cell0 variable holds the cell with the smallest x coord or y coord.
         # --------------
         if x0 == x1:
-            acrossWord = False
-            distance = math.fabs(y0 - y1)
+            distance = int(math.fabs(y0 - y1))
             if y0 > y1:  # making sure cell0 is the first cell in the pattern
                 cell = cell1
                 cell1 = cell0
                 cell0 = cell
         else:
-            distance = math.fabs(x0-x1)
+            distance = int(math.fabs(x0-x1))
             if x0 > x1:
                 cell = cell1
                 cell1 = cell0
@@ -107,30 +109,17 @@ class BruteForceCrossword:
 
         for word in list0:
             valid = False # If valid is true then a word is added to the validWordList.
-            parameter = [cell0.acrossWord[cell0.indexInAcrossWord]]  # this makes the first index of the parameter the first letter (cell0's letter)
-            if acrossWord:
-                for x in range(distance-2):
-                    parameter.append(None)
-                parameter.append(cell1.acrossWord[cell1.indexInAcrossWord]) # this makes the parameter look like this [cell0 letter, None, None, cell1 letter]
-                for letterIndex in range(len(word)):
-                    if word[letterIndex] == parameter[0] and letterIndex+distance < len(word):
-                        if word[letterIndex + distance] == parameter[-1]:
-                            valid = True
-                            # break
-            # else:  # code for if we are getting words for a down position in the crossword
-            #     for x in range(distance-2):
-            #         parameter.append(None)
-            #     parameter.append(cell1.acrossWord[cell1.indexInAcrossWord])
-            #     for
-
+            parameter = [cell0.char]  # this makes the first index of the parameter the first letter (cell0's letter)
+            for x in range(distance-1):
+                parameter.append('_')
+            parameter.append(cell1.char) # this makes the parameter look like this [cell0 letter, None, None, cell1 letter]
+            for letterIndex in range(len(word)):
+                if word[letterIndex] == parameter[0] and letterIndex+distance < len(word):
+                    if word[letterIndex + distance] == parameter[-1]:
+                        valid = True
+                        break  # this probably isn't need but could reduce time complexity by stopping the loop once a match to the parameter is found.
 
             if valid is True:
                 validWordList.append(word)
-
-
-
-
-
-
 
         return validWordList

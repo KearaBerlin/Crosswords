@@ -1,7 +1,10 @@
 import random
 from MakeCrossWord import *
+from CrosswordRepresentation import *
 from parseDictionary import *
 import math
+from collections import deque
+from Intersection import *
 
 
 class BruteForceCrossword:
@@ -14,36 +17,46 @@ class BruteForceCrossword:
     2. Examine neighbors
     """
     def bruteForce(self, graph):
-
         # get a random word to start with
-        keys = graph.keys()
-        randomIndex = random.randint(0,len(keys)-1)
-        keys = list(keys)
-        startWord = keys[randomIndex]
+        keys = list(graph.keys())
+        randomIndex0 = random.randint(0,len(keys)-1)
+        randomLetter = keys[randomIndex0] # Gives us a list of words from graph[some random letter]
+        wordList = graph[randomLetter]
+        randomIndex1 = random.randint(0,len(wordList)-1)
+        startWord = wordList[randomIndex1]
 
+        Q = deque([]) # intialize a queue that will store each word that has been added to the crossword
+        Q.append(startWord)
         # initialize a crossword that contains that start word
         crossword = CrosswordRepresentation([startWord], [], [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
-        currentWord = startWord
+
         currentWordIsAcross = True
-        for i in range(10):
+        while len(Q) > 0:  # while Q is not empty
+            currentWord = Q.popleft() # removes the first element in the Queue.
 
-            # this loops through the current word's neighbors until we find a neighbor we can insert into the crossword
-            neighbors = graph[currentWord]
-            found = False
-            for neighborTuple in neighbors:
-                neighborWord = neighborTuple[0]
+            # updates currentWordIsAcross depending on whether or not
+            # the current word is in the across or down dictionary keys.
+            if currentWord in board.crossword.across.keys():
+                currentWordIsAcross = False
+            elif currentWord in board.crossword.down.keys():
+                currentWordIsAcross = True
 
-                # call a method that adds the neighbor word in a valid intersection if it finds one
-                if self.addNeighbor(currentWord, currentWordIsAcross, neighborWord, board):
-                    currentWord = neighborWord
-                    break
-
-            # every other word will be across
-            currentWordIsAcross = not currentWordIsAcross
+            for x in range(len(currentWord)):
+                neighbors = graph[currentWord[x]]
+                for neighbor in neighbors:
+                    newWord = neighbor
+                    if currentWordIsAcross and newWord not in Q:
+                        intersection = Intersection(currentWord, newWord, x, newWord.find(currentWord[x]))
+                        interCell = board.crossword.across[currentWord]
+                        if board.addIfValid(interCell, intersection, False):
+                            Q.append(newWord)
+                            break  # We don't want to keep looping through all the neighbors if we have found a valid one.
         return board
+
+
 
     """
     Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the

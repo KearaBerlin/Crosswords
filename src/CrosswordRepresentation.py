@@ -11,9 +11,9 @@ class CrosswordRepresentation:
     listD and listA are dictionaires where the keys are the words that are across or down and the value is the cell
     object of the first letter of the word.
     """
-    def __init__(self, listA, listD, intersections):
-        self.across = listA
-        self.down = listD
+    def __init__(self, dictA, dictD, intersections):
+        self.across = dictA
+        self.down = dictD
         self.inter = intersections
 
     """

@@ -200,11 +200,11 @@ class Board:
                     adjCellTwo = self.boardArray[currentCell.xCoord-1][currentCell.yCoord]
 
             if adjCellOne is not None:
-                cellOneAffix = self.getCellAffix(adjCellOne, True)  # I think this should be newWordIsAcross instead of True
+                cellOneAffix = self.getCellAffix(adjCellOne, newWordIsAcross)  # I think you're right
             else:
                 cellOneAffix = ''
             if adjCellTwo is not None:
-                cellTwoAffix = self.getCellAffix(adjCellTwo, True)  # I think this should be newWordIsAcross instead of True
+                cellTwoAffix = self.getCellAffix(adjCellTwo, newWordIsAcross)
             else:
                 cellTwoAffix = ''
             affixedWord = cellOneAffix + char + cellTwoAffix

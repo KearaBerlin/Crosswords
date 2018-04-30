@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/CrosswordRepresentation.py" afterPath="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
-      <change beforePath="$PROJECT_DIR$/src/MakeCrossWord.py" afterPath="$PROJECT_DIR$/src/MakeCrossWord.py" />
-      <change beforePath="$PROJECT_DIR$/src/TestingFile.py" afterPath="$PROJECT_DIR$/src/TestingFile.py" />
+    <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="Finished addIfvalid. Need to test">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MakeCrossWord.py" afterPath="$PROJECT_DIR$/src/MakeCrossWord.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,23 +14,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="wordList.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wordList.csv">
+      <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="2232">
+              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BruteForce.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+            <state relative-caret-position="216">
+              <caret line="206" column="77" lean-forward="false" selection-start-line="206" selection-start-column="77" selection-end-line="206" selection-end-column="77" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#1#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,30 +41,8 @@
       <file leaf-file-name="Intersection.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Intersection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3030">
-              <caret line="202" column="65" lean-forward="false" selection-start-line="202" selection-start-column="61" selection-end-line="202" selection-end-column="65" />
-              <folding>
-                <element signature="e#1#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
+            <state relative-caret-position="240">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,20 +51,51 @@
       <file leaf-file-name="CrosswordRepresentation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="744">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <marker date="1525121219091" expanded="true" signature="103:324" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525121219091" expanded="true" signature="592:629" ph="..." />
+                <marker date="1525121219091" expanded="true" signature="635:775" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525121219091" expanded="true" signature="808:1061" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestingFile.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BruteForce.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1525121219059" expanded="true" signature="2392:5814" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="2398:2674" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525121219059" expanded="true" signature="2756:3614" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="2807:3592" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="2863:3592" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="2934:3592" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="3033:3187" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="3213:3367" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="3620:3974" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525121219059" expanded="true" signature="4326:4470" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="4491:4704" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="4562:4704" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="4718:4875" ph="..." />
+                <marker date="1525121219059" expanded="true" signature="4787:4875" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestingFile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="384">
               <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
-                <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,6 +113,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Board</find>
+      <find>print</find>
       <find>os</find>
       <find>addNe</find>
       <find>addIf</find>
@@ -111,19 +121,8 @@
       <find>wordList</find>
       <find>eval</find>
       <find>contains</find>
-      <find>density</find>
-      <find>FILE_NAME</find>
-      <find>dictfile</find>
-      <find>class cell</find>
-      <find>print</find>
-      <find>terminal</find>
-      <find>.x</find>
-      <find>getShift</find>
-      <find>CrosswordRepresentation</find>
-      <find>crossword.across.app</find>
-      <find>crossword.across</find>
-      <find>crossword.down</find>
-      <find>return False</find>
+      <find>CrosswordRepre</find>
+      <find>Intersection</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,34 +141,19 @@
         <option value="$PROJECT_DIR$/MakeCrossWord.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/src/parseDictionary.py" />
         <option value="$PROJECT_DIR$/src/BruteForce.py" />
         <option value="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
+        <option value="$PROJECT_DIR$/src/Intersection.py" />
+        <option value="$PROJECT_DIR$/src/parseDictionary.py" />
         <option value="$PROJECT_DIR$/src/TestingFile.py" />
         <option value="$PROJECT_DIR$/src/MakeCrossWord.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1418" />
-    <option name="height" value="877" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Buildout</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1121" />
+    <option name="width" value="807" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -187,6 +171,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -198,14 +184,17 @@
             <path>
               <item name="Crosswords" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crosswords" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Crosswords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Crosswords" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -215,7 +204,7 @@
     <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -237,6 +226,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/BruteForce.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/CrosswordRepresentation.py</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/MakeCrossWord.py</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/TestingFile.py</PATH>
         </FILE-GROUP>
@@ -363,43 +355,20 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="parseDictionary (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Unittests in TestingFile.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Crosswords" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parseDictionary.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="parseDictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Crosswords" />
-      <option name="SCRIPT_NAME" value="C:\Users\kajb3\IntelliJIDEAProjects\Crosswords\src\parseDictionary.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/TestingFile.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -442,6 +411,12 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -476,25 +451,39 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration name="Unittests in TestingFile.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="parseDictionary (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Crosswords" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/TestingFile.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parseDictionary.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="parseDictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crosswords" />
+      <option name="SCRIPT_NAME" value="C:\Users\kajb3\IntelliJIDEAProjects\Crosswords\src\parseDictionary.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.parseDictionary" />
@@ -505,9 +494,9 @@
     <recent_temporary>
       <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in TestingFile.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.parseDictionary (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.MakeCrossWord" />
-        <item index="3" class="java.lang.String" itemvalue="Python.parseDictionary" />
+        <item index="1" class="java.lang.String" itemvalue="Python.MakeCrossWord" />
+        <item index="2" class="java.lang.String" itemvalue="Python.parseDictionary" />
+        <item index="3" class="java.lang.String" itemvalue="Python.parseDictionary (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -679,135 +668,122 @@
       <option name="project" value="LOCAL" />
       <updated>1524777179321</updated>
     </task>
-    <task id="LOCAL-00023" summary="Added a few methods. A method, fillInWords for building the crossword and some helper methods to begin measuring density.">
-      <created>1524948862131</created>
+    <task id="LOCAL-00023" summary="Wrote tests for collidedWordIsValid() and confirmed that the method works. On to addIfValid() itself">
+      <created>1524801207516</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1524948862131</updated>
+      <updated>1524801207516</updated>
     </task>
-    <task id="LOCAL-00024" summary="Added a few methods. A method, fillInWords for building the crossword and some helper methods to begin measuring density.">
-      <created>1525027887305</created>
+    <task id="LOCAL-00024" summary="Wrote code in addIfValid() to shift the puzzle if needed and return False if it can't be shifted. None of this method has been tested yet, but hopefully I/we can do that tomorrow.">
+      <created>1524952884231</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1525027887305</updated>
+      <updated>1524952884262</updated>
     </task>
-    <task id="LOCAL-00025" summary="Added a method in Board class called terminalRepresentationOfCrossword which prints out the crossword in the terminal nicely.">
-      <created>1525028489537</created>
+    <task id="LOCAL-00025" summary="Updated addWordToArray() and am testing it. Still need to update surrounding words though.">
+      <created>1525027843186</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1525028489537</updated>
+      <updated>1525027843186</updated>
     </task>
-    <task id="LOCAL-00026" summary="Fixed terminalRepresentationOfCrossword">
-      <created>1525029330235</created>
+    <task id="LOCAL-00026" summary="Put Intersection and CrosswordRepresentation in their own python files. Changed CrosswordRepresentation constructor so it takes across list first, then down list.">
+      <created>1525030220007</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1525029330235</updated>
+      <updated>1525030220007</updated>
     </task>
-    <task id="LOCAL-00027" summary="Added a boolean paramter to terminalRepresentaionOfCrossword which allows it to work with crosswords that use cells or just letters.">
-      <created>1525029895907</created>
+    <task id="LOCAL-00027" summary="Added calculating the char to the Cell constructor and updated terminalRep... now that works.">
+      <created>1525032777644</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1525029895907</updated>
+      <updated>1525032777644</updated>
     </task>
-    <task id="LOCAL-00028" summary="Fixed terminalRepresentation to work for both down and across words">
-      <created>1525031864715</created>
+    <task id="LOCAL-00028" summary="Started adding code that updates neighborinng words in the crossword lists. It isn't pretty but it's there and hopefully it will function once I test it.">
+      <created>1525111824908</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1525031864715</updated>
+      <updated>1525111824908</updated>
     </task>
-    <task id="LOCAL-00029" summary="Fixed terminalRepresentation to work for both down and across words">
-      <created>1525031963409</created>
+    <task id="LOCAL-00029" summary="Finished addIfvalid. Need to test">
+      <created>1525115487087</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1525031963409</updated>
+      <updated>1525115487087</updated>
     </task>
-    <task id="LOCAL-00030" summary="Tested fillInWords method. It's working correctly.">
-      <created>1525103119956</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1525103119956</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Changed CrosswordRepresentation and wrote the brute force algorithm">
-      <created>1525115571745</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1525115571745</updated>
-    </task>
-    <option name="localTasksCounter" value="32" />
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 17m 33s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 14h 54m 32s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 20m 40s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 02m 58s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 23m 33s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 03m 48s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 28m 34s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 05m 21s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 30m 07s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 08m 05s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 32m 57s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 08m 44s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 34m 15s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 08m 58s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 34m 25s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 11m 52s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 35m 01s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.29 at 15h 13m 57s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 15h 35m 46s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.04.30 at 16h 12m 42s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1418" height="877" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1777151" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39875776" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32339954" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -847,7 +823,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workspace automatically updated" />
     <MESSAGE value="wrote draft of brute force algorithm, as yet untested" />
     <MESSAGE value="just a routine commit, no real changes" />
     <MESSAGE value="moved everything into src and imported stuff from other files by using src.filename" />
@@ -865,43 +840,40 @@
     <MESSAGE value="Tried to merge changes - I think something weird happened with merging the changes to bruteForce since it moved files." />
     <MESSAGE value="Wrote unit tests for getCellAffix. They all pass. Still need to test the other helper method and finish and test addIfValid() itself." />
     <MESSAGE value="Fixed the list.contains() syntax" />
-    <MESSAGE value="Added a few methods. A method, fillInWords for building the crossword and some helper methods to begin measuring density." />
-    <MESSAGE value="Added a method in Board class called terminalRepresentationOfCrossword which prints out the crossword in the terminal nicely." />
-    <MESSAGE value="Fixed terminalRepresentationOfCrossword" />
-    <MESSAGE value="Added a boolean paramter to terminalRepresentaionOfCrossword which allows it to work with crosswords that use cells or just letters." />
-    <MESSAGE value="Fixed terminalRepresentation to work for both down and across words" />
-    <MESSAGE value="Tested fillInWords method. It's working correctly." />
-    <MESSAGE value="Changed CrosswordRepresentation and wrote the brute force algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed CrosswordRepresentation and wrote the brute force algorithm" />
+    <MESSAGE value="Wrote tests for collidedWordIsValid() and confirmed that the method works. On to addIfValid() itself" />
+    <MESSAGE value="Wrote code in addIfValid() to shift the puzzle if needed and return False if it can't be shifted. None of this method has been tested yet, but hopefully I/we can do that tomorrow." />
+    <MESSAGE value="Updated addWordToArray() and am testing it. Still need to update surrounding words though." />
+    <MESSAGE value="Put Intersection and CrosswordRepresentation in their own python files. Changed CrosswordRepresentation constructor so it takes across list first, then down list." />
+    <MESSAGE value="Added calculating the char to the Cell constructor and updated terminalRep... now that works." />
+    <MESSAGE value="Started adding code that updates neighborinng words in the crossword lists. It isn't pretty but it's there and hopefully it will function once I test it." />
+    <MESSAGE value="Finished addIfvalid. Need ot test" />
+    <MESSAGE value="Finished addIfvalid. Need to test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished addIfvalid. Need to test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/TestingFile.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/MakeCrossWord.py</url>
-          <line>123</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/MakeCrossWord.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3120">
+          <caret line="130" column="27" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="27" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -909,17 +881,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4968">
           <caret line="207" column="12" lean-forward="false" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BruteForce.py" />
-    <entry file="file://C:/Python35-32/Lib/site-packages/nltk/data.py" />
+    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525121219059" expanded="true" signature="2392:5814" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2398:2674" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="2756:3614" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2807:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2863:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2934:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3033:3187" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3213:3367" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3620:3974" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="4326:4470" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4491:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4562:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4718:4875" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4787:4875" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35-32/Lib/site-packages/nltk/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16128">
+          <caret line="672" column="0" lean-forward="false" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1896">
           <caret line="82" column="89" lean-forward="false" selection-start-line="82" selection-start-column="89" selection-end-line="82" selection-end-column="89" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,10 +932,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BruteForce.py" />
+    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525121219059" expanded="true" signature="2392:5814" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2398:2674" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="2756:3614" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2807:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2863:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2934:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3033:3187" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3213:3367" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3620:3974" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="4326:4470" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4491:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4562:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4718:4875" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4787:4875" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dictFile.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -944,7 +974,7 @@
         <state relative-caret-position="1320">
           <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -953,6 +983,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
           <caret line="120" column="15" lean-forward="false" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -960,6 +993,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -968,7 +1004,7 @@
         <state relative-caret-position="384">
           <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -977,29 +1013,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3384">
           <caret line="141" column="65" lean-forward="false" selection-start-line="141" selection-start-column="65" selection-end-line="141" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4560">
-          <caret line="192" column="65" lean-forward="false" selection-start-line="192" selection-start-column="65" selection-end-line="192" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#1#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1008,6 +1023,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4560">
+          <caret line="192" column="65" lean-forward="false" selection-start-line="192" selection-start-column="65" selection-end-line="192" selection-end-column="65" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1016,7 +1044,27 @@
         <state relative-caret-position="72">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1025,6 +1073,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3432">
           <caret line="143" column="72" lean-forward="false" selection-start-line="143" selection-start-column="72" selection-end-line="143" selection-end-column="72" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,6 +1083,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +1094,7 @@
         <state relative-caret-position="120">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1049,6 +1103,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1056,6 +1113,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,6 +1123,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="67" column="79" lean-forward="true" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,7 +1134,7 @@
         <state relative-caret-position="72">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1080,6 +1143,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1087,6 +1153,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2832">
           <caret line="118" column="14" lean-forward="true" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1101,6 +1170,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,6 +1178,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,6 +1188,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,6 +1198,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,6 +1206,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1136,6 +1216,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1143,6 +1226,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,6 +1234,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,13 +1247,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py" />
     <entry file="file://$PROJECT_DIR$/__init__.py" />
-    <entry file="file://C:/Python35-32/Lib/unittest/loader.py" />
-    <entry file="file://C:/Python35-32/Lib/unittest/case.py" />
-    <entry file="file://C:/Python35-32/Lib/site-packages/nltk/data.py" />
     <entry file="file://$PROJECT_DIR$/src/dictFile.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="0" column="1735" lean-forward="false" selection-start-line="0" selection-start-column="1735" selection-end-line="0" selection-end-column="1735" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35-32/Lib/unittest/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35-32/Lib/site-packages/nltk/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15792">
+          <caret line="672" column="0" lean-forward="false" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35-32/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="821" column="0" lean-forward="false" selection-start-line="821" selection-start-column="0" selection-end-line="821" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Intersection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,68 +1287,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Intersection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="681" column="0" lean-forward="false" selection-start-line="681" selection-start-column="0" selection-end-line="681" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="2232">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
-            <marker date="1525119453256" expanded="true" signature="6453:6454" ph="..." />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525121219059" expanded="true" signature="2392:5814" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2398:2674" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="2756:3614" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2807:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2863:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="2934:3592" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3033:3187" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3213:3367" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="3620:3974" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219059" expanded="true" signature="4326:4470" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4491:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4562:4704" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4718:4875" ph="..." />
+            <marker date="1525121219059" expanded="true" signature="4787:4875" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <marker date="1525121219091" expanded="true" signature="103:324" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219091" expanded="true" signature="592:629" ph="..." />
+            <marker date="1525121219091" expanded="true" signature="635:775" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525121219091" expanded="true" signature="808:1061" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3030">
-          <caret line="202" column="65" lean-forward="false" selection-start-line="202" selection-start-column="61" selection-end-line="202" selection-end-column="65" />
+        <state relative-caret-position="216">
+          <caret line="206" column="77" lean-forward="false" selection-start-line="206" selection-start-column="77" selection-end-line="206" selection-end-column="77" />
           <folding>
             <element signature="e#1#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

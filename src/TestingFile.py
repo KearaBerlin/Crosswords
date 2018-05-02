@@ -6,6 +6,7 @@ from src.Intersection import Intersection
 
 width = 30
 
+
 class TestMethods(unittest.TestCase):
 
     helloBoard = Board(CrosswordRepresentation({"HELLO":None}, {}, []))
@@ -73,15 +74,14 @@ class TestMethods(unittest.TestCase):
     #     cell3 = board.Cell('ATE', 'MATE', 9, 6, 1, 2)
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
-
     def test_addIfValid(self):
         crossword = CrosswordRepresentation({"HELLO": None}, {}, [])
         board = Board(crossword)
 
         # This is a valid add
-        interCell0 = board.getCellAt(0,0)
-        inter0 = Intersection("HELLO", "HELP",0,0)
-        self.assertTrue(board.addIfValid(interCell0,inter0, False))
+        interCell0 = board.getCellAt(0, 0)
+        inter0 = Intersection("HELLO", "HELP", 0, 0)
+        self.assertTrue(board.addIfValid(interCell0, inter0, False))
         board.terminalRepresentationOfCrossword()
 
         # # This is a valid add
@@ -99,9 +99,9 @@ class TestMethods(unittest.TestCase):
 
     # def test_get_cell_affix_empty(self):
     #     board = self.helloBoard
-    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), True),
+    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), True, True),
     #                      "")
-    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), False),
+    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), False, True),
     #                      "")
     #
     # def test_get_cell_affix_across(self):

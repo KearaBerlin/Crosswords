@@ -5,6 +5,8 @@ from src.BruteForce import *
 from src.Intersection import Intersection
 
 width = 30
+testCrossword = CrosswordRepresentation({"HELLO": None}, {}, [])
+testBoard = Board(testCrossword)
 
 class TestMethods(unittest.TestCase):
 
@@ -74,27 +76,26 @@ class TestMethods(unittest.TestCase):
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
 
-    def test_addIfValid(self):
-        crossword = CrosswordRepresentation({"HELLO": None}, {}, [])
-        board = Board(crossword)
 
+    def test_addIfValid0(self):
         # This is a valid add
-        interCell0 = board.getCellAt(0,0)
-        inter0 = Intersection("HELLO", "HELP",0,0)
-        self.assertTrue(board.addIfValid(interCell0,inter0, False))
-        board.terminalRepresentationOfCrossword()
+        interCell = testBoard.getCellAt(0,0)
+        inter = Intersection("HELLO", "HELP",0,0)
+        self.assertTrue(testBoard.addIfValid(interCell,inter, False))
+        testBoard.terminalRepresentationOfCrossword()
 
-        # # This is a valid add
-        # interCell1 = board.getCellAt(0,3)
-        # inter1 = Intersection("PARTY", "HELP", 0,3)
-        # board.addIfValid(interCell1,inter1,"PARTY")
-        # board.terminalRepresentationOfCrossword()
-        #
-        # # Not a valid add -- Tests for adding a word out of bounds
-        # interCell2 = board.getCellAt(2,0)
-        # inter2 = Intersection("HELLO", "HELL", 2,2)
-        # board.addIfValid(interCell2,inter2,"HELL")
+    def test_addIfValid1(self):
+        # This is a valid add
+        interCell = testBoard.getCellAt(0, 3)
+        inter = Intersection("PARTY", "HELP", 0, 3)
+        testBoard.addIfValid(interCell, inter, "PARTY")
+        testBoard.terminalRepresentationOfCrossword()
 
+    def test_addIfValid2(self):
+        # Not a valid add -- Tests for adding a word out of bounds
+        interCell = testBoard.getCellAt(2, 0)
+        inter = Intersection("HELLO", "HELL", 2, 2)
+        self.assertTrue(testBoard.addIfValid(interCell, inter, "HELL"))
 
 
     # def test_get_cell_affix_empty(self):

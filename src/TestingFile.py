@@ -83,17 +83,21 @@ class TestMethods(unittest.TestCase):
         inter0 = Intersection("HELLO", "HELP", 0, 0)
         self.assertTrue(board.addIfValid(interCell0, inter0, False))
         board.terminalRepresentationOfCrossword()
+        print("====================================")
 
         # This is a valid add
         interCell1 = board.getCellAt(0, 3)
         inter1 = Intersection("PARTY", "HELP", 0, 3)
         self.assertTrue(board.addIfValid(interCell1, inter1, True))
         board.terminalRepresentationOfCrossword()
-        #
-        # # Not a valid add -- Tests for adding a word out of bounds
-        # interCell2 = board.getCellAt(2,0)
-        # inter2 = Intersection("HELLO", "HELL", 2, 2)
-        # board.addIfValid(interCell2, inter2, False)
+        print("====================================")
+
+        # A valid add -- Tests for adding a word out of bounds, requires shift down
+        interCell2 = board.getCellAt(2, 0)
+        inter2 = Intersection("HELLO", "HELL", 2, 2)
+        self.assertTrue(board.addIfValid(interCell2, inter2, False))
+        board.terminalRepresentationOfCrossword()
+        print("====================================")
 
 
 

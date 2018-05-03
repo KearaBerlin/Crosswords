@@ -6,7 +6,6 @@ from src.Intersection import Intersection
 
 width = 30
 
-
 class TestMethods(unittest.TestCase):
 
     helloBoard = Board(CrosswordRepresentation({"HELLO":None}, {}, []))
@@ -73,6 +72,7 @@ class TestMethods(unittest.TestCase):
     #     cell2 = board.Cell('TAKE', 'TIME', 6, 6, 0, 0)
     #     cell3 = board.Cell('ATE', 'MATE', 9, 6, 1, 2)
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
+
 
     def test_addIfValid(self):
         crossword = CrosswordRepresentation({"HELLO": None}, {}, [])

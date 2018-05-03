@@ -79,7 +79,7 @@ def wordListCSV():
     newList = []
     for word in wList:
         if len(word) >= 2 and len(word) <= 8:
-            newList.append(word)
+            newList.append(word.upper())
     file.write(str(newList))
 
 """

@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Crosswords.iml" afterPath="$PROJECT_DIR$/Crosswords.iml" />
-      <change beforePath="$PROJECT_DIR$/src/TestingFile.py" afterPath="$PROJECT_DIR$/src/TestingFile.py" />
       <change beforePath="$PROJECT_DIR$/src/parseDictionary.py" afterPath="$PROJECT_DIR$/src/parseDictionary.py" />
+      <change beforePath="$PROJECT_DIR$/src/wordList.csv" afterPath="$PROJECT_DIR$/src/wordList.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +18,8 @@
       <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="82" selection-end-column="28" />
+            <state relative-caret-position="157">
+              <caret line="81" column="39" lean-forward="false" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -28,34 +27,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
+            <state relative-caret-position="2743">
               <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding>
                 <element signature="e#1#34#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wordList.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/wordList.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="155" lean-forward="false" selection-start-line="0" selection-start-column="155" selection-end-line="0" selection-end-column="155" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Intersection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Intersection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -327,7 +306,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in TestingFile.py">
+  <component name="RunManager" selected="Python.parseDictionary (1)">
     <configuration name="MakeCrossWord" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -485,8 +464,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in TestingFile.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.parseDictionary (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.parseDictionary (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestingFile.py" />
         <item index="2" class="java.lang.String" itemvalue="Python.MakeCrossWord" />
         <item index="3" class="java.lang.String" itemvalue="Python.parseDictionary" />
       </list>
@@ -730,13 +709,17 @@
       <option name="project" value="LOCAL" />
       <updated>1525385215033</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="added wordList.csv">
+      <created>1525385388818</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1525385388818</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 34m 30s.xml">
-      <configuration name="Unittests in TestingFile.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 39m 15s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
@@ -762,6 +745,9 @@
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_TestingFile_py - 2018.05.03 at 17h 07m 47s.xml">
+      <configuration name="Unittests in TestingFile.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.03 at 17h 13m 25s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -1263,26 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="82" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -1293,11 +1259,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="81" column="39" lean-forward="false" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/wordList.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="155" lean-forward="false" selection-start-line="0" selection-start-column="155" selection-end-line="0" selection-end-column="155" />
+          <caret line="0" column="161" lean-forward="false" selection-start-line="0" selection-start-column="161" selection-end-line="0" selection-end-column="161" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2743">
+          <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

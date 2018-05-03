@@ -2,6 +2,7 @@ from PyDictionary import *
 from src.MakeCrossWord import *
 from src.BruteForce import *
 from nltk.corpus import words
+import random
 
 # there is no way to make a final var in python, so just don't change this value
 FILE_NAME = 'dictFile.csv'
@@ -84,10 +85,9 @@ def readCSV():
 """
 Code below will create the graph and write it into a CSV file.
 """
-# wlist = words.words()
-# #print(type(wlist))
-# # shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
-# graph = createGraph(wlist)
+wlist = words.words()
+shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
+graph = createGraph(wlist)
 # makeCSV(graph)
 
 """
@@ -95,6 +95,22 @@ Code below will write the list of words into a csv
 """
 # wordListCSV()
 
+
+index = random.randint(0,len(graph.keys()))
+
+keyList = list(graph.keys())
+letterList = graph[keyList[19]]
+
+index = random.randint(0,len(letterList))
+
+#print(letterList[index])
+
+print(graph['P'][0])
+word0 = 'POINTY'
+
+for x in range(len(wlist)-1):
+    if '' == wlist[x]:
+        print(wlist[x])
 
 
 

@@ -6,7 +6,6 @@ from src.Intersection import Intersection
 
 width = 30
 
-
 class TestMethods(unittest.TestCase):
 
     helloBoard = Board(CrosswordRepresentation({"HELLO":None}, {}, []))
@@ -74,34 +73,35 @@ class TestMethods(unittest.TestCase):
     #     cell3 = board.Cell('ATE', 'MATE', 9, 6, 1, 2)
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
+
     def test_addIfValid(self):
         crossword = CrosswordRepresentation({"HELLO": None}, {}, [])
         board = Board(crossword)
 
-        # # This is a valid add
-        # interCell0 = board.getCellAt(0, 0)
-        # inter0 = Intersection("HELLO", "HELP", 0, 0)
-        # self.assertTrue(board.addIfValid(interCell0, inter0, False))
-        # board.terminalRepresentationOfCrossword()
-
         # This is a valid add
-        interCell1 = board.getCellAt(0, 3)
-        inter1 = Intersection("PARTY", "HELP", 0, 3)
-        self.assertTrue(board.addIfValid(interCell1, inter1, True))
+        interCell0 = board.getCellAt(0,0)
+        inter0 = Intersection("HELLO", "HELP",0,0)
+        self.assertTrue(board.addIfValid(interCell0,inter0, False))
         board.terminalRepresentationOfCrossword()
+
+        # # This is a valid add
+        # interCell1 = board.getCellAt(0,3)
+        # inter1 = Intersection("PARTY", "HELP", 0,3)
+        # board.addIfValid(interCell1,inter1,"PARTY")
+        # board.terminalRepresentationOfCrossword()
         #
         # # Not a valid add -- Tests for adding a word out of bounds
         # interCell2 = board.getCellAt(2,0)
-        # inter2 = Intersection("HELLO", "HELL", 2, 2)
-        # board.addIfValid(interCell2, inter2, False)
+        # inter2 = Intersection("HELLO", "HELL", 2,2)
+        # board.addIfValid(interCell2,inter2,"HELL")
 
 
 
     # def test_get_cell_affix_empty(self):
     #     board = self.helloBoard
-    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), True, True),
+    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), True),
     #                      "")
-    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), False, True),
+    #     self.assertEqual(board.getCellAffix(board.Cell(None, None, 5, 5, 0, 0), False),
     #                      "")
     #
     # def test_get_cell_affix_across(self):

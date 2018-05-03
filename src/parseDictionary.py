@@ -72,15 +72,15 @@ def readCSV():
 
     return graph
 
-# def wordListCSV():
-#     file = open('wordList.csv', 'w')
-#     wList = words.words()
-#
-#     newList = []
-#     for word in wList:
-#         if len(word) >= 2 and len(word) <= 8:
-#             newList.append(word)
-#     file.write(str(newList))
+def wordListCSV():
+    file = open('wordList.csv', 'w')
+    wList = words.words()
+
+    newList = []
+    for word in wList:
+        if len(word) >= 2 and len(word) <= 8:
+            newList.append(word)
+    file.write(str(newList))
 
 """
 Code below will create the graph and write it into a CSV file.
@@ -93,24 +93,24 @@ graph = createGraph(wlist)
 """
 Code below will write the list of words into a csv
 """
-# wordListCSV()
+wordListCSV()
 
 
-index = random.randint(0,len(graph.keys()))
-
-keyList = list(graph.keys())
-letterList = graph[keyList[19]]
-
-index = random.randint(0,len(letterList))
+# index = random.randint(0,len(graph.keys()))
+#
+# keyList = list(graph.keys())
+# letterList = graph[keyList[19]]
+#
+# index = random.randint(0,len(letterList))
 
 #print(letterList[index])
 
-print(graph['P'][0])
-word0 = 'POINTY'
-
-for x in range(len(wlist)-1):
-    if '' == wlist[x]:
-        print(wlist[x])
+# print(graph['P'][0])
+# word0 = 'POINTY'
+#
+# for x in range(len(wlist)-1):
+#     if '' == wlist[x]:
+#         print(wlist[x])
 
 
 

@@ -225,9 +225,9 @@ class Board:
                     if adjCellTwo is not None and adjCellTwo.downWord is not None:
                         self.crossword.down.pop(adjCellTwo.downWord)
                     # update the down words in the three cells
-                    if adjCellOne is not None:
-                        self.boardArray[currentCell.xCoord][currentCell.yCoord + 1].downWord = affixedWord
                     if adjCellTwo is not None:
+                        self.boardArray[currentCell.xCoord][currentCell.yCoord + 1].downWord = affixedWord
+                    if adjCellOne is not None:
                         self.boardArray[currentCell.xCoord][currentCell.yCoord - 1].downWord = affixedWord
                     self.boardArray[startingX+i][startingY].downWord = affixedWord
                     # udpate the crosswords down word dict if we didn't already

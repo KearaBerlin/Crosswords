@@ -78,11 +78,11 @@ class TestMethods(unittest.TestCase):
         crossword = CrosswordRepresentation({"HELLO": None}, {}, [])
         board = Board(crossword)
 
-        # This is a valid add
-        interCell0 = board.getCellAt(0, 0)
-        inter0 = Intersection("HELLO", "HELP", 0, 0)
-        self.assertTrue(board.addIfValid(interCell0, inter0, False))
-        board.terminalRepresentationOfCrossword()
+        # # This is a valid add
+        # interCell0 = board.getCellAt(0, 0)
+        # inter0 = Intersection("HELLO", "HELP", 0, 0)
+        # self.assertTrue(board.addIfValid(interCell0, inter0, False))
+        # board.terminalRepresentationOfCrossword()
 
         # This is a valid add
         interCell1 = board.getCellAt(0, 3)

@@ -194,9 +194,9 @@ class Board:
             adjCellTwo = None
             if newWordIsAcross:
                 if currentCell.yCoord + 1 <= self.WIDTH - 1:
-                    adjCellOne = self.boardArray[currentCell.xCoord][currentCell.yCoord + 1]
+                    adjCellTwo = self.boardArray[currentCell.xCoord][currentCell.yCoord + 1]
                 if currentCell.yCoord - 1 >= 0:
-                    adjCellTwo = self.boardArray[currentCell.xCoord][currentCell.yCoord - 1]
+                    adjCellOne = self.boardArray[currentCell.xCoord][currentCell.yCoord - 1]
             else:
                 if currentCell.xCoord+1 <= self.WIDTH - 1:
                     adjCellTwo = self.boardArray[currentCell.xCoord+1][currentCell.yCoord]
@@ -204,7 +204,7 @@ class Board:
                     adjCellOne = self.boardArray[currentCell.xCoord-1][currentCell.yCoord]
 
             if adjCellOne is not None:
-                cellOneAffix = self.getCellAffix(adjCellOne, newWordIsAcross, True)  # I think you're right
+                cellOneAffix = self.getCellAffix(adjCellOne, newWordIsAcross, True)
             else:
                 cellOneAffix = ''
             if adjCellTwo is not None:
@@ -360,8 +360,12 @@ class Board:
                 ret = str(adjCell.acrossWord[adjCell.indexInAcrossWord])
                 return ret
             elif hasDown:
-                # whether it has both or only down, only return the whole word above
-                return str(adjCell.downWord)
+                # whether it has both or only down, only return the part of the word that is above (minus the new char)
+                word = adjCell.downWord
+                if newIsToLeft:
+                    return str(word[:adjCell.indexInDownWord+1])
+                else:
+                    return str(word[adjCell.indexInDownWord:])
         else:
             # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
             if hasDown and not hasAcross:
@@ -370,9 +374,9 @@ class Board:
             elif hasAcross:
                 word = adjCell.acrossWord
                 if newIsToLeft:
-                    return str(word[:len(word)-2])
+                    return str(word[:adjCell.indexInAcrossWord+1])  # Do we need the +1 - is syntax inclusive:exclusive?
                 else:
-                    return str(word[1:])
+                    return str(word[adjCell.indexInAcrossWord:])
 
     """
     Helper method for addIfValid. Computes and returns a length-2 array in the form [x, y] of the needed amount to 

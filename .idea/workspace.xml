@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crosswords.iml" afterPath="$PROJECT_DIR$/Crosswords.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MakeCrossWord.py" afterPath="$PROJECT_DIR$/src/MakeCrossWord.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestingFile.py" afterPath="$PROJECT_DIR$/src/TestingFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wordList.csv" afterPath="$PROJECT_DIR$/src/wordList.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +18,7 @@
       <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="72">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5354">
-              <caret line="308" column="73" lean-forward="false" selection-start-line="308" selection-start-column="73" selection-end-line="308" selection-end-column="73" />
+            <state relative-caret-position="800">
+              <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding>
                 <element signature="e#1#34#0" expanded="true" />
               </folding>
@@ -64,7 +62,7 @@
       <file leaf-file-name="CrosswordRepresentation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="528">
               <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
@@ -84,8 +82,8 @@
       <file leaf-file-name="TestingFile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="2040">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -139,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
         <option value="$PROJECT_DIR$/src/Intersection.py" />
         <option value="$PROJECT_DIR$/src/parseDictionary.py" />
-        <option value="$PROJECT_DIR$/src/TestingFile.py" />
         <option value="$PROJECT_DIR$/src/wordList.csv" />
+        <option value="$PROJECT_DIR$/src/TestingFile.py" />
         <option value="$PROJECT_DIR$/src/MakeCrossWord.py" />
       </list>
     </option>
@@ -167,9 +165,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,7 +188,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -606,44 +604,50 @@
       <option name="project" value="LOCAL" />
       <updated>1525122818168</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="addIfValid() passes the first test! I changed getCellAffix to have the argument isToLeft, meaning that if the adjacent cell you passed in is to the left or above the new cell, you should pass in True; if the adjacent cell is to the right or below, pass in False.">
+      <created>1525294807577</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1525294807577</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 29m 21s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 30m 24s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 29m 46s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 30m 55s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 40m 03s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 34m 27s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 47m 59s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 34m 30s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 48m 01s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 39m 15s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 49m 11s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 39m 17s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 49m 13s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 40m 52s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 55m 01s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 44m 08s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 55m 03s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 44m 10s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 15h 56m 54s.xml">
+    <history-entry file="Unittests_in_TestingFile_py - 2018.05.02 at 16h 44m 27s.xml">
       <configuration name="Unittests in TestingFile.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -653,12 +657,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3719647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3719647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -673,6 +676,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -712,7 +716,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="just a routine commit, no real changes" />
     <MESSAGE value="moved everything into src and imported stuff from other files by using src.filename" />
     <MESSAGE value="moved everything into src and imported stuff from other files by using src.filename. also added = self.Cell(word, x) to our code where we fill the crossword array initially." />
     <MESSAGE value="moved everything into src and imported stuff from other files by using src.filename. also added = self.Cell(word, x) to our code where we fill the crossword array initially. &#10;&#10;Merged conflicts." />
@@ -737,18 +740,24 @@
     <MESSAGE value="Finished addIfvalid. Need ot test" />
     <MESSAGE value="Finished addIfvalid. Need to test" />
     <MESSAGE value="Changed the thing you suggested changing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the thing you suggested changing" />
+    <MESSAGE value="addIfValid() passes the first test! I changed getCellAffix to have the argument isToLeft, meaning that if the adjacent cell you passed in is to the left or above the new cell, you should pass in True; if the adjacent cell is to the right or below, pass in False." />
+    <option name="LAST_COMMIT_MESSAGE" value="addIfValid() passes the first test! I changed getCellAffix to have the argument isToLeft, meaning that if the adjacent cell you passed in is to the left or above the new cell, you should pass in True; if the adjacent cell is to the right or below, pass in False." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/MakeCrossWord.py</url>
-          <line>265</line>
-          <option name="timeStamp" value="17" />
+          <line>205</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/MakeCrossWord.py</url>
+          <line>349</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1149,7 +1158,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="528">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
@@ -1165,7 +1174,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="72">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1183,8 +1192,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="2040">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1193,8 +1202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5354">
-          <caret line="308" column="73" lean-forward="false" selection-start-line="308" selection-start-column="73" selection-end-line="308" selection-end-column="73" />
+        <state relative-caret-position="800">
+          <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
           <folding>
             <element signature="e#1#34#0" expanded="true" />
           </folding>

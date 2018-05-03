@@ -79,21 +79,21 @@ def wordListCSV():
     newList = []
     for word in wList:
         if len(word) >= 2 and len(word) <= 8:
-            newList.append(word)
+            newList.append(word.upper())
     file.write(str(newList))
 
 """
 Code below will create the graph and write it into a CSV file.
 """
-wlist = words.words()
-shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
-graph = createGraph(wlist)
+# wlist = words.words()
+# shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
+# graph = createGraph(wlist)
 # makeCSV(graph)
 
 """
 Code below will write the list of words into a csv
 """
-wordListCSV()
+# wordListCSV()
 
 
 # index = random.randint(0,len(graph.keys()))

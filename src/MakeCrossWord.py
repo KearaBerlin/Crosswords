@@ -123,29 +123,33 @@ class Board:
         # ---------------------------------------------------------
         for i in range(len(newWord)):
             if newWordIsAcross:
-                currentCell = self.boardArray[startingX+i][startingY]
-                if currentCell is None:
-                    continue
-                perpendicularWordIndex = currentCell.indexInDownWord
-                perpendicularIntersectingWord = currentCell.downWord
-                parallelIntersectingWord = currentCell.acrossWord
-                parallelWordIndex = currentCell.indexInAcrossWord
+                currentX = startingX+i
+                currentY = startingY
+                currentCell = self.boardArray[currentX][currentY]
+                if currentCell is not None:
+                    perpendicularWordIndex = currentCell.indexInDownWord
+                    perpendicularIntersectingWord = currentCell.downWord
+                    parallelIntersectingWord = currentCell.acrossWord
+                    parallelWordIndex = currentCell.indexInAcrossWord
             else:
-                currentCell = self.boardArray[startingX][startingY+i]
-                if currentCell is None:
-                    continue
-                perpendicularWordIndex = currentCell.indexInAcrossWord
-                perpendicularIntersectingWord = currentCell.acrossWord
-                parallelIntersectingWord = currentCell.downWord
-                parallelWordIndex = currentCell.indexInDownWord
+                currentX = startingX
+                currentY = startingY+i
+                currentCell = self.boardArray[currentX][currentY]
+                if currentCell is not None:
+                    perpendicularWordIndex = currentCell.indexInAcrossWord
+                    perpendicularIntersectingWord = currentCell.acrossWord
+                    parallelIntersectingWord = currentCell.downWord
+                    parallelWordIndex = currentCell.indexInDownWord
 
             char = newWord[i]
+            if currentCell is not None and char == currentCell.char:
+                continue
 
             # ------------------------------------------------------
             # 3. check whether this cell is part of an existing word
             # ------------------------------------------------------
             # check the perpendicular word, if any
-            if perpendicularIntersectingWord is not None:
+            if currentCell is not None and perpendicularIntersectingWord is not None:
                 collidedWord = self.getCollidedWord(char, perpendicularWordIndex, perpendicularIntersectingWord)
                 if collidedWord is None:
                     return False
@@ -193,15 +197,15 @@ class Board:
             adjCellOne = None
             adjCellTwo = None
             if newWordIsAcross:
-                if currentCell.yCoord + 1 <= self.WIDTH - 1:
-                    adjCellTwo = self.boardArray[currentCell.xCoord][currentCell.yCoord + 1]
-                if currentCell.yCoord - 1 >= 0:
-                    adjCellOne = self.boardArray[currentCell.xCoord][currentCell.yCoord - 1]
+                if currentY + 1 <= self.WIDTH - 1:
+                    adjCellTwo = self.boardArray[currentX][currentY + 1]
+                if currentY - 1 >= 0:
+                    adjCellOne = self.boardArray[currentX][currentY - 1]
             else:
-                if currentCell.xCoord+1 <= self.WIDTH - 1:
-                    adjCellTwo = self.boardArray[currentCell.xCoord+1][currentCell.yCoord]
-                if currentCell.xCoord-1 >= 0:
-                    adjCellOne = self.boardArray[currentCell.xCoord-1][currentCell.yCoord]
+                if currentX+1 <= self.WIDTH - 1:
+                    adjCellTwo = self.boardArray[currentX+1][currentY]
+                if currentX-1 >= 0:
+                    adjCellOne = self.boardArray[currentX-1][currentY]
 
             if adjCellOne is not None:
                 cellOneAffix = self.getCellAffix(adjCellOne, newWordIsAcross, True)
@@ -243,7 +247,7 @@ class Board:
                         self.boardArray[currentCell.xCoord-1][currentCell.yCoord].acrossWord = affixedWord
                     if adjCellTwo is not None:
                         self.boardArray[currentCell.xCoord+1][currentCell.yCoord].acrossWord = affixedWord
-                    self.boardArray[startingX][startingY+i].acrossWord = affixedWord
+                        self.boardArray[startingX][startingY+i].acrossWord = affixedWord
                     if adjCellOne is not None and adjCellOne.acrossWord is None:
                         self.crossword.across[affixedWord] = adjCellOne
 

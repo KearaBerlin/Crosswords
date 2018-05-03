@@ -76,9 +76,7 @@ class TestMethods(unittest.TestCase):
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
 
-
     def test_addIfValid0(self):
-        # This is a valid add
         interCell = testBoard.getCellAt(0,0)
         inter = Intersection("HELLO", "HELP",0,0)
         self.assertTrue(testBoard.addIfValid(interCell,inter, False))
@@ -96,7 +94,6 @@ class TestMethods(unittest.TestCase):
         interCell = testBoard.getCellAt(2, 0)
         inter = Intersection("HELLO", "HELL", 2, 2)
         self.assertTrue(testBoard.addIfValid(interCell, inter, "HELL"))
-
 
     # def test_get_cell_affix_empty(self):
     #     board = self.helloBoard

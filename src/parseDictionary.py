@@ -85,15 +85,15 @@ def wordListCSV():
 """
 Code below will create the graph and write it into a CSV file.
 """
-wlist = words.words()
-shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
-graph = createGraph(wlist)
+# wlist = words.words()
+# shortened = wlist[0:10000]  # shortened version of the list of a quarter million words.
+# graph = createGraph(wlist)
 # makeCSV(graph)
 
 """
 Code below will write the list of words into a csv
 """
-wordListCSV()
+# wordListCSV()
 
 
 # index = random.randint(0,len(graph.keys()))

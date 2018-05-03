@@ -1,7 +1,6 @@
 
 from src.parseDictionary import *
 # from nltk.corpus import words
-from src.BruteForce import *
 from src.CrosswordRepresentation import CrosswordRepresentation
 from src.Intersection import Intersection
 
@@ -9,7 +8,7 @@ file = open("wordList.csv", 'r')
 text = file.read()
 file.close()
 
-testWordList = ["HELLO", "HELP", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
+# testWordList = ["HELLO", "HELP", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -18,7 +17,7 @@ FILE_NAME = 'dictFile.csv'
 Representing board with a 2D array.
 """
 class Board:
-    def __init__(self, crossword, ARRAY_WIDTH = 30):
+    def __init__(self, crossword, ARRAY_WIDTH = 10):
         self.WIDTH = ARRAY_WIDTH
         self.crossword = crossword
         self.wordList = text
@@ -237,10 +236,11 @@ class Board:
                         self.crossword.down.pop(adjCellTwo.downWord)
                     # update the down words in the three cells
                     if adjCellTwo is not None:
-                        self.boardArray[currentCell.xCoord][currentCell.yCoord + 1].downWord = affixedWord
+                        self.boardArray[currentX][currentY + 1].downWord = affixedWord
                     if adjCellOne is not None:
-                        self.boardArray[currentCell.xCoord][currentCell.yCoord - 1].downWord = affixedWord
-                    self.boardArray[startingX+i][startingY].downWord = affixedWord
+                        self.boardArray[currentX][currentY - 1].downWord = affixedWord
+                    if currentCell is not None:
+                        self.boardArray[startingX+i][startingY].downWord = affixedWord  # this is the current cell
                     # udpate the crosswords down word dict if we didn't already
                     if adjCellOne is not None and adjCellOne.downWord is None:
                         self.crossword.down[affixedWord] = adjCellOne
@@ -251,9 +251,10 @@ class Board:
                     if adjCellTwo is not None and adjCellTwo.acrossWord is not None:
                         self.crossword.across.pop(adjCellTwo.acrossWord)
                     if adjCellOne is not None:
-                        self.boardArray[currentCell.xCoord-1][currentCell.yCoord].acrossWord = affixedWord
+                        self.boardArray[currentX-1][currentY].acrossWord = affixedWord
                     if adjCellTwo is not None:
-                        self.boardArray[currentCell.xCoord+1][currentCell.yCoord].acrossWord = affixedWord
+                        self.boardArray[currentX+1][currentY].acrossWord = affixedWord
+                    if currentCell is not None:
                         self.boardArray[startingX][startingY+i].acrossWord = affixedWord
                     if adjCellOne is not None and adjCellOne.acrossWord is None:
                         self.crossword.across[affixedWord] = adjCellOne

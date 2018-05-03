@@ -99,6 +99,26 @@ class TestMethods(unittest.TestCase):
         board.terminalRepresentationOfCrossword()
         print("====================================")
 
+        interCell3 = board.getCellAt(2, 3)
+        inter3 = Intersection("LONDON", "HELL", 0, 3)
+        self.assertTrue(board.addIfValid(interCell3, inter3, True))
+        board.terminalRepresentationOfCrossword()
+        print("====================================")
+
+        # This one should fail because the word is too long
+        interCell4 = board.getCellAt(2, 5)
+        inter4 = Intersection("PARTY", "ROOSTER", 2, 0)
+        self.assertFalse(board.addIfValid(interCell4, inter4, False))
+        board.terminalRepresentationOfCrossword()
+        print("====================================")
+
+        # This should also fail since it has a "parallel intersecting word"
+        interCell5 = board.getCellAt(3, 2)
+        inter5 = Intersection("LO", "LOUT", 0, 0)
+        self.assertFalse(board.addIfValid(interCell5, inter5, False))
+        board.terminalRepresentationOfCrossword()
+        print("====================================")
+
 
 
     # def test_get_cell_affix_empty(self):

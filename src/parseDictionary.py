@@ -1,6 +1,5 @@
 from PyDictionary import *
 from src.MakeCrossWord import *
-from src.BruteForce import *
 from nltk.corpus import words
 import random
 

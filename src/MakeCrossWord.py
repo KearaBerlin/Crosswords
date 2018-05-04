@@ -171,7 +171,7 @@ class Board:
                                 self.crossword.inter.append(newIntersection)
                             else:
                                 for j in range(len(self.crossword.inter)-1):
-                                    if self.crossword.inter[j].indexInAcrossWord == i:
+                                    if self.crossword.inter[j].acrossIndex == i:
                                         self.crossword.inter[j] = newIntersection
                                     break
                     else:
@@ -185,7 +185,7 @@ class Board:
                                 self.crossword.inter.append(newIntersection)
                             else:
                                 for j in range(len(self.crossword.inter)-1):
-                                    if self.crossword.inter[j].indexInDownWord == i:
+                                    if self.crossword.inter[j].downIndex == i:
                                         self.crossword.inter[j] = newIntersection
                                     break
 
@@ -232,7 +232,9 @@ class Board:
                         # update crossword down dict first if needed
                         self.crossword.down[affixedWord] = self.crossword.down[adjCellOne.downWord]
                         self.crossword.down.pop(adjCellOne.downWord)
-                    if adjCellTwo is not None and adjCellTwo.downWord is not None:
+                    if adjCellTwo is not None and adjCellTwo.downWord is not None and adjCellTwo.downWord in self.crossword.down.keys():
+                        print("print tests: "+str(self.crossword.down))
+                        print(adjCellTwo.downWord)
                         self.crossword.down.pop(adjCellTwo.downWord)
                     # update the down words in the three cells
                     if adjCellTwo is not None:
@@ -248,7 +250,7 @@ class Board:
                     if adjCellOne is not None and adjCellOne.acrossWord is not None:
                         self.crossword.across[affixedWord] = self.crossword.across[adjCellOne.acrossWord]
                         self.crossword.across.pop(adjCellOne.acrossWord)
-                    if adjCellTwo is not None and adjCellTwo.acrossWord is not None:
+                    if adjCellTwo is not None and adjCellTwo.acrossWord is not None and adjCellTwo.downWord in self.crossword.across.keys():
                         self.crossword.across.pop(adjCellTwo.acrossWord)
                     if adjCellOne is not None:
                         self.boardArray[currentX-1][currentY].acrossWord = affixedWord
@@ -297,9 +299,9 @@ class Board:
                     else:
                         self.crossword.down[affixedWord] = startCell
                     if startCell is not None:
-                        self.boardArray[startingX+1][startingY].acrossWord = affixedWord
-                    if endCell is not None:
                         self.boardArray[startingX-1][startingY].acrossWord = affixedWord
+                    if endCell is not None:
+                        self.boardArray[startingX+1][startingY].acrossWord = affixedWord
                 else:
                     # we remove any old down words from the crossword down dict
                     if startCell is not None and startCell.downWord is not None:

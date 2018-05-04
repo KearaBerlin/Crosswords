@@ -30,7 +30,7 @@ class BruteForceCrossword:
         allWords = []
         allWords.append(startWord)
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation({startWord:None}, {}, [])
+        crossword = CrosswordRepresentation({startWord: None}, {}, [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
@@ -46,25 +46,29 @@ class BruteForceCrossword:
             elif currentWord in board.crossword.down.keys():
                 currentWordIsAcross = False
 
-            for x in range(0,len(currentWord),2):
+            for x in range(0, len(currentWord), 2):
                 neighbors = graph[currentWord[x]]
                 for neighbor in neighbors:
                     newWord = neighbor
                     if currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(currentWord, newWord, x, newWord.find(currentWord[x]))
-                        interCell = board.crossword.across[currentWord]
-                        if board.addIfValid(interCell, intersection, False):
+                        firstCell = board.crossword.across[currentWord]
+                        interCell = board.getCellAt(firstCell.xCoord+x, firstCell.yCoord)
+                        if interCell is not None and board.addIfValid(interCell, intersection, False):
                             Q.append(newWord)
                             allWords.append(newWord)
                             print(newWord)
+                            board.terminalRepresentationOfCrossword()
                             break  # We don't want to keep looping through all the neighbors if we found a valid one.
                     elif not currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(newWord, currentWord, newWord.find(currentWord[x]), x)
-                        interCell = board.crossword.down[currentWord]
-                        if board.addIfValid(interCell,intersection,True):
+                        firstCell = board.crossword.down[currentWord]
+                        interCell = board.getCellAt(firstCell.xCoord, firstCell.yCoord+x)
+                        if interCell is not None and board.addIfValid(interCell, intersection, True):
                             Q.append(newWord)
                             allWords.append(newWord)
                             print(newWord)
+                            board.terminalRepresentationOfCrossword()
                             break
         return board
 

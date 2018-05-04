@@ -10,7 +10,7 @@ testBoard = Board(testCrossword)
 
 class TestMethods(unittest.TestCase):
 
-    helloBoard = Board(CrosswordRepresentation({"HELLO":None}, {}, []))
+    helloBoard = Board(CrosswordRepresentation({"HELLO": None}, {}, []))
 
     # def test_board_constructor(self):
     #     crossword = CrosswordRepresentation(["HELLO"], [], [])
@@ -75,11 +75,10 @@ class TestMethods(unittest.TestCase):
     #     cell3 = board.Cell('ATE', 'MATE', 9, 6, 1, 2)
     #     # self.assertEqual(bf.fillInWords(cell2, cell3), bf.fillInWords(cell0, cell1))
 
-
     def test_addIfValid0(self):
-        interCell = testBoard.getCellAt(0,0)
-        inter = Intersection("HELLO", "HELP",0,0)
-        self.assertTrue(testBoard.addIfValid(interCell,inter, False))
+        interCell = testBoard.getCellAt(0, 0)
+        inter = Intersection("HELLO", "HELP", 0, 0)
+        self.assertTrue(testBoard.addIfValid(interCell, inter, False))
         testBoard.terminalRepresentationOfCrossword()
 
     def test_addIfValid1(self):

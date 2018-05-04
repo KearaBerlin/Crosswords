@@ -68,9 +68,9 @@ class Board:
                 self.boardArray[sX][sY + x] = self.Cell(None, newWord, sX, sY + x, 0, x)
 
         if newWordIsAcross:
-            self.crossword.across[newWord] = self.getCellAt(sX,sY)
+            self.crossword.across[newWord] = self.getCellAt(sX, sY)
         else:
-            self.crossword.down[newWord] = self.getCellAt(sX,sY)
+            self.crossword.down[newWord] = self.getCellAt(sX, sY)
 
     """
     Returns cell object at given x and y coordinate
@@ -301,7 +301,7 @@ class Board:
                     if startCell is not None:
                         self.boardArray[startingX-1][startingY].acrossWord = affixedWord
                     if endCell is not None:
-                        self.boardArray[startingX+1][startingY].acrossWord = affixedWord
+                        self.boardArray[endingX+1][endingY].acrossWord = affixedWord
                 else:
                     # we remove any old down words from the crossword down dict
                     if startCell is not None and startCell.downWord is not None:
@@ -317,7 +317,7 @@ class Board:
                     if startCell is not None:
                         self.boardArray[startingX][startingY - 1].downWord = affixedWord
                     if endCell is not None:
-                        self.boardArray[startingX][startingY + 1].downWord = affixedWord
+                        self.boardArray[endingX][endingY + 1].downWord = affixedWord
 
         # --------------------------------------------------------------------------
         # 6. If we made it this far without returning False, the new word is valid!
@@ -442,15 +442,28 @@ class Board:
     
     Also checks if the shift is valid
     """
-    def shiftElements(self,xShift,yShift):
+    def shiftElements(self, xShift, yShift):
         shiftedArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
         for x in range(self.WIDTH):
             for y in range(self.WIDTH):
                 if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
-                    shiftedArray[x+xShift][y+yShift] = self.boardArray[x][y]
-                elif self.boardArray[x][y] is not None and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
+                    newX = x+xShift
+                    newY = y+yShift
+                    shiftedArray[newX][newY] = self.boardArray[x][y]
+                    shiftedArray[newX][newY].setCoord(newX, newY)
+                elif self.boardArray[x][y] is not None \
+                        and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
                     return False
         self.boardArray = shiftedArray
+        # # also shift all the Cell values in the crossword dictionaries
+        # acrossKeys = self.crossword.across.keys()
+        # for acrossKey in acrossKeys:
+        #     cell = self.crossword.across[acrossKey]
+        #     self.crossword.across[acrossKey].setCoord(cell.xCoord+xShift, cell.yCoord+yShift)
+        # downKeys = self.crossword.down.keys()
+        # for downKey in downKeys:
+        #     cell = self.crossword.down[downKey]
+        #     self.crossword.down[downKey].setCoord(cell.xCoord+xShift, cell.yCoord+yShift)
         return True
 
 

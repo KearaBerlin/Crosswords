@@ -1,6 +1,5 @@
 from PyDictionary import *
 from src.MakeCrossWord import *
-from src.BruteForce import *
 from nltk.corpus import words
 import random
 
@@ -72,15 +71,15 @@ def readCSV():
 
     return graph
 
-def wordListCSV():
-    file = open('wordList.csv', 'w')
-    wList = words.words()
-
-    newList = []
-    for word in wList:
-        if len(word) >= 2 and len(word) <= 8:
-            newList.append(word.upper())
-    file.write(str(newList))
+# def wordListCSV():
+#     file = open('wordList.csv', 'w')
+#     wList = words.words()
+#
+#     newList = []
+#     for word in wList:
+#         if len(word) >= 2 and len(word) <= 8:
+#             newList.append(word)
+#     file.write(str(newList))
 
 """
 Code below will create the graph and write it into a CSV file.

@@ -1,7 +1,6 @@
 
 from src.parseDictionary import *
 # from nltk.corpus import words
-from src.BruteForce import *
 from src.CrosswordRepresentation import CrosswordRepresentation
 from src.Intersection import Intersection
 
@@ -9,7 +8,7 @@ file = open("wordList.csv", 'r')
 text = file.read()
 file.close()
 
-testWordList = ["HELLO", "HELP", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
+# testWordList = ["HELLO", "HELP", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
 
 FILE_NAME = 'dictFile.csv'
 
@@ -18,7 +17,7 @@ FILE_NAME = 'dictFile.csv'
 Representing board with a 2D array.
 """
 class Board:
-    def __init__(self, crossword, ARRAY_WIDTH = 30):
+    def __init__(self, crossword, ARRAY_WIDTH = 10):
         self.WIDTH = ARRAY_WIDTH
         self.crossword = crossword
         self.wordList = text
@@ -117,6 +116,10 @@ class Board:
             return False
         if shift != [0, 0]:
             self.shiftElements(shift[0], shift[1])
+            startingX += shift[0]
+            endingX += shift[0]
+            startingY += shift[1]
+            endingY += shift[1]
 
         # ---------------------------------------------------------
         # 2. loop through each cell that the new word would inhabit
@@ -188,7 +191,7 @@ class Board:
 
             # If there is a word that overlaps and is in the same direction as the new word, for now we will just
             # return False.
-            if parallelIntersectingWord is not None:
+            if currentCell is not None and parallelIntersectingWord is not None:
                 return False
 
             # -------------------------------------------------------------
@@ -206,6 +209,9 @@ class Board:
                     adjCellTwo = self.boardArray[currentX+1][currentY]
                 if currentX-1 >= 0:
                     adjCellOne = self.boardArray[currentX-1][currentY]
+
+            if adjCellOne is None and adjCellTwo is None:
+                continue  # Because this step was the last one in the loop, and no affixes were found.
 
             if adjCellOne is not None:
                 cellOneAffix = self.getCellAffix(adjCellOne, newWordIsAcross, True)
@@ -230,10 +236,11 @@ class Board:
                         self.crossword.down.pop(adjCellTwo.downWord)
                     # update the down words in the three cells
                     if adjCellTwo is not None:
-                        self.boardArray[currentCell.xCoord][currentCell.yCoord + 1].downWord = affixedWord
+                        self.boardArray[currentX][currentY + 1].downWord = affixedWord
                     if adjCellOne is not None:
-                        self.boardArray[currentCell.xCoord][currentCell.yCoord - 1].downWord = affixedWord
-                    self.boardArray[startingX+i][startingY].downWord = affixedWord
+                        self.boardArray[currentX][currentY - 1].downWord = affixedWord
+                    if currentCell is not None:
+                        self.boardArray[startingX+i][startingY].downWord = affixedWord  # this is the current cell
                     # udpate the crosswords down word dict if we didn't already
                     if adjCellOne is not None and adjCellOne.downWord is None:
                         self.crossword.down[affixedWord] = adjCellOne
@@ -244,9 +251,10 @@ class Board:
                     if adjCellTwo is not None and adjCellTwo.acrossWord is not None:
                         self.crossword.across.pop(adjCellTwo.acrossWord)
                     if adjCellOne is not None:
-                        self.boardArray[currentCell.xCoord-1][currentCell.yCoord].acrossWord = affixedWord
+                        self.boardArray[currentX-1][currentY].acrossWord = affixedWord
                     if adjCellTwo is not None:
-                        self.boardArray[currentCell.xCoord+1][currentCell.yCoord].acrossWord = affixedWord
+                        self.boardArray[currentX+1][currentY].acrossWord = affixedWord
+                    if currentCell is not None:
                         self.boardArray[startingX][startingY+i].acrossWord = affixedWord
                     if adjCellOne is not None and adjCellOne.acrossWord is None:
                         self.crossword.across[affixedWord] = adjCellOne
@@ -267,45 +275,47 @@ class Board:
             if endingY+1 <= self.WIDTH-1:
                 endCell = self.boardArray[endingY][endingY + 1]
 
-        if startCell is not None:
-            startAffix = self.getCellAffix(startCell, newWordIsAcross, True)
-        else:
-            startAffix = ""
-        if endCell is not None:
-            endAffix = self.getCellAffix(endCell, newWordIsAcross, False)
-        else:
-            endAffix = ""
-        affixedWord = startAffix + newWord + endAffix
+        if startCell is not None or endCell is not None:
 
-        if affixedWord not in self.wordList:
-            return False
-        else:
-            if newWordIsAcross:
-                if startCell is not None and startCell.acrossWord is not None:
-                    self.crossword.across[affixedWord] = self.crossword.across[startCell.acrossWord]
-                    self.crossword.across.pop(startCell.acrossWord)
-                else:
-                    self.crossword.down[affixedWord] = startCell
-                if startCell is not None:
-                    self.boardArray[startingX+1][startingY].acrossWord = affixedWord
-                if endCell is not None:
-                    self.boardArray[startingX-1][startingY].acrossWord = affixedWord
+            if startCell is not None:
+                startAffix = self.getCellAffix(startCell, newWordIsAcross, True)
             else:
-                # we remove any old down words from the crossword down dict
-                if startCell is not None and startCell.downWord is not None:
-                    # update the crossword down dict first
-                    self.crossword.down[affixedWord] = self.crossword.down[startCell.downWord]
-                    self.crossword.down.pop(startCell.downWord)
-                if endCell is not None and endCell.downWord is not None:
-                    self.crossword.down.pop(endCell.downWord)
-                # add the new down word to crossword down dict if we didn't already
-                if startCell is not None and startCell.downWord is None:
-                    self.crossword.down[affixedWord] = startCell
-                # update the two cells (all the new cells will be updated in another method, addWordToArray() )
-                if startCell is not None:
-                    self.boardArray[startingX][startingY - 1].downWord = affixedWord
-                if endCell is not None:
-                    self.boardArray[startingX][startingY + 1].downWord = affixedWord
+                startAffix = ""
+            if endCell is not None:
+                endAffix = self.getCellAffix(endCell, newWordIsAcross, False)
+            else:
+                endAffix = ""
+            affixedWord = startAffix + newWord + endAffix
+
+            if affixedWord not in self.wordList:
+                return False
+            else:
+                if newWordIsAcross:
+                    if startCell is not None and startCell.acrossWord is not None:
+                        self.crossword.across[affixedWord] = self.crossword.across[startCell.acrossWord]
+                        self.crossword.across.pop(startCell.acrossWord)
+                    else:
+                        self.crossword.down[affixedWord] = startCell
+                    if startCell is not None:
+                        self.boardArray[startingX+1][startingY].acrossWord = affixedWord
+                    if endCell is not None:
+                        self.boardArray[startingX-1][startingY].acrossWord = affixedWord
+                else:
+                    # we remove any old down words from the crossword down dict
+                    if startCell is not None and startCell.downWord is not None:
+                        # update the crossword down dict first
+                        self.crossword.down[affixedWord] = self.crossword.down[startCell.downWord]
+                        self.crossword.down.pop(startCell.downWord)
+                    if endCell is not None and endCell.downWord is not None:
+                        self.crossword.down.pop(endCell.downWord)
+                    # add the new down word to crossword down dict if we didn't already
+                    if startCell is not None and startCell.downWord is None:
+                        self.crossword.down[affixedWord] = startCell
+                    # update the two cells (all the new cells will be updated in another method, addWordToArray() )
+                    if startCell is not None:
+                        self.boardArray[startingX][startingY - 1].downWord = affixedWord
+                    if endCell is not None:
+                        self.boardArray[startingX][startingY + 1].downWord = affixedWord
 
         # --------------------------------------------------------------------------
         # 6. If we made it this far without returning False, the new word is valid!

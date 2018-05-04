@@ -1,7 +1,7 @@
 import random
-from MakeCrossWord import *
-from CrosswordRepresentation import *
-from parseDictionary import *
+from src.MakeCrossWord import Board
+from src.CrosswordRepresentation import CrosswordRepresentation
+from src.parseDictionary import readCSV
 import math
 from collections import deque
 from Intersection import *
@@ -19,41 +19,53 @@ class BruteForceCrossword:
     def bruteForce(self, graph):
         # get a random word to start with
         keys = list(graph.keys())
-        randomIndex0 = random.randint(0,len(keys)-1)
-        randomLetter = keys[randomIndex0] # Gives us a list of words from graph[some random letter]
+        randomIndex0 = random.randint(0, len(keys)-1)
+        randomLetter = keys[randomIndex0]  # Gives us a list of words from graph[some random letter]
         wordList = graph[randomLetter]
-        randomIndex1 = random.randint(0,len(wordList)-1)
+        randomIndex1 = random.randint(0, len(wordList)-1)
         startWord = wordList[randomIndex1]
 
-        Q = deque([]) # intialize a queue that will store each word that has been added to the crossword
+        Q = deque([])  # initialize a queue that will store each word that has been added to the crossword
         Q.append(startWord)
+        allWords = []
+        allWords.append(startWord)
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation([startWord], [], [])
+        crossword = CrosswordRepresentation({startWord:None}, {}, [])
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
 
         currentWordIsAcross = True
         while len(Q) > 0:  # while Q is not empty
-            currentWord = Q.popleft() # removes the first element in the Queue.
+            currentWord = Q.popleft()  # removes the first element in the Queue.
 
             # updates currentWordIsAcross depending on whether or not
             # the current word is in the across or down dictionary keys.
             if currentWord in board.crossword.across.keys():
-                currentWordIsAcross = False
-            elif currentWord in board.crossword.down.keys():
                 currentWordIsAcross = True
+            elif currentWord in board.crossword.down.keys():
+                currentWordIsAcross = False
 
-            for x in range(len(currentWord)):
+            for x in range(0,len(currentWord),2):
                 neighbors = graph[currentWord[x]]
                 for neighbor in neighbors:
                     newWord = neighbor
-                    if currentWordIsAcross and newWord not in Q:
+                    if currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(currentWord, newWord, x, newWord.find(currentWord[x]))
                         interCell = board.crossword.across[currentWord]
                         if board.addIfValid(interCell, intersection, False):
                             Q.append(newWord)
-                            break  # We don't want to keep looping through all the neighbors if we have found a valid one.
+                            allWords.append(newWord)
+                            print(newWord)
+                            break  # We don't want to keep looping through all the neighbors if we found a valid one.
+                    elif not currentWordIsAcross and newWord not in Q and newWord not in allWords:
+                        intersection = Intersection(newWord, currentWord, newWord.find(currentWord[x]), x)
+                        interCell = board.crossword.down[currentWord]
+                        if board.addIfValid(interCell,intersection,True):
+                            Q.append(newWord)
+                            allWords.append(newWord)
+                            print(newWord)
+                            break
         return board
 
 
@@ -136,3 +148,9 @@ class BruteForceCrossword:
                 validWordList.append(word)
 
         return validWordList
+
+
+
+bruteForce = BruteForceCrossword()
+cw = bruteForce.bruteForce(readCSV())
+cw.terminalRepresentationOfCrossword()

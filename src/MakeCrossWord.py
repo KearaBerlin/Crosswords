@@ -6,8 +6,6 @@ file = open("wordList.csv", 'r')
 text = file.read()
 file.close()
 
-# testWordList = ["HELLO", "HELP", "NEW", "SWARM", "LOPS"]  # eval(text)  # words.words()
-
 FILE_NAME = 'dictFile.csv'
 
 
@@ -63,6 +61,9 @@ class Board:
             else:
                 self.boardArray[sX][sY + x] = self.Cell(None, newWord, sX, sY + x, 0, x)
 
+        # POSSIBLE ERROR: Sometimes, newWord will be placed right after an existing word, and in that case newWord
+        # itself won't be added to the puzzle, but a combination of the esiting word and newWord will be added
+        # instead. In that case, this line will put in a nonexistent across word into the puzzle.
         if newWordIsAcross:
             self.crossword.across[newWord] = self.getCellAt(sX, sY)
         else:
@@ -210,12 +211,17 @@ class Board:
                         self.crossword.down.pop(perpendicularIntersectingWord)
                         # update currentCell's down word
                         self.boardArray[startingX+i][startingY].downWord = collidedWord
+                        # POSSIBLE ERROR: We also should be going through the Cells of the perpendicular intersecting
+                        # word and updating their downWord to be the new, changed downWord. Currently they still
+                        # refer to a word that is no longer in the puzzle and this is causing errors when we later try
+                        # to use those references as keys in the across or down word dicts.
                 else:
                     if collidedWord != perpendicularIntersectingWord:
                         self.crossword.across[collidedWord] = self.crossword.across[perpendicularIntersectingWord]
                         self.crossword.across.pop(perpendicularIntersectingWord)
                         # update currentCell's down word
                         self.boardArray[startingX][startingY+i].acrossWord = collidedWord
+                        # POSSIBLE ERROR: Same error as above, but occurs when new word is a down word instead.
 
         # If there is a word that overlaps and is in the same direction as the new word, we will return False since it
         # is fairly complex to check whether this word will still be valid. (In the future, we could instead check.)
@@ -303,7 +309,6 @@ class Board:
                         # update down-word dictionary to point to the cell where the old adjCellOne's word started
                         self.crossword.down[affixedWord] = self.crossword.down[adjCellOne.downWord]
                         # then remove the now-nonexistent down word
-                        # TODO I think this may be causing the key error. Because we don't always want to remove???
                         self.crossword.down.pop(adjCellOne.downWord)
                     else:
                         # update the down-word dict to point to adjCellOne itself

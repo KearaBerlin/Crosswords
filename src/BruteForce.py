@@ -53,7 +53,7 @@ class BruteForceCrossword:
                     newWord = neighbor
                     if currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(currentWord, newWord, x, newWord.find(currentWord[x]))
-                        print("Current word: " + currentWord + ", list: " + str(board.crossword.across))
+                        # print("Current word: " + currentWord + ", list: " + str(board.crossword.across))
                         firstCell = board.crossword.across[currentWord]
                         interCell = board.getCellAt(firstCell.xCoord+x, firstCell.yCoord)
                         if interCell is not None and board.addIfValid(interCell, intersection, False):
@@ -64,7 +64,7 @@ class BruteForceCrossword:
                             break  # We don't want to keep looping through all the neighbors if we found a valid one.
                     elif not currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(newWord, currentWord, newWord.find(currentWord[x]), x)
-                        print("Current word: "+currentWord+", list: "+str(board.crossword.down))
+                        # print("Current word: "+currentWord+", list: "+str(board.crossword.down))
                         firstCell = board.crossword.down[currentWord]
                         interCell = board.getCellAt(firstCell.xCoord, firstCell.yCoord+x)
                         if interCell is not None and board.addIfValid(interCell, intersection, True):

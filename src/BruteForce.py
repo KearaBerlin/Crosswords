@@ -46,7 +46,7 @@ class BruteForceCrossword:
             elif currentWord in board.crossword.down.keys():
                 currentWordIsAcross = False
 
-            for x in range(0, len(currentWord), 2):
+            for x in range(len(currentWord)):
                 neighbors = graph[currentWord[x]]
                 for neighbor in neighbors:
                     newWord = neighbor
@@ -57,7 +57,7 @@ class BruteForceCrossword:
                         if interCell is not None and board.addIfValid(interCell, intersection, False):
                             Q.append(newWord)
                             allWords.append(newWord)
-                            print(newWord)
+                            print("--------------")
                             board.terminalRepresentationOfCrossword()
                             break  # We don't want to keep looping through all the neighbors if we found a valid one.
                     elif not currentWordIsAcross and newWord not in Q and newWord not in allWords:
@@ -67,8 +67,8 @@ class BruteForceCrossword:
                         if interCell is not None and board.addIfValid(interCell, intersection, True):
                             Q.append(newWord)
                             allWords.append(newWord)
-                            print(newWord)
                             board.terminalRepresentationOfCrossword()
+                            print("--------------")
                             break
         return board
 

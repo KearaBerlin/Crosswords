@@ -1,5 +1,5 @@
 """
-Represents two words and which index in the word will intersect with the other word.
+Represents two words and the index within each word where they intersect one another
 """
 class Intersection:
 

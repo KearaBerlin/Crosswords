@@ -27,8 +27,8 @@
       <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198">
-              <caret line="290" column="27" lean-forward="false" selection-start-line="290" selection-start-column="27" selection-end-line="290" selection-end-column="27" />
+            <state relative-caret-position="306">
+              <caret line="533" column="38" lean-forward="false" selection-start-line="533" selection-start-column="38" selection-end-line="533" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -67,10 +67,32 @@
       <file leaf-file-name="BruteForce.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1152">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="1200">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+                <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
+                <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
               </folding>
             </state>
           </provider>
@@ -218,6 +240,118 @@
       <recent name="C:\Users\kajb3\IntelliJIDEAProjects\Crosswords" />
       <recent name="C:\Users\kajb3\IntelliJIDEAProjects\Crosswords\src" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Crosswords.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/BruteForce.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/MakeCrossWord.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -699,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525491760088</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Adding some places where we are pretty sure there is an error">
+      <created>1525539328904</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1525539328904</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -805,7 +946,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started fixing the addIfValid. I am writing another helper method... its incomplete right now." />
     <MESSAGE value="I believe I have written a proper getAffix method, that is the helper for what will eventually be a proper addIfValid. I will now work on fixing addIfValid. That will involve major changes, FYI." />
     <MESSAGE value="Wrote addIfValid. Still need to write the down portion of that - or, I think it will be very easy to modify the across portion to be able to handle across or down equally well." />
     <MESSAGE value="Wrote some tests for the helper getCellAffix (still needs a few more tests written.) The tests failed. Maybe because Cell did not have an across and down INDEX, I added that and made sure all calls to Cell reflect that change." />
@@ -830,7 +970,8 @@
     <MESSAGE value="Almost works. We keep getting a KeyError in brute force. I think it happens when an addIfValid call changes or moves currentWord due to either a shift in elements or to changing the cells themselves, and then we don't update currentWord so the program tries to call a key that doesn't exist. I cannot think of a good way to fix this." />
     <MESSAGE value="started decomposition, got rid of crossword.inter list because you're right we never use it" />
     <MESSAGE value="finished decomposition. The code now only ever prints out twice when you run brute force (only adds three words) and then it has a key error. This is different than before, maybe I accidentally introduced an error by decomposing things" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished decomposition. The code now only ever prints out twice when you run brute force (only adds three words) and then it has a key error. This is different than before, maybe I accidentally introduced an error by decomposing things" />
+    <MESSAGE value="Adding some places where we are pretty sure there is an error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding some places where we are pretty sure there is an error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -875,6 +1016,28 @@
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
@@ -910,6 +1073,28 @@
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1244,18 +1429,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="1200">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
+            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="290" column="27" lean-forward="false" selection-start-line="290" selection-start-column="27" selection-end-line="290" selection-end-column="27" />
+        <state relative-caret-position="306">
+          <caret line="533" column="38" lean-forward="false" selection-start-line="533" selection-start-column="38" selection-end-line="533" selection-end-column="38" />
           <folding />
         </state>
       </provider>

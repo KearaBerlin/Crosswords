@@ -313,7 +313,8 @@ class Board:
                     else:
                         # update the down-word dict to point to adjCellOne itself
                         self.crossword.down[affixedWord] = adjCellOne
-                # Since adjCellTwo's downword has been overwritten that downword is no longer in the crossword so we pop it off.
+                # Since adjCellTwo's downword has been overwritten that downword is no longer in the crossword,
+                # so we pop it off.
                 if adjCellTwo is not None and adjCellTwo.downWord is not None and adjCellTwo.downWord in self.crossword.down.keys():
                     self.crossword.down.pop(adjCellTwo.downWord)
                 # update the down words in the two adjCells and in currentCell
@@ -322,14 +323,16 @@ class Board:
                 if adjCellOne is not None:
                     self.boardArray[currentX][currentY - 1].downWord = affixedWord
                 if currentCell is not None:
-                    self.boardArray[startingX+i][startingY].downWord = affixedWord  # this is the current cell
+                    self.boardArray[startingX+i][startingY].downWord = affixedWord
+                # POSSIBLE ERROR: We should be updating all the Cells in the down words of the two adjCells, so that
+                # they no longer refer to an old word that no longer exists in the puzzle. This error is likely
+                # causing the key errors we see, since we later pass in an old word that doesn't exist as a key.
 
             # this block follows much the same logic as above, but adjusted for if the new word is down instead
             else:
                 if adjCellOne is not None:
                     if adjCellOne.acrossWord is not None:
                         self.crossword.across[affixedWord] = self.crossword.across[adjCellOne.acrossWord]
-                        # TODO again, is this causing the key errors?
                         self.crossword.across.pop(adjCellOne.acrossWord)
                     else:
                         self.crossword.across[affixedWord] = adjCellOne
@@ -341,6 +344,7 @@ class Board:
                     self.boardArray[currentX+1][currentY].acrossWord = affixedWord
                 if currentCell is not None:
                     self.boardArray[startingX][startingY+i].acrossWord = affixedWord
+                # POSSIBLE ERROR: Same error as above, but for the case where new word is down instead of across
 
         return True
 
@@ -439,10 +443,15 @@ class Board:
                     else:
                         # if startCell didn't have a down word, we update the dict to point to startCell itself instead
                         self.crossword.down[affixedWord] = startCell
+                    # We update the start and end cells to hold the correct across word
                     if startCell is not None:
                         self.boardArray[startingX-1][startingY].acrossWord = affixedWord
                     if endCell is not None:
                         self.boardArray[endingX+1][endingY].acrossWord = affixedWord
+                    # POSSIBLE ERROR: We should also be updating all the Cells in any word that startCell and endCell
+                    # are a part of, so that those cells no longer reference a word that doesn't exist in the puzzle.
+                    # This is probably causing key errors later when the old word is passed in to the across or down
+                    # word dictionary.
                 else:
                     if startCell is not None and startCell.downWord is not None:
                         # update the crossword down dict first
@@ -458,6 +467,7 @@ class Board:
                         self.boardArray[startingX][startingY - 1].downWord = affixedWord
                     if endCell is not None:
                         self.boardArray[endingX][endingY + 1].downWord = affixedWord
+                    # POSSIBLE ERROR: Same error as above.
         return True
 
 
@@ -522,15 +532,6 @@ class Board:
                         and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
                     return False
         self.boardArray = shiftedArray
-        # # also shift all the Cell values in the crossword dictionaries
-        # acrossKeys = self.crossword.across.keys()
-        # for acrossKey in acrossKeys:
-        #     cell = self.crossword.across[acrossKey]
-        #     self.crossword.across[acrossKey].setCoord(cell.xCoord+xShift, cell.yCoord+yShift)
-        # downKeys = self.crossword.down.keys()
-        # for downKey in downKeys:
-        #     cell = self.crossword.down[downKey]
-        #     self.crossword.down[downKey].setCoord(cell.xCoord+xShift, cell.yCoord+yShift)
         return True
 
 

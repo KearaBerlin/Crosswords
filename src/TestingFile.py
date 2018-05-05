@@ -5,15 +5,15 @@ from src.BruteForce import *
 from src.Intersection import Intersection
 
 width = 30
-testCrossword = CrosswordRepresentation({"HELLO": None}, {}, [])
+testCrossword = CrosswordRepresentation({"HELLO": None}, {})
 testBoard = Board(testCrossword)
 
 class TestMethods(unittest.TestCase):
 
-    helloBoard = Board(CrosswordRepresentation({"HELLO": None}, {}, []))
+    helloBoard = Board(CrosswordRepresentation({"HELLO": None}, {}))
 
     # def test_board_constructor(self):
-    #     crossword = CrosswordRepresentation(["HELLO"], [], [])
+    #     crossword = CrosswordRepresentation(["HELLO"], [])
     #     board = Board(crossword)
     #     self.assertEqual(board.WIDTH, 30)  # test the default width is right
     #     # test that rows and cols are empty or not as appropriate
@@ -30,7 +30,7 @@ class TestMethods(unittest.TestCase):
     # each call of shiftElements since shiftElements updates the array and doesn't return an array.
     # """
     # def test_shiftElements(self):
-    #     crossword = CrosswordRepresentation([],[],[])
+    #     crossword = CrosswordRepresentation({},{})
     #     board = Board(crossword)
     #
     #     for y in range(width):
@@ -63,7 +63,7 @@ class TestMethods(unittest.TestCase):
     # Comment out the assertEqual statements if you want to significantly decrease the run time.
     # """
     # def test_fillInWords(self):
-    #     crossword = CrosswordRepresentation([], [], [])
+    #     crossword = CrosswordRepresentation({}, {})
     #     board = Board(crossword)
     #     cell0 = board.Cell('TAKE', 'TIME', 5, 5, 0, 0)
     #     cell1 = board.Cell('ATE', 'MATE', 5, 8, 1, 2)
@@ -137,7 +137,7 @@ class TestMethods(unittest.TestCase):
     #     existing = "HELLO"
     #     new = "WORLD"
     #     intersection = Intersection(existing, new, 2, 3)
-    #     afterBoard = Board(CrosswordRepresentation([existing], [new], [intersection]))
+    #     afterBoard = Board(CrosswordRepresentation([existing], [new]))
     #     afterBoard.boardArray = []
     #     board.addWordToArray(0, 3, new, intersection, False)
     #

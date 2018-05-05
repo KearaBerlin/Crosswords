@@ -1,8 +1,6 @@
 
 from src.parseDictionary import *
 # from nltk.corpus import words
-from src.CrosswordRepresentation import CrosswordRepresentation
-from src.Intersection import Intersection
 
 file = open("wordList.csv", 'r')
 text = file.read()
@@ -50,7 +48,7 @@ class Board:
         return len(self.crossword.across.keys()) + len(self.crossword.down.keys())
 
     def numIntersections(self):
-        return len(self.crossword.intersections)
+        return len(self.crossword.inter)
 
     """
     So writing this method with the assumption that we have checked that it is valid to
@@ -78,42 +76,100 @@ class Board:
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
 
+    """ 
+    We calculate the current x and y coordinates that we are checking on the puzzle.
+    if the current cell we are checking is not None (meaning it holds a character), we define what the
+    words are that currentCell is part of - which are perpendicular and parallel to the newWord, and
+    which index currentCell is at within each of those words.
+    """
+    def intersectionIsValid(self, char, newWord, startingX, startingY, currentX, currentY, currentCell, i, newWordIsAcross):
+        # here we calculate which words are which
+        if newWordIsAcross:
+            if currentCell is not None:
+                perpendicularWordIndex = currentCell.indexInDownWord
+                perpendicularIntersectingWord = currentCell.downWord
+                parallelIntersectingWord = currentCell.acrossWord
+        else:
+            if currentCell is not None:
+                perpendicularWordIndex = currentCell.indexInAcrossWord
+                perpendicularIntersectingWord = currentCell.acrossWord
+                parallelIntersectingWord = currentCell.downWord
+
+        # if the new char being added is the same as the existing one, we know it is valid since no change occurs
+        if currentCell is not None and char == currentCell.char:
+            return True
+
+        # check the perpendicular word, if any
+        if currentCell is not None and perpendicularIntersectingWord is not None:
+            collidedWord = self.getCollidedWord(char, perpendicularWordIndex, perpendicularIntersectingWord)
+            if collidedWord is None:
+                return False
+            else:
+                # update the collided word so it has the right listing in across or down and in intersections.
+                if newWordIsAcross:
+                    # update the crossword's down word list
+                    if collidedWord != perpendicularIntersectingWord:
+                        self.crossword.down[collidedWord] = self.crossword.down[perpendicularIntersectingWord]
+                        self.crossword.down.pop(perpendicularIntersectingWord)
+                        # update this cell's down word
+                        self.boardArray[startingX+i][startingY].downWord = collidedWord
+                else:
+                    if collidedWord != perpendicularIntersectingWord:
+                        self.crossword.across[collidedWord] = self.crossword.across[perpendicularIntersectingWord]
+                        self.crossword.across.pop(perpendicularIntersectingWord)
+
+                        self.boardArray[startingX][startingY+i].acrossWord = collidedWord
+
+        # If there is a word that overlaps and is in the same direction as the new word, for now we will just
+        # return False.
+        if currentCell is not None and parallelIntersectingWord is not None:
+            return False
+
+        # if we got here without returning False, the intersection (if any) is valid.
+        return True
+
     """
     Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
-    intersection would result in a valid new crossword, false otherwise. Does not add the new word to underlying
-    crossword.
+    intersection would result in a valid new crossword, false otherwise. Calls another function which will add the new 
+    word to underlying crossword.
     """
     def addIfValid(self, interCell, intersection, newWordIsAcross):
         copyArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
-        # set the variables we will need that differ based on newWordIsAcross
+        # set the variables we will need that differ based on newWordIsAcross:
+        # newWord is the word that we will try to add to the puzzle
+        # startingX is the x-coord of the cell where newWord will start. startingY, endingY, etc are analogous
         if newWordIsAcross:
             newWord = intersection.across
-            existingWord = intersection.down
             startingX = interCell.xCoord - intersection.acrossIndex
             startingY = interCell.yCoord
         else:
             newWord = intersection.down
-            existingWord = intersection.across
             startingX = interCell.xCoord
             startingY = interCell.yCoord - intersection.downIndex
 
         # ----------------------------------------------
         # 1. check whether would be out of bounds of the puzzle, and couldn't be shifted to fit
         # ----------------------------------------------
+        # we calculate the literal horizontal width and the vertical height of the new word (in terms of puzzle cells)
         if newWordIsAcross:
             newWordWidth = len(newWord)
             newWordHeight = 1
         else:
             newWordWidth = 1
             newWordHeight = len(newWord)
+        # we use the height and width to calculate the endingX and Y of the new word
         endingX = startingX + newWordWidth-1
         endingY = startingY + newWordHeight-1
 
+        # returns a list of the form [xShift, yShift]
         shift = self.calculateShift(newWordWidth, newWordHeight, startingX, endingX, startingY, endingY)
 
+        # if calculateShift() returns None, there is no valid way to fit the new word into the puzzle
         if shift is None:
             return False
+
+        # otherwise, we shift the puzzle and adjust startingX etc as needed.
         if shift != [0, 0]:
             self.shiftElements(shift[0], shift[1])
             startingX += shift[0]
@@ -122,80 +178,34 @@ class Board:
             endingY += shift[1]
 
         # ---------------------------------------------------------
-        # 2. loop through each cell that the new word would inhabit
+        # 2. loop through each cell that the new word would inhabit and check for collisions and conflicts
         # ---------------------------------------------------------
         for i in range(len(newWord)):
+
+            # we calculate the new character to be added
+            char = newWord[i]
+
+            # we calculate the current x and y coords and the current cell we are checking
             if newWordIsAcross:
                 currentX = startingX+i
                 currentY = startingY
                 currentCell = self.boardArray[currentX][currentY]
-                if currentCell is not None:
-                    perpendicularWordIndex = currentCell.indexInDownWord
-                    perpendicularIntersectingWord = currentCell.downWord
-                    parallelIntersectingWord = currentCell.acrossWord
-                    parallelWordIndex = currentCell.indexInAcrossWord
             else:
                 currentX = startingX
                 currentY = startingY+i
                 currentCell = self.boardArray[currentX][currentY]
-                if currentCell is not None:
-                    perpendicularWordIndex = currentCell.indexInAcrossWord
-                    perpendicularIntersectingWord = currentCell.acrossWord
-                    parallelIntersectingWord = currentCell.downWord
-                    parallelWordIndex = currentCell.indexInDownWord
-
-            char = newWord[i]
-            if currentCell is not None and char == currentCell.char:
-                continue
 
             # ------------------------------------------------------
-            # 3. check whether this cell is part of an existing word
+            # 3. Check whether the current cell would be overwritten, and whether that would cause a conflict
             # ------------------------------------------------------
-            # check the perpendicular word, if any
-            if currentCell is not None and perpendicularIntersectingWord is not None:
-                collidedWord = self.getCollidedWord(char, perpendicularWordIndex, perpendicularIntersectingWord)
-                if collidedWord is None:
-                    return False
-                else:  # so this was originally elif but that didn't make sense
-                    # update the collided word so it has the right listing in across or down and in intersections.
-                    if newWordIsAcross:
-                        # update the crossword's down word list
-                        if collidedWord != perpendicularIntersectingWord:
-                            self.crossword.down[collidedWord] = self.crossword.down[perpendicularIntersectingWord]
-                            self.crossword.down.pop(perpendicularIntersectingWord)
-                            # update this cell's down word
-                            self.boardArray[startingX+i][startingY].downWord = collidedWord
-                            # now update the crossword's intersections list by iterating through the list
-                            newIntersection = Intersection(newWord, collidedWord, i, perpendicularWordIndex)
-                            if len(self.crossword.inter) == 0:
-                                self.crossword.inter.append(newIntersection)
-                            else:
-                                for j in range(len(self.crossword.inter)-1):
-                                    if self.crossword.inter[j].acrossIndex == i:
-                                        self.crossword.inter[j] = newIntersection
-                                    break
-                    else:
-                        if collidedWord != perpendicularIntersectingWord:
-                            self.crossword.across[collidedWord] = self.crossword.across[perpendicularIntersectingWord]
-                            self.crossword.across.pop(perpendicularIntersectingWord)
-
-                            self.boardArray[startingX][startingY+i].acrossWord = collidedWord
-                            newIntersection = Intersection(collidedWord, newWord, perpendicularWordIndex, i)
-                            if len(self.crossword.inter) == 0:
-                                self.crossword.inter.append(newIntersection)
-                            else:
-                                for j in range(len(self.crossword.inter)-1):
-                                    if self.crossword.inter[j].downIndex == i:
-                                        self.crossword.inter[j] = newIntersection
-                                    break
-
-            # If there is a word that overlaps and is in the same direction as the new word, for now we will just
-            # return False.
-            if currentCell is not None and parallelIntersectingWord is not None:
+            # we use a helper method to determine whether the current cell intersects invalidly with any existing word
+            intersectionIsValid = self.intersectionIsValid(char, newWord, startingX, startingY, currentX, currentY,
+                                                      currentCell, i, newWordIsAcross)
+            if not intersectionIsValid:
                 return False
 
             # -------------------------------------------------------------
-            # 4. Check whether the word containing new char and any affixes from adjacent cells is a valid word
+            # 4. Check whether any adjacent cells will cause a conflict
             # -------------------------------------------------------------
             adjCellOne = None
             adjCellTwo = None

@@ -30,7 +30,7 @@ class BruteForceCrossword:
         allWords = []
         allWords.append(startWord)
         # initialize a crossword that contains that start word
-        crossword = CrosswordRepresentation({startWord: None}, {}, [])
+        crossword = CrosswordRepresentation({startWord: None}, {})
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword

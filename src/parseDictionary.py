@@ -6,7 +6,7 @@ import random
 # there is no way to make a final var in python, so just don't change this value
 FILE_NAME = 'dictFile.csv'
 
-dictionary=PyDictionary()  # will use this at some point to look up the meaning of words.
+dictionary = PyDictionary()  # will use this at some point to look up the meaning of words.
 
 
 """

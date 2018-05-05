@@ -1,17 +1,19 @@
-from PyDictionary import *
 from src.MakeCrossWord import *
-from nltk.corpus import words
-import random
+
+"""
+This file contains code that will create the graph of words that we use in our algorithm to help us find words that
+are likely to be able to intersect with a given existing word in our crossword. It also writes this graph and the 
+word list to files so that we do not have to run the code here every time we run the algorithm - we just call readCSV()
+to get the graph, or read the contents of wordList.csv to get all the quarter million words in our list.
+"""
 
 # there is no way to make a final var in python, so just don't change this value
 FILE_NAME = 'dictFile.csv'
 
-dictionary = PyDictionary()  # will use this at some point to look up the meaning of words.
-
 
 """
 Method that will check how many potential intersections
-there are between words
+there are between words. We thought we wanted to use this to create a graph, but we found a better way.
 """
 def numIntersections(word1, word2):
     wordDict = {}
@@ -29,9 +31,8 @@ def numIntersections(word1, word2):
 
 
 """
-Method that will create a graph with each word being a key and the value being
-the words that have an intersection of some kind with it and the number of intersections.
-Will use method numIntersections() above to compute the number of intersections.
+Creates a graph where the keys are all the letters of the alphabet, and the values are lists of words that 
+contain that letter.
 """
 def createGraph(wordlist):
     wordGraph = {}
@@ -50,10 +51,9 @@ def createGraph(wordlist):
     return wordGraph
 
 
-
 """
 The purpose of this is so that we don't need to create a graph on a 
-quarter million words every time we run the program. 
+quarter million words every time we run the program. Writes the graph to a file that can be read out instead.
 """
 def makeCSV(graph):
     file = open(FILE_NAME, 'w')
@@ -71,6 +71,9 @@ def readCSV():
 
     return graph
 
+"""
+Takes a list of words and writes it into a file so we don't have to access the API to get our word list every time
+"""
 # def wordListCSV():
 #     file = open('wordList.csv', 'w')
 #     wList = words.words()

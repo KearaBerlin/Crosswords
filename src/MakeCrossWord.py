@@ -2,6 +2,14 @@
 from src.parseDictionary import *
 # from nltk.corpus import words
 
+"""
+This file contains the Board class, which holds our crossword puzzle. The Board class also has all the methods
+needed to add new words to the crossword, shift cells in the crossword, and to print a representation of the crossword.
+The file also contains the Cell class, which is an inner class of Board.
+There are several places in this file that we think contain errors (marked with a comment "POSSIBLE ERROR"). In these
+places we give a short explanation of what we believe the error to be and how we might fix it.
+"""
+
 file = open("wordList.csv", 'r')
 text = file.read()
 file.close()
@@ -10,7 +18,13 @@ FILE_NAME = 'dictFile.csv'
 
 
 """
-Representing board with a 2D array.
+Represents the crossword grid as a 2D array. 
+The Board class also holds a CrosswordRepresentation, defines the Cell class, and has methods like:
+- addIfValid(...)
+- terminalRepresentationOfCrossWord()
+- shiftElements(...)
+- methods to test whether a row or column is empty, and how many rows or columns are empty
+and many helper methods as well.
 """
 class Board:
     def __init__(self, crossword, ARRAY_WIDTH = 10):
@@ -20,12 +34,40 @@ class Board:
         # initialize array with None
         self.boardArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
 
+        # if an across word has already been supplied to start off the puzzle, we add the needed Cells to the array and
+        # add the word to the across word dictionary.
         if len(crossword.across.keys()) != 0:
-
-            self.startingWord = list(crossword.across.keys())[0]  # First word will always be the first index of the across list.
+            self.startingWord = list(crossword.across.keys())[0]
             # puts the starting word the top left corner of the array (0,0) to (0,len(word)-1)
             self.addWordToArray(0, 0, self.startingWord, None, True)
             self.crossword.across[self.startingWord] = self.getCellAt(0,0)
+
+    """
+    Represents one cell within the crossword puzzle, holding coordinates in the puzzle, the character in the cell, 
+    the across and down word (if any) that the cell is a part of, and the index of the cell within those words.
+    """
+    class Cell:
+        def __init__(self, acrossWord, downWord, x, y, indexInAcrossWord, indexInDownWord):
+            self.acrossWord = acrossWord
+            self.downWord = downWord
+            self.xCoord = x
+            self.yCoord = y
+            self.indexInAcrossWord = indexInAcrossWord
+            self.indexInDownWord = indexInDownWord
+
+            # calculate the character that is in this cell based on any words we know the cell is part of.
+            if self.acrossWord is not None:
+                self.char = self.acrossWord[self.indexInAcrossWord]
+            elif self.downWord is not None:
+                self.char = self.downWord[self.indexInDownWord]
+
+        """
+        Setter method for the coordinates of the cell.
+        Will use this when we shift the array or certain cells.
+        """
+        def setCoord(self, newX, newY):
+            self.xCoord = newX
+            self.yCoord = newY
 
     """
     Method that will let us view what the crossword looks like in the terminal by printing the crossword row by row.
@@ -49,9 +91,10 @@ class Board:
         return len(self.crossword.inter)
 
     """
-    So writing this method with the assumption that we have checked that it is valid to
+    This method is written with the assumption that we have checked that it is valid to
     add the word at this position and the area around it. This method adds the word itself to the array and the down
-    or across list, and to the intersections list. It does not update any neighboring words.
+    or across list, and to the intersections list. It does not update any neighboring words - client code should do 
+    that on its own.
     """
     def addWordToArray(self, sX, sY, newWord, intersection, newWordIsAcross):
 
@@ -74,7 +117,6 @@ class Board:
     """
     def getCellAt(self, x, y):
         return self.boardArray[x][y]
-
 
     """
     Takes in an intersection and whether the word being theoretically added is an Across word. Returns true if the
@@ -477,7 +519,7 @@ class Board:
     If there is no way to fit the word, returns None. Returns [0, 0] if the puzzle does not need to be shifted.
     """
     def calculateShift(self, newWordWidth, newWordHeight, startingX, endingX, startingY, endingY):
-        # if the word is too long to fit in the puzzle at all, forget about it
+        # if the word is too long to fit in the puzzle at all, we can't shift it and it's not a valid word to add.
         if newWordWidth > self.WIDTH or newWordHeight > self.WIDTH:
             return None
 
@@ -511,25 +553,26 @@ class Board:
 
         return [xShift, yShift]
 
-
     """
     Shifts everything in the array by copying things over in another array.
     Will shift things over x to the right and y down.
     If either are negative then it's just the opposite direction.
-    
-    Also checks if the shift is valid
+    Also checks if the shift is valid.
     """
     def shiftElements(self, xShift, yShift):
         shiftedArray = [[None for i in range(self.WIDTH)] for j in range(self.WIDTH)]
         for x in range(self.WIDTH):
             for y in range(self.WIDTH):
-                if self.boardArray[x][y] is not None and 0 <= x+xShift < self.WIDTH and 0 <= y+yShift < self.WIDTH:
-                    newX = x+xShift
-                    newY = y+yShift
+                # caluclate the new x and y coords of this cell
+                newX = x+xShift
+                newY = y+yShift
+                # if there is a char in this cell, shift it to the new position
+                if self.boardArray[x][y] is not None and 0 <= newX < self.WIDTH and 0 <= newY < self.WIDTH:
                     shiftedArray[newX][newY] = self.boardArray[x][y]
                     shiftedArray[newX][newY].setCoord(newX, newY)
+                # but return False if the shift would put us out of bounds
                 elif self.boardArray[x][y] is not None \
-                        and ((0 > x+xShift or x+xShift >= self.WIDTH) or (0 > y+yShift or y + yShift >= self.WIDTH)):
+                        and ((0 > newX or newX >= self.WIDTH) or (0 > newY or newY >= self.WIDTH)):
                     return False
         self.boardArray = shiftedArray
         return True
@@ -559,6 +602,9 @@ class Board:
         else:
             return False
 
+    """
+    Returns the number of empty rows at the top of the puzzle
+    """
     def getEmptyRowsAbove(self):
         row = 0
         count = 0
@@ -567,6 +613,9 @@ class Board:
             count += 1
         return count
 
+    """
+    Returns the number of empty rows at the bottom of the puzzle
+    """
     def getEmptyRowsBelow(self):
         row = self.WIDTH - 1
         count = 0
@@ -575,6 +624,9 @@ class Board:
             row -= 1
         return count
 
+    """
+    Returns the number of empty columns on the left side of the puzzle
+    """
     def getEmptyColsToLeft(self):
         col = 0
         count = 0
@@ -583,6 +635,9 @@ class Board:
             count += 1
         return count
 
+    """
+    Returns the number of empty columns on the right side of the puzzle
+    """
     def getEmptyColsToRight(self):
         col = self.WIDTH - 1
         count = 0
@@ -590,46 +645,3 @@ class Board:
             col -= 1
             count += 1
         return count
-
-    class Cell:
-        def __init__(self, acrossWord, downWord, x, y, indexInAcrossWord, indexInDownWord):
-            self.acrossWord = acrossWord
-            self.downWord = downWord
-            self.xCoord = x
-            self.yCoord = y
-            self.indexInAcrossWord = indexInAcrossWord
-            self.indexInDownWord = indexInDownWord
-            if self.acrossWord is not None:
-                self.char = self.acrossWord[self.indexInAcrossWord]
-            elif self.downWord is not None:
-                self.char = self.downWord[self.indexInDownWord]
-
-        """
-        Setter method for the coordinates of the cell.
-        Will use this when we shift the array or certain cells.
-        """
-        def setCoord(self, newX, newY):
-            self.xCoord = newX
-            self.yCoord = newY
-
-
-
-# Commented code below is just an example of how we would use the Intersection class.
-# listA = ["attack", "sleep", "awake"]
-# listD = ["apple", "koala"]
-# inter1 = Intersection("attack", "apple", 3, 0)
-# inter2 = Intersection("attack", "koala", 5, 0)
-# inter3 = Intersection("sleep", "apple", 4, 2)
-# inter4 = Intersection("awake","apple", 4, 4)
-#
-# interTotal = [inter1,inter2, inter3, inter4]
-
-
-
-
-# graph = readCSV()  # from parseDictionary.py
-# print(graph['A'])
-# bF = BruteForceCrossword()
-# cw = bF.bruteForce(graph)
-# print(cw.across, cw.down)
-

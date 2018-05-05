@@ -6,6 +6,12 @@ import math
 from collections import deque
 from Intersection import *
 
+"""
+This file contains a class that holds the method that is our crossword generation algorithm. It also holds several
+helper methods for that algorithm and for potential future algorithms that would be more optimal than the one we have
+now. The executable code used to run the algorithm is down at the bottom of this file.
+"""
+
 
 class BruteForceCrossword:
     def __init__(self):
@@ -34,7 +40,6 @@ class BruteForceCrossword:
         board = Board(crossword)
 
         # this outer loop continues until we have the desired number of words in our crossword
-
         currentWordIsAcross = True
         while len(Q) > 0:  # while Q is not empty
             currentWord = Q.popleft()  # removes the first element in the Queue.
@@ -59,8 +64,8 @@ class BruteForceCrossword:
                         if interCell is not None and board.addIfValid(interCell, intersection, False):
                             Q.append(newWord)
                             allWords.append(newWord)
-                            print("--------------")
                             board.terminalRepresentationOfCrossword()  # prints the crossword in the terminal as it is.
+                            print("--------------")
                             break  # We don't want to keep looping through all the neighbors if we found a valid one.
                     elif not currentWordIsAcross and newWord not in Q and newWord not in allWords:
                         intersection = Intersection(newWord, currentWord, newWord.find(currentWord[x]), x)
@@ -74,8 +79,6 @@ class BruteForceCrossword:
                             print("--------------")
                             break
         return board
-
-
 
     """
     Used by the brute force crossword algorithm to add a neighbor word to the crossword if any intersections with the
@@ -104,11 +107,9 @@ class BruteForceCrossword:
 
     """
     This method will take in cells and parse our alphabet graph and return a list of words that can form a word given
-    the parameters of the cells. 
-    
-    So if there's a space that looks like T_T, this will return a list of words such as TOTAL that could be put in 
+    the parameters of the cells. We could use it when writing a more optimal algorithm.
+    If there's a space that looks like T_T, this will return a list of words such as TOTAL that could be put in 
     there.
-    
     Currently only works for the input of two cells. 
     """
 
@@ -157,7 +158,9 @@ class BruteForceCrossword:
         return validWordList
 
 
-
+# -----------------------------------------------
+# EXECUTABLE CODE TO RUN THE ALGORITHM
+# -----------------------------------------------
 bruteForce = BruteForceCrossword()
 cw = bruteForce.bruteForce(readCSV())
 cw.terminalRepresentationOfCrossword()

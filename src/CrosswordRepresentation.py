@@ -1,6 +1,7 @@
-# TODO fill in this class description comment
-"""
-Write stuff:
+""""
+This class holds two dictionaries with keys being words in the puzzle and values being the Cell where that word
+begins. There is a dictionary for across words and another for down words. The dictionaries also serve as lists
+of the across and down words currently in the puzzle.
 """
 class CrosswordRepresentation:
 
@@ -15,7 +16,8 @@ class CrosswordRepresentation:
 
     """
     Scores the density of the current crossword. This will be used to find a better neighbor
-    than the brute force algorithm.
+    than the brute force algorithm. We did not get to complete this method, but it would have likely been
+    useful for creating a more optimal algorithm.
     """
     def density(self):
 

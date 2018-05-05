@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="18f3f764-cc3e-492a-8850-c018abb52edc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crosswords.iml" afterPath="$PROJECT_DIR$/Crosswords.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BruteForce.py" afterPath="$PROJECT_DIR$/src/BruteForce.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CrosswordRepresentation.py" afterPath="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MakeCrossWord.py" afterPath="$PROJECT_DIR$/src/MakeCrossWord.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parseDictionary.py" afterPath="$PROJECT_DIR$/src/parseDictionary.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +21,8 @@
       <file leaf-file-name="parseDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+            <state relative-caret-position="144">
+              <caret line="6" column="104" lean-forward="false" selection-start-line="6" selection-start-column="104" selection-end-line="6" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -27,8 +31,8 @@
       <file leaf-file-name="MakeCrossWord.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="533" column="38" lean-forward="false" selection-start-line="533" selection-start-column="38" selection-end-line="533" selection-end-column="38" />
+            <state relative-caret-position="336">
+              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -37,7 +41,7 @@
       <file leaf-file-name="wordList.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/wordList.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="24">
               <caret line="0" column="460892" lean-forward="false" selection-start-line="0" selection-start-column="460886" selection-end-line="0" selection-end-column="460892" />
               <folding />
             </state>
@@ -57,8 +61,8 @@
       <file leaf-file-name="CrosswordRepresentation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+            <state relative-caret-position="-16">
+              <caret line="2" column="60" lean-forward="true" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -67,32 +71,10 @@
       <file leaf-file-name="BruteForce.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="-1824">
+              <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
-                <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
               </folding>
             </state>
           </provider>
@@ -169,11 +151,11 @@
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/src/wordList.csv" />
-        <option value="$PROJECT_DIR$/src/parseDictionary.py" />
         <option value="$PROJECT_DIR$/src/TestingFile.py" />
-        <option value="$PROJECT_DIR$/src/BruteForce.py" />
-        <option value="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
         <option value="$PROJECT_DIR$/src/Intersection.py" />
+        <option value="$PROJECT_DIR$/src/CrosswordRepresentation.py" />
+        <option value="$PROJECT_DIR$/src/BruteForce.py" />
+        <option value="$PROJECT_DIR$/src/parseDictionary.py" />
         <option value="$PROJECT_DIR$/src/MakeCrossWord.py" />
       </list>
     </option>
@@ -840,7 +822,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525539328904</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Finished writing possible error comments about updating the other Cells in surrounding words.">
+      <created>1525540396848</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1525540396848</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -946,7 +935,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="I believe I have written a proper getAffix method, that is the helper for what will eventually be a proper addIfValid. I will now work on fixing addIfValid. That will involve major changes, FYI." />
     <MESSAGE value="Wrote addIfValid. Still need to write the down portion of that - or, I think it will be very easy to modify the across portion to be able to handle across or down equally well." />
     <MESSAGE value="Wrote some tests for the helper getCellAffix (still needs a few more tests written.) The tests failed. Maybe because Cell did not have an across and down INDEX, I added that and made sure all calls to Cell reflect that change." />
     <MESSAGE value="Tried to merge changes - I think something weird happened with merging the changes to bruteForce since it moved files." />
@@ -971,17 +959,11 @@
     <MESSAGE value="started decomposition, got rid of crossword.inter list because you're right we never use it" />
     <MESSAGE value="finished decomposition. The code now only ever prints out twice when you run brute force (only adds three words) and then it has a key error. This is different than before, maybe I accidentally introduced an error by decomposing things" />
     <MESSAGE value="Adding some places where we are pretty sure there is an error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding some places where we are pretty sure there is an error" />
+    <MESSAGE value="Finished writing possible error comments about updating the other Cells in surrounding words." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished writing possible error comments about updating the other Cells in surrounding words." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/MakeCrossWord.py</url>
-          <line>89</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -1016,28 +998,6 @@
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1073,28 +1033,6 @@
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1385,9 +1323,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="80" column="56" lean-forward="false" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/wordList.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="24">
           <caret line="0" column="460892" lean-forward="false" selection-start-line="0" selection-start-column="460886" selection-end-line="0" selection-end-column="460892" />
           <folding />
         </state>
@@ -1395,8 +1343,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parseDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        <state relative-caret-position="144">
+          <caret line="6" column="104" lean-forward="false" selection-start-line="6" selection-start-column="104" selection-end-line="6" selection-end-column="104" />
           <folding />
         </state>
       </provider>
@@ -1409,60 +1357,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestingFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1824">
-          <caret line="80" column="56" lean-forward="false" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CrosswordRepresentation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        <state relative-caret-position="-16">
+          <caret line="2" column="60" lean-forward="true" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteForce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="-1824">
+          <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1525539445246" expanded="true" signature="251:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="466:4088" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="1351:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4032:4067" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4096:4372" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="4454:5312" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4505:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4561:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4632:5290" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4731:4885" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="4911:5065" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="5318:5672" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1525539445246" expanded="true" signature="5742:7512" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6024:6168" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6189:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6260:6402" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6416:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6485:6573" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="6601:7482" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7058:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7149:7408" ph="..." />
-            <marker date="1525539445246" expanded="true" signature="7219:7408" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeCrossWord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="533" column="38" lean-forward="false" selection-start-line="533" selection-start-column="38" selection-end-line="533" selection-end-column="38" />
+        <state relative-caret-position="336">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
           <folding />
         </state>
       </provider>

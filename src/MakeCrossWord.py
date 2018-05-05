@@ -308,10 +308,8 @@ class Board:
                     else:
                         # update the down-word dict to point to adjCellOne itself
                         self.crossword.down[affixedWord] = adjCellOne
-                # TODO I am not sure what this is. But it should get documented w/ a comment, and maybe the prints taken out??
+                # Since adjCellTwo's downword has been overwritten that downword is no longer in the crossword so we pop it off.
                 if adjCellTwo is not None and adjCellTwo.downWord is not None and adjCellTwo.downWord in self.crossword.down.keys():
-                    print("print tests: "+str(self.crossword.down))
-                    print(adjCellTwo.downWord)
                     self.crossword.down.pop(adjCellTwo.downWord)
                 # update the down words in the two adjCells and in currentCell
                 if adjCellTwo is not None:

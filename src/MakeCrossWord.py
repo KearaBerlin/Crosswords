@@ -391,38 +391,42 @@ class Board:
         return True
 
     """
-    Helper method for addIfValid. Takes in a Cell adjacent to a Cell that would be part of the new word being added.
+    Helper method for addIfValid. 
+    Takes in a adjCell, which is a cell adjacent to the current cell being checked in newWord.
     Returns the character(s) that should be added to the character in that new cell, to get a word that can be checked
     whether it is in the quarter million word list. The client code should know whether the returned chars go after or
-    before the new char, and should also perform the check in the word list etc. This method simply returns an affix.
-    adjCell - a Cell representing the Cell that is directly adjacent to the new character being added
-    newIsAcross - a boolean stating whether the new word being added is across or down
-    Returns a str - can be empty if there was no chars or word in adjCell
+    before the new char, and should also perform the check in the word list. This method simply returns an affix.
+    newIsAcross is a boolean stating whether the new word being added is across or down
+    Returns a str - can be empty if there were neither chars nor a word in the adjCell.
     """
     def getCellAffix(self, adjCell, newIsAcross, newIsToLeft):
         # check whether the adjCell has an acrossWord, downWord, or both
         hasAcross = adjCell.acrossWord is not None
         hasDown = adjCell.downWord is not None
 
+        # if it has neither, the affix will be ""
         if (not hasAcross) and (not hasDown):
             return str("")
 
         if newIsAcross:
             # whether or not the cell is above or below the new character, we will always either return a character
-            # in the adjCell or the word that adjCell is part of.
+            # in the adjCell or the word that adjCell is part of (depending on whether, repsectively, the word in the
+            # adjCell is perpendicular or parallel to newWord.)
             if hasAcross and not hasDown:
                 # return only the char above
                 ret = str(adjCell.acrossWord[adjCell.indexInAcrossWord])
                 return ret
             elif hasDown:
-                # whether it has both or only down, only return the part of the word that is above (minus the new char)
+                # whether it has both across and down or only down, only return the part of the word that is above
+                # (minus the new char)
                 word = adjCell.downWord
                 if newIsToLeft:
                     return str(word[:adjCell.indexInDownWord+1])
                 else:
                     return str(word[adjCell.indexInDownWord:])
         else:
-            # this is a very similar idea to above, but now adjCell is just to the right or left of new character.
+            # this is a very similar idea to above, but now adjCell is just to the right or left of new character
+            # instead of either above or below the cell in newWord.
             if hasDown and not hasAcross:
                 ret = str(adjCell.downWord[adjCell.indexInDownWord])
                 return ret
